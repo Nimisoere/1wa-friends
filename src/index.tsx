@@ -1,11 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
+import store from "./redux/store";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Routes from "./routes/Routes";
+
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
-    <p>Hello World</p>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ErrorBoundary>
+          <Routes />
+        </ErrorBoundary>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -4,10 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @apply text-gray-700;
+  @apply w-full;
+  @apply h-full;
+}
+
+#root {
+  @apply h-full;
 }

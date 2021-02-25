@@ -1,0 +1,14 @@
+.footer {
+  background-color: #333;
+  background: #333 url("../../assets/images/footer-bg.svg") no-repeat;
+  background-blend-mode: hard-light;
+  @apply flex;
+  @apply w-full;
+  @apply h-96;
+  @apply flex-shrink-0;
+}
+
+.footer-link {
+  @apply text-white;
+  @apply mb-3;
+}
