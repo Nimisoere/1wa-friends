@@ -13,8 +13,7 @@ const Layout: React.FC<Props> = ({ component }) => {
       <Seo title="" description="" />
       <div className="flex font-serif min-h-full flex-col items-stretch w-full">
         <Header />
-        <main className="flex w-full flex-shrink-0 flex-grow">
-          sss
+        <main className="flex w-full bg-gray-50 flex-shrink-0 flex-grow">
           <section>{component}</section>
         </main>
         <Footer />

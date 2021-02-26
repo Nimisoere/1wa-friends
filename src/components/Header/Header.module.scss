@@ -4,5 +4,7 @@
   @apply shadow-sm;
   @apply w-full;
   @apply bg-white;
+  @apply z-10;
+  @apply sticky;
   @apply flex-shrink-0;
 }
