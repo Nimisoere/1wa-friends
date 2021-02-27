@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import AuthHeaderMenu from "../AuthHeaderMenu";
 import TopNav from "../TopNav";
@@ -14,7 +15,9 @@ const Header: React.FC<Props> = () => {
           id="logo"
           className="h-full flex w-3/12 justify-between items-center"
         >
-          <img src={logo} className="h-12" alt="GIGL" />
+          <Link to="/">
+            <img src={logo} className="h-12" alt="GIGL" />
+          </Link>
         </div>
         <div className="w-9/12 flex items-center">
           <div className="w-7/12 flex justify-between">
