@@ -4,49 +4,50 @@ export const NavLinks = [
   {
     id: uid(8),
     title: "Service Portfolio",
-    url: "",
+    url: "/services-portfolio",
     hasSubmenu: true,
     submenu: [
       {
         id: uid(8),
         title: "Ecommerce Logistics Services",
-        url: "",
+        url: "/services-portfolio/ecommerce-logistics-services",
       },
       {
         id: uid(8),
         title: "Domestic Courier Solutions",
-        url: "",
+        url: "/services-portfolio/domestic-courier-solutions",
       },
       {
         id: uid(8),
         title: "Cooperate Courier Services",
-        url: "",
+        url: "/services-portfolio/cooperate-courier-services",
       },
       {
         id: uid(8),
         title: "Overseas Shipping",
-        url: "",
+        url: "/services-portfolio/overseas-shipping",
       },
     ],
   },
   {
     id: uid(8),
     title: "Our Offices",
-    url: "",
+    url: "/locations",
   },
   {
     id: uid(8),
     title: "Contact Us",
-    url: "",
+    url: "/contact-us",
   },
   {
     id: uid(8),
     title: "Blog",
-    url: "",
+    url: "https://blog.giglogistics.com/",
+    external: true,
   },
   {
     id: uid(8),
     title: "About Us",
-    url: "",
+    url: "/about-us",
   },
 ];
