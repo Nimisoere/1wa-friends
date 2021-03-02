@@ -45,7 +45,7 @@ export const footerLinks = [
       {
         id: uid(8),
         title: "Schedule a Pickup",
-        to: "/get-a-quote",
+        to: "/giggo-delivery-app",
       },
       {
         id: uid(8),

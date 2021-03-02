@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Seo from "../../components/Seo/Seo";
-import { FaArrowLeft } from "react-icons/fa";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 
 interface ErrorPageProps {
   error: string;
@@ -9,6 +9,7 @@ interface ErrorPageProps {
 }
 
 const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
+  const history = useHistory();
   return (
     <div className="container mx-auto py-10">
       <Seo title={error} description={description} />
@@ -17,9 +18,12 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
           {error}
         </h2>
         <p color="textSecondary">{description}</p>
-        <Link to="/" className="mt-10 text-primary p-2 rounded">
-          <FaArrowLeft className="inline-flex" /> Back to Overview
-        </Link>
+        <button
+          onClick={() => history.goBack()}
+          className="mt-10 text-primary p-2 rounded"
+        >
+          <HiOutlineArrowNarrowLeft className="inline-flex" /> Go Back
+        </button>
       </div>
     </div>
   );

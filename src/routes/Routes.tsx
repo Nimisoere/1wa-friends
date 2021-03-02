@@ -114,7 +114,7 @@ const Routes: React.FC<PropsFromRedux> = () => {
         <Route exact path="/sign-in">
           <Layout component={<SignIn />} />
         </Route>
-        <Route exact path="/ship-now">
+        <Route exact path="/giggo-delivery-app">
           <Layout component={<QuickShipping />} />
         </Route>
         <Route exact path="/overseas-shipping">

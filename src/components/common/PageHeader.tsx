@@ -7,14 +7,22 @@ interface Props {
   title: string;
   description: string;
   hasBackButton?: boolean;
+  disablePadding?: boolean;
 }
 
-const PageHeader: React.FC<Props> = ({ title, description, hasBackButton }) => {
+const PageHeader: React.FC<Props> = ({
+  title,
+  description,
+  disablePadding,
+  hasBackButton,
+}) => {
   const history = useHistory();
   return (
     <>
       <Seo title={title} description={description} />
-      <div className="py-16 w-full flex text-center">
+      <div
+        className={`${!disablePadding ? "py-16" : ""} w-full flex text-center`}
+      >
         {hasBackButton && (
           <button onClick={() => history.goBack()}>
             <HiOutlineArrowNarrowLeft className="inline-flex text-2xl" />
@@ -22,7 +30,7 @@ const PageHeader: React.FC<Props> = ({ title, description, hasBackButton }) => {
           </button>
         )}
         <div className="flex-grow">
-          <h2 className="font-bold mb-5 text-4xl">{title}</h2>
+          <h2 className="font-bold mb-5 text-3xl">{title}</h2>
           <p className="text-base font-normal">{description}</p>
         </div>
       </div>
