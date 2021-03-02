@@ -19,7 +19,8 @@ const Footer: React.FC<Props> = () => {
                 <Link
                   key={link.id}
                   className={styles["footer-link"]}
-                  to={link.to}
+                  to={{ pathname: link.to }}
+                  target={link.external ? "_blank" : "_self"}
                 >
                   {link.title}
                 </Link>

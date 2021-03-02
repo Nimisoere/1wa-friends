@@ -10,22 +10,22 @@ export const NavLinks = [
       {
         id: uid(8),
         title: "Ecommerce Logistics Services",
-        url: "/services-portfolio/ecommerce-logistics-services",
+        url: "/ecommerce-logistics-services",
       },
       {
         id: uid(8),
         title: "Domestic Courier Solutions",
-        url: "/services-portfolio/domestic-courier-solutions",
+        url: "/domestic-courier-solutions",
       },
       {
         id: uid(8),
         title: "Cooperate Courier Services",
-        url: "/services-portfolio/cooperate-courier-services",
+        url: "/corporate-courier-services",
       },
       {
         id: uid(8),
         title: "Overseas Shipping",
-        url: "/services-portfolio/overseas-shipping",
+        url: "/international-courier-services",
       },
     ],
   },

@@ -1,0 +1,15 @@
+.listitem {
+  @apply mb-8;
+  @apply font-semibold;
+  @apply text-base;
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    background-image: url("../../assets/icons/list-bullet.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 2rem;
+  }
+}

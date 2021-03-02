@@ -105,9 +105,6 @@ const Routes: React.FC<PropsFromRedux> = () => {
         <Route exact path="/services-portfolio">
           <Layout component={<ServicePortfolio />} />
         </Route>
-        <Route exact path="/services-portfolio/:service">
-          <Layout component={<Service />} />
-        </Route>
         <Route exact path="/shipment/:trackingCode">
           <Layout component={<Home />} />
         </Route>
@@ -131,6 +128,16 @@ const Routes: React.FC<PropsFromRedux> = () => {
         </Route>
         <Route exact path="/wallet/fund">
           <Layout component={<Wallet />} />
+        </Route>
+        <Route exact path="/gig-alpha">
+          <Layout
+            component={
+              <ErrorPage error="Coming Soon" description="Watch this space" />
+            }
+          />
+        </Route>
+        <Route exact path="/:service">
+          <Layout component={<Service />} />
         </Route>
         <Route>
           <Layout

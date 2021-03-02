@@ -65,3 +65,25 @@ export enum API_KEYS {
   GENERATE_PDF = "GENERATE_PDF",
   CONVERT_XLS = "CONVERT_XLS",
 }
+
+export interface ServiceCard {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface ServicePageData {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  contentImg: string;
+  contentNode: React.ReactElement;
+  card_list?: {
+    title: string;
+    cards: ServiceCard[];
+  };
+  bodyNode?: React.ReactElement;
+  embedded_stream?: string;
+}

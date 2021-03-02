@@ -27,8 +27,9 @@ export const footerLinks = [
       },
       {
         id: uid(8),
-        title: "Our offices",
-        to: "/locations",
+        title: "Blog",
+        to: "https://blog.giglogistics.com/",
+        external: true,
       },
     ],
   },
