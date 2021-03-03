@@ -7,10 +7,10 @@ interface Props {}
 const QuickShipping: React.FC<Props> = (props) => {
   return (
     <div className="container flex mx-auto py-20">
-      <div className="w-1/4">
+      <div className="w-1/5">
         <SideMenu />
       </div>
-      <div className="w-3/4 px-20">
+      <div className="w-4/5 px-20">
         <PageHeader
           disablePadding
           title="We’re excited to have you here to help you serve you better"

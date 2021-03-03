@@ -12,14 +12,14 @@ const SignIn: React.FC<Props> = (props) => {
       <div className="container flex mx-auto">
         <div className="w-full py-20">
           <h1 className="text-2xl text-center font-black">Sign in</h1>
-          <div className="max-w-sm mx-auto my-10">
+          <div className="max-w-lg mx-auto my-10">
             <SignInForm />
-          </div>
-          <div>
-            Don't have an account?{" "}
-            <Link to="/sign-up" className="underline">
-              Sign Up
-            </Link>
+            <div className="text-sm w-full text-center">
+              Don't have an account?{" "}
+              <Link to="/sign-up" className="underline font-medium">
+                Sign Up
+              </Link>
+            </div>
           </div>
         </div>
       </div>
