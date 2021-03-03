@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render, hydrate } from "react-dom";
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
@@ -10,19 +10,35 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Routes from "./routes/Routes";
 
 const persistor = persistStore(store);
+const rootElement = document.getElementById("root");
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ErrorBoundary>
-          <Routes />
-        </ErrorBoundary>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+if (rootElement?.hasChildNodes()) {
+  hydrate(
+    <React.StrictMode>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ErrorBoundary>
+            <Routes />
+          </ErrorBoundary>
+        </PersistGate>
+      </Provider>
+    </React.StrictMode>,
+    rootElement
+  );
+} else {
+  render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ErrorBoundary>
+            <Routes />
+          </ErrorBoundary>
+        </PersistGate>
+      </Provider>
+    </React.StrictMode>,
+    rootElement
+  );
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
