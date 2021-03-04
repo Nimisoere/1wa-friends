@@ -21,10 +21,12 @@ const PageHeader: React.FC<Props> = ({
     <>
       <Seo title={title} description={description} />
       <div
-        className={`${!disablePadding ? "py-16" : ""} w-full flex text-center`}
+        className={`${
+          !disablePadding ? "py-8 lg:py-16" : ""
+        } w-full flex flex-wrap text-center`}
       >
         {hasBackButton && (
-          <button onClick={() => history.goBack()}>
+          <button className="mb-10 lg:mb-0" onClick={() => history.goBack()}>
             <HiOutlineArrowNarrowLeft className="inline-flex text-2xl" />
             Back
           </button>

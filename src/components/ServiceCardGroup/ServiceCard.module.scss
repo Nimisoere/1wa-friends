@@ -1,0 +1,8 @@
+.servicecard {
+  @screen sm {
+    flex-basis: 50%;
+  }
+  @screen lg {
+    flex-basis: 33.3333%;
+  }
+}

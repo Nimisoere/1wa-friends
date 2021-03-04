@@ -6,11 +6,11 @@ interface Props {}
 
 const QuickShipping: React.FC<Props> = (props) => {
   return (
-    <div className="container flex mx-auto py-20">
-      <div className="w-1/5">
+    <div className="container flex flex-wrap mx-auto py-10 lg:py-20">
+      <div className="w-full sm:w-1/5">
         <SideMenu />
       </div>
-      <div className="w-4/5 px-20">
+      <div className="w-full sm:w-4/5 sm:px-10 lg:px-20">
         <PageHeader
           disablePadding
           title="We’re excited to have you here to help you serve you better"

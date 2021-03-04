@@ -8,9 +8,9 @@ interface Props {}
 const Footer: React.FC<Props> = () => {
   return (
     <div className={styles.footer}>
-      <div className="container flex justify-around py-24 mx-auto">
+      <div className="container flex flex-wrap justify-around py-8 lg:py-24 mx-auto">
         {footerLinks.map((footerLinkColum) => (
-          <div key={footerLinkColum.id}>
+          <div className="w-full lg:w-auto" key={footerLinkColum.id}>
             <h4 className="font-bold text-lg mb-3 text-white">
               {footerLinkColum.title}
             </h4>

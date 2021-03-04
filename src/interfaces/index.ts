@@ -73,6 +73,11 @@ export interface ServiceCard {
   description: string;
 }
 
+export interface ServicePageDataCardList {
+  title: string;
+  cards: ServiceCard[];
+}
+
 export interface ServicePageData {
   id: string;
   slug: string;
@@ -80,10 +85,7 @@ export interface ServicePageData {
   description: string;
   contentImg: string;
   contentNode: React.ReactElement;
-  card_list?: {
-    title: string;
-    cards: ServiceCard[];
-  };
+  card_list?: ServicePageDataCardList;
   bodyNode?: React.ReactElement;
   embedded_stream?: string;
 }

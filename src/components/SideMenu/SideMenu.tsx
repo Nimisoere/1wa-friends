@@ -9,7 +9,7 @@ interface Props {}
 
 const SideMenu: React.FC<Props> = (props) => {
   return (
-    <nav className="w-full sticky top-28 flex flex-wrap shadow-2xl rounded-lg">
+    <nav className="w-full sticky top-28 mb-10 flex flex-wrap shadow-2xl rounded-lg">
       <NavLink
         activeClassName="bg-secondary text-white"
         className="w-full font-medium text-sm p-3 rounded-tl-lg rounded-tr-lg"

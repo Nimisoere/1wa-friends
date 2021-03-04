@@ -8,11 +8,11 @@ interface Props {}
 
 const Wallet: React.FC<Props> = (props) => {
   return (
-    <div className="container mx-auto flex py-20">
-      <div className="w-1/5">
+    <div className="container mx-auto flex flex-wrap py-10 lg:py-20">
+      <div className="w-full sm:w-1/5">
         <SideMenu />
       </div>
-      <div className="w-3/5 px-20">
+      <div className="w-full sm:w-4/5 sm:px-10 lg:px-20">
         <PageHeader
           disablePadding
           title="Fund your wallet to enjoy smooth transactions of our services"

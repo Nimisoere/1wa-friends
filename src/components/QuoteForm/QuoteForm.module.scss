@@ -1,0 +1,12 @@
+.quoteforminput {
+  @apply w-full;
+  @apply p-3;
+  @apply border;
+  @apply border-gray-200;
+  @apply rounded-lg;
+}
+
+.quoteforminputwrapper {
+  @apply mb-8;
+  @apply w-1/3;
+}

@@ -1,10 +1,10 @@
 .hasSubmenu {
   .subMenu {
-    display: none;
+    @apply hidden;
   }
   &:hover {
     .subMenu {
-      display: flex;
+      @apply flex;
     }
   }
 }

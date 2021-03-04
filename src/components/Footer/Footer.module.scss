@@ -3,8 +3,11 @@
   background-blend-mode: hard-light;
   @apply flex;
   @apply w-full;
-  @apply h-96;
+  @apply h-auto;
   @apply flex-shrink-0;
+  @screen lg {
+    @apply h-96;
+  }
 }
 
 .footer-link {

@@ -7,12 +7,12 @@ interface Props {}
 
 const ShipmentQuote: React.FC<Props> = (props) => {
   return (
-    <div className="container flex mx-auto py-20">
-      <div className="w-1/5">
+    <div className="container flex flex-wrap mx-auto py-10 lg:py-20">
+      <div className="w-full sm:w-1/5">
         <SideMenu />
       </div>
-      <div className="w-4/5 px-20">
-        <div className="w-4/5 mb-10">
+      <div className="w-full sm:w-4/5 lg:px-20">
+        <div className="w-full: lg:w-4/5 mb-10">
           <PageHeader
             disablePadding
             title="Get shipment cost"
@@ -20,7 +20,7 @@ const ShipmentQuote: React.FC<Props> = (props) => {
           />
         </div>
         <div className="w-full">
-          <div className="w-full bg-white rounded-lg p-10">
+          <div className="w-full bg-white rounded-lg p-4 lg:p-10">
             <QuoteForm />
           </div>
         </div>
