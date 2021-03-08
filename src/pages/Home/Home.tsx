@@ -4,8 +4,9 @@ import Features from "../../components/ContentBlades/Features";
 import OurFocus from "../../components/ContentBlades/OurFocus";
 import TrustedBy from "../../components/ContentBlades/TrustedBy";
 import TrackingWidget from "../../components/TrackingWidget";
+import { PropsFromRedux } from ".";
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
 const Home: React.FC<Props> = (props) => {
   return (

@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Avenir";
+  src: url("./assets/avenir_ff/AvenirLTStd-Black.otf") format("opentype");
+}
+
 html,
 body {
   margin: 0;

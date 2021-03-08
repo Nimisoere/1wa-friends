@@ -1,8 +1,52 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import * as yup from "yup";
+import { getRequiredErrorMessage, phoneRegExp } from "../../utils/common.utils";
+import TextInput from "../form-controls/TextInput";
 import style from "./QuoteForm.module.scss";
 
 interface Props {}
+
+const schema = yup.object().shape({
+  companyname: yup.string().required(getRequiredErrorMessage("Company name")),
+  firstname: yup.string().required(getRequiredErrorMessage("First name")),
+  lastname: yup.string().required(getRequiredErrorMessage("Last name")),
+  email: yup.string().email(getRequiredErrorMessage("Email")).required(),
+  phonenumber: yup
+    .string()
+    .required(getRequiredErrorMessage("Phone number"))
+    .matches(phoneRegExp, "Phone number is not valid"),
+  pickup_address: yup
+    .string()
+    .required(getRequiredErrorMessage("Pick up address")),
+  destination_address: yup
+    .string()
+    .required(getRequiredErrorMessage("Destination address")),
+  pickup_city: yup.string().required(getRequiredErrorMessage("Pickup city")),
+  pickup_state: yup.string().required(getRequiredErrorMessage("Pickup state")),
+  pickup_zip: yup.string().required(getRequiredErrorMessage("Pickup zip")),
+  destination_city: yup
+    .string()
+    .required(getRequiredErrorMessage("Destination city")),
+  destination_state: yup
+    .string()
+    .required(getRequiredErrorMessage("Destination state")),
+  destination_zip: yup
+    .string()
+    .required(getRequiredErrorMessage("Destination zip")),
+  package_information: yup
+    .string()
+    .required(getRequiredErrorMessage("Package information")),
+  number_of_pieces: yup
+    .number()
+    .min(1)
+    .required(getRequiredErrorMessage("Number of peices"))
+    .typeError("Field must be a number"),
+  weight: yup.string().required(getRequiredErrorMessage("Weight")),
+  dimensions: yup.string().required(getRequiredErrorMessage("Dimensions")),
+  special_instructions: yup.string(),
+});
 
 interface Inputs {
   companyname: string;
@@ -26,7 +70,9 @@ interface Inputs {
 }
 
 const QuoteForm: React.FC<Props> = (props) => {
-  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const { handleSubmit, control, errors } = useForm<Inputs>({
+    resolver: yupResolver(schema),
+  });
   const onSubmit = (data: Inputs) => console.log(data);
 
   return (
@@ -37,78 +83,105 @@ const QuoteForm: React.FC<Props> = (props) => {
       >
         <div className="w-full mb-10">
           <h4 className="mb-5 font-semibold">Company Information</h4>
-          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-10">
+          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-6">
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="companyname"
-                type="text"
-                placeholder="Company name"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["companyname"]}
+                    placeholder="Company Name"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.companyname && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="firstname"
-                type="text"
-                placeholder="Contact first name"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["firstname"]}
+                    placeholder="Contact First Name"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.firstname && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="lastname"
-                type="text"
-                placeholder="Contact last name"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["lastname"]}
+                    placeholder="Contact Last Name"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.lastname && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
           </div>
-          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-10">
+          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-6">
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="email"
-                type="email"
-                placeholder="Email"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    type="email"
+                    wrapperClassName="w-full"
+                    error={errors["email"]}
+                    placeholder="Email"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.email && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="phonenumber"
-                type="text"
-                placeholder="Phone number"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    type="tel"
+                    wrapperClassName="w-full"
+                    error={errors["phonenumber"]}
+                    placeholder="Phone number"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.phonenumber && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="w-full sm:w-1/3"></div>
           </div>
@@ -120,202 +193,269 @@ const QuoteForm: React.FC<Props> = (props) => {
           </h4>
           <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-9">
             <div className="mb-8 w-full sm:w-1/2">
-              <textarea
+              <Controller
                 name="pickup_address"
-                placeholder="Pick-Up Address"
-                rows={5}
-                className={style.quoteforminput}
-                ref={register({ required: true })}
-              ></textarea>
-              {errors.pickup_address && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    multiline
+                    rows={5}
+                    wrapperClassName="w-full"
+                    error={errors["pickup_address"]}
+                    placeholder="Pick-Up Address"
+                    customChange={onChange}
+                  />
+                )}
+              />
             </div>
             <div className="mb-8 w-full sm:w-1/2">
-              <textarea
+              <Controller
                 name="destination_address"
-                placeholder="Destination Address"
-                rows={5}
-                className={style.quoteforminput}
-                ref={register({ required: true })}
-              ></textarea>
-              {errors.destination_address && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    multiline
+                    rows={5}
+                    wrapperClassName="w-full"
+                    error={errors["destination_address"]}
+                    placeholder="Destination Address"
+                    customChange={onChange}
+                  />
+                )}
+              />
             </div>
           </div>
-          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-10">
+          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-6">
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="pickup_city"
-                type="text"
-                placeholder="Pick up city"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["pickup_city"]}
+                    placeholder="Pick up city"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.pickup_city && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="pickup_state"
-                type="text"
-                placeholder="Pick up state"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["pickup_state"]}
+                    placeholder="Pick up state"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.pickup_city && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
 
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="pickup_zip"
-                type="text"
-                placeholder="Pick up zip"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["pickup_zip"]}
+                    placeholder="Pick up zip"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.email && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
           </div>
-          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-10">
+          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-6">
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="destination_city"
-                type="text"
-                placeholder="Destination city"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["destination_city"]}
+                    placeholder="Destination city"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.destination_city && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="destination_state"
-                type="text"
-                placeholder="Destination state"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["destination_state"]}
+                    placeholder="Destination state"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.destination_state && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
 
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="destination_zip"
-                type="text"
-                placeholder="Destination Zip"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["destination_zip"]}
+                    placeholder="Destination zip"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.destination_zip && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
           </div>
         </div>
         <div className="w-full mb-10">
           <h4 className="mb-5 font-semibold">Package Information</h4>
-          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-10">
+          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-6">
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="package_information"
-                type="text"
-                placeholder="Package information"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["package_information"]}
+                    placeholder="Package information"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.package_information && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="number_of_pieces"
-                type="number"
-                min={1}
-                placeholder="Number of pieces"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    type="number"
+                    wrapperClassName="w-full"
+                    error={errors["number_of_pieces"]}
+                    placeholder="Number of pieces"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.number_of_pieces && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
 
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="weight"
-                type="text"
-                placeholder="Weight"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["weight"]}
+                    placeholder="Weight"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.dimensions && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
           </div>
 
-          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-10">
+          <div className="w-full flex flex-wrap sm:flex-nowrap sm:gap-6">
             <div className="mb-8 w-full sm:w-1/3">
-              <input
+              <Controller
                 name="dimensions"
-                type="text"
-                placeholder="Dimensions"
-                className={style.quoteforminput}
-                ref={register({ required: true })}
+                control={control}
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["dimensions"]}
+                    placeholder="Dimensions"
+                    customChange={onChange}
+                  />
+                )}
               />
-              {errors.email && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
             </div>
             <div className="mb-8 w-full sm:w-2/3">
-              <textarea
+              <Controller
                 name="special_instructions"
-                placeholder="Special instructions"
-                rows={5}
-                className={style.quoteforminput}
-                ref={register({ required: true })}
-              ></textarea>
-              {errors.destination_address && (
-                <span className="text-red-900 text-xs">
-                  This field is required
-                </span>
-              )}
+                control={control}
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.quoteforminput}
+                    id={name}
+                    multiline
+                    rows={5}
+                    wrapperClassName="w-full"
+                    error={errors["special_instructions"]}
+                    placeholder="Special instructions"
+                    customChange={onChange}
+                  />
+                )}
+              />
             </div>
           </div>
         </div>

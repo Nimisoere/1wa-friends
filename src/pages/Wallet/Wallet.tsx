@@ -12,7 +12,7 @@ const Wallet: React.FC<Props> = (props) => {
       <div className="w-full sm:w-1/5">
         <SideMenu />
       </div>
-      <div className="w-full sm:w-4/5 sm:px-10 lg:px-20">
+      <div className="w-full sm:w-3/5 sm:px-10 lg:px-20">
         <PageHeader
           disablePadding
           title="Fund your wallet to enjoy smooth transactions of our services"

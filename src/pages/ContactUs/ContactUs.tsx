@@ -2,10 +2,11 @@ import React from "react";
 import PageHeader from "../../components/common/PageHeader";
 import TwoColumnContent from "../../components/ContentBlades/TwoColumnContent";
 import banner from "../../assets/images/about-us.svg";
+import { PropsFromRedux } from ".";
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
-const ContactUs: React.FC<Props> = (props) => {
+const ContactUs: React.FC<Props> = () => {
   return (
     <div className="w-full">
       <div className="container mx-auto">

@@ -1,9 +1,10 @@
 import React from "react";
 import PageHeader from "../../components/common/PageHeader";
+import { PropsFromRedux } from ".";
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
-const Locations: React.FC<Props> = (props) => {
+const Locations: React.FC<Props> = () => {
   return (
     <div className="w-full">
       <div className="container">

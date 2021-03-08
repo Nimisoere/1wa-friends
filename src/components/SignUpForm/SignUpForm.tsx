@@ -1,6 +1,9 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import Select from "react-select";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import TextInput from "../form-controls/TextInput";
+import { phoneRegExp } from "../../utils/common.utils";
 
 interface Props {}
 
@@ -8,14 +11,30 @@ interface Inputs {
   firstname: string;
   lastname: string;
   email: string;
-  countrycode: string;
   phonenumber: string;
   password: string;
   confirm_password: string;
 }
 
+const schema = yup.object().shape({
+  firstname: yup.string().required(),
+  lastname: yup.string().required(),
+  email: yup.string().email().required(),
+  phonenumber: yup
+    .string()
+    .required()
+    .matches(phoneRegExp, "Phone number is not valid"),
+  password: yup.string().required(),
+  confirm_password: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Password confirm is required"),
+});
+
 const SignUpForm: React.FC<Props> = (props) => {
-  const { register, handleSubmit, control, errors } = useForm<Inputs>();
+  const { handleSubmit, control, errors } = useForm<Inputs>({
+    resolver: yupResolver(schema),
+  });
   const onSubmit = (data: Inputs) => console.log(data);
 
   return (
@@ -24,103 +43,129 @@ const SignUpForm: React.FC<Props> = (props) => {
         className="w-full flex justify-between flex-wrap"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex w-full gap-8">
-          <div className="mb-8 w-1/2">
-            <input
+        <div className="flex flex-wrap lg:flex-nowrap w-full lg:gap-8">
+          <div className="mb-8 w-full lg:w-1/2">
+            <Controller
               name="firstname"
-              type="text"
-              placeholder="First Name"
-              className="w-full p-4 border border-gray-400 rounded-md"
-              ref={register({ required: true })}
+              control={control}
+              defaultValue=""
+              render={({ name, value, onChange }) => (
+                <TextInput
+                  name={name}
+                  value={value}
+                  className="w-full"
+                  id={name}
+                  wrapperClassName="w-full"
+                  error={errors["firstname"]}
+                  placeholder="First Name"
+                  customChange={onChange}
+                />
+              )}
             />
-            {errors.email && (
-              <span className="text-red-900 text-xs">
-                This field is required
-              </span>
-            )}
           </div>
-          <div className="mb-8 w-1/2">
-            <input
+          <div className="mb-8 w-full lg:w-1/2">
+            <Controller
               name="lastname"
-              type="text"
-              placeholder="Last Name"
-              className="w-full p-4 border border-gray-400 rounded-md"
-              ref={register({ required: true })}
+              control={control}
+              defaultValue=""
+              render={({ name, value, onChange }) => (
+                <TextInput
+                  name={name}
+                  value={value}
+                  id={name}
+                  className="w-full"
+                  wrapperClassName="w-full"
+                  error={errors["lastname"]}
+                  placeholder="Last Name"
+                  customChange={onChange}
+                />
+              )}
             />
-            {errors.email && (
-              <span className="text-red-900 text-xs">
-                This field is required
-              </span>
-            )}
           </div>
         </div>
         <div className="mb-8 w-full">
-          <input
+          <Controller
             name="email"
-            type="email"
-            placeholder="Email Address"
-            className="w-full p-4 border border-gray-400 rounded-md"
-            ref={register({ required: true })}
+            control={control}
+            defaultValue=""
+            render={({ name, value, onChange }) => (
+              <TextInput
+                name={name}
+                value={value}
+                id={name}
+                type="email"
+                className="w-full"
+                wrapperClassName="w-full"
+                error={errors["email"]}
+                placeholder="Email Name"
+                customChange={onChange}
+              />
+            )}
           />
-          {errors.email && (
-            <span className="text-red-900 text-xs">This field is required</span>
-          )}
         </div>
         <div className="mb-8 w-full">
           <div className="w-full flex">
-            <div className="w-1/4">
-              <Controller
-                name="countrycode"
-                control={control}
-                render={() => (
-                  <Select
-                    className="rounded-md h-full"
-                    isSearchable
-                    options={[{}]}
-                    placeholder="+234"
-                  />
-                )}
-              />
-            </div>
-            <div className="w-3/4">
-              <input
-                name="phonenumber"
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full p-4 border border-gray-400 rounded-md"
-                ref={register({ required: true })}
-              />
-            </div>
+            <Controller
+              name="phonenumber"
+              control={control}
+              defaultValue=""
+              render={({ name, value, onChange }) => (
+                <TextInput
+                  name={name}
+                  value={value}
+                  id={name}
+                  type="tel"
+                  className="w-full"
+                  wrapperClassName="w-full"
+                  error={errors["phonenumber"]}
+                  placeholder="Phone Number"
+                  customChange={onChange}
+                />
+              )}
+            />
           </div>
-          {errors.email && (
-            <span className="text-red-900 text-xs">This field is required</span>
-          )}
         </div>
 
         <div className="mb-8 w-full">
-          <input
+          <Controller
             name="password"
-            type="password"
-            placeholder="Password"
-            className="w-full p-4 border border-gray-400 rounded-md"
-            ref={register({ required: true })}
+            control={control}
+            defaultValue=""
+            render={({ name, value, onChange }) => (
+              <TextInput
+                name={name}
+                value={value}
+                id={name}
+                type="password"
+                className="w-full"
+                wrapperClassName="w-full"
+                error={errors["password"]}
+                placeholder="Password"
+                customChange={onChange}
+              />
+            )}
           />
-          {errors.password && (
-            <span className="text-red-900 text-xs">This field is required</span>
-          )}
         </div>
 
         <div className="mb-8 w-full">
-          <input
+          <Controller
             name="confirm_password"
-            type="password"
-            placeholder="Re-enter Password"
-            className="w-full p-4 border border-gray-400 rounded-md"
-            ref={register({ required: true })}
+            control={control}
+            defaultValue=""
+            render={({ name, value, onChange }) => (
+              <TextInput
+                name={name}
+                value={value}
+                id={name}
+                type="password"
+                className="w-full"
+                wrapperClassName="w-full"
+                error={errors["confirm_password"]}
+                placeholder="Confirm password"
+                customChange={onChange}
+              />
+            )}
           />
-          {errors.password && (
-            <span className="text-red-900 text-xs">This field is required</span>
-          )}
         </div>
 
         <button

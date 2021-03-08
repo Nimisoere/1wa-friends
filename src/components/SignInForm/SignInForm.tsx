@@ -1,5 +1,8 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import TextInput from "../form-controls/TextInput";
 
 interface Props {}
 
@@ -8,37 +11,61 @@ interface Inputs {
   password: string;
 }
 
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+});
+
 const SignInForm: React.FC<Props> = (props) => {
-  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const { handleSubmit, control, errors } = useForm<Inputs>({
+    resolver: yupResolver(schema),
+  });
+
   const onSubmit = (data: Inputs) => console.log(data);
 
   return (
     <div className="w-full">
       <form className="flex flex-wrap" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8 w-full">
-          <input
+          <Controller
             name="email"
-            type="email"
-            placeholder="Email Address"
-            className="w-full p-4 border border-gray-400 rounded-md"
-            ref={register({ required: true })}
+            control={control}
+            defaultValue=""
+            render={({ name, value, onChange }) => (
+              <TextInput
+                name={name}
+                value={value}
+                id={name}
+                type="email"
+                className="w-full"
+                wrapperClassName="w-full"
+                error={errors["email"]}
+                placeholder="Email"
+                customChange={onChange}
+              />
+            )}
           />
-          {errors.email && (
-            <span className="text-red-900 text-xs">This field is required</span>
-          )}
         </div>
 
         <div className="mb-8 w-full">
-          <input
+          <Controller
             name="password"
-            type="password"
-            placeholder="Password"
-            className="w-full p-4 border border-gray-400 rounded-md"
-            ref={register({ required: true })}
+            control={control}
+            defaultValue=""
+            render={({ name, value, onChange }) => (
+              <TextInput
+                name={name}
+                value={value}
+                id={name}
+                type="password"
+                className="w-full"
+                wrapperClassName="w-full"
+                error={errors["password"]}
+                placeholder="Password"
+                customChange={onChange}
+              />
+            )}
           />
-          {errors.password && (
-            <span className="text-red-900 text-xs">This field is required</span>
-          )}
         </div>
 
         <button

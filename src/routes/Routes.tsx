@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
-import * as serviceWorker from "../serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 import { ToastContainer, toast, ToastContentProps } from "react-toastify";
-
-import ScrollToTop from "./ScrollToTop";
+import "react-toastify/dist/ReactToastify.min.css";
 import { PropsFromRedux } from ".";
+import * as serviceWorker from "../serviceWorker";
+import ScrollToTop from "./ScrollToTop";
 import Layout from "../components/Layout";
 import ErrorPage from "../pages/Error/Error";
-import "react-toastify/dist/ReactToastify.min.css";
-import { BrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";

@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import React from "react";
 import { formatMoney } from "../../utils/common.utils";
 import { transactions } from "./wallettransactions.constants";
+import { ReactComponent as Ellipse } from "../../assets/images/placeholder-ellipse.svg";
 
 interface Props {}
 
@@ -20,9 +21,12 @@ const WalletTransactions: React.FC<Props> = (props) => {
             }`}
             key={transaction.id}
           >
-            <div className="w-3/4">
-              <p className="font-semibold text-lg">{transaction.summary}</p>
-              <p className="text-xs">{transaction.category}</p>
+            <div className="w-3/4 flex">
+              <Ellipse className="inline-flex mr-7" />
+              <div>
+                <p className="font-semibold text-lg">{transaction.summary}</p>
+                <p className="text-xs">{transaction.category}</p>
+              </div>
             </div>
             <div className="w-1/4 text-right">
               <p className="font-semibold text-lg">

@@ -4,8 +4,9 @@ import rider from "../../assets/images/giggo-rider.png";
 import { services } from "./service-nav-data";
 import { Link } from "react-router-dom";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { PropsFromRedux } from ".";
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
 const ServicePortfolio: React.FC<Props> = (props) => {
   return (
@@ -18,10 +19,11 @@ const ServicePortfolio: React.FC<Props> = (props) => {
           <img src={rider} className="w-full" alt="giggo-rider" />
         </div>
       </div>
-      <div className="w-full sm:w-3/5 lg:w-2/5 px-4">
+      <div className="w-full sm:w-3/5 lg:w-2/5 px-2">
         <div className="w-full grid sm:grid-flow-col gap-8 grid-rows-2">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div className="bg-secondary text-white rounded-3xl p-5 shadow-2xl">
+              {service.icon}
               <h4 className="font-bold mb-5">{service.title}</h4>
               <p className="text-xs font-medium mb-4">{service.description}</p>
               <p className="text-xs font-medium">

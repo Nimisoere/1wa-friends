@@ -12,32 +12,22 @@ import Routes from "./routes/Routes";
 const persistor = persistStore(store);
 const rootElement = document.getElementById("root");
 
+const BaseComponent: React.FC = () => (
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ErrorBoundary>
+          <Routes />
+        </ErrorBoundary>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
+);
+
 if (rootElement?.hasChildNodes()) {
-  hydrate(
-    <React.StrictMode>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <ErrorBoundary>
-            <Routes />
-          </ErrorBoundary>
-        </PersistGate>
-      </Provider>
-    </React.StrictMode>,
-    rootElement
-  );
+  hydrate(<BaseComponent />, rootElement);
 } else {
-  render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <ErrorBoundary>
-            <Routes />
-          </ErrorBoundary>
-        </PersistGate>
-      </Provider>
-    </React.StrictMode>,
-    rootElement
-  );
+  render(<BaseComponent />, rootElement);
 }
 
 // If you want to start measuring performance in your app, pass a function
