@@ -18,7 +18,6 @@ interface Props {
   value?: any;
   rows?: number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  icon?: React.ReactNode;
   customChange?: Function;
   error?: Datum;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { MdRadioButtonChecked, MdRadioButtonUnchecked } from "react-icons/md";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import TextInput from "../form-controls/TextInput";
@@ -8,6 +9,7 @@ import { phoneRegExp } from "../../utils/common.utils";
 interface Props {}
 
 interface Inputs {
+  customer_type: "individual" | "business";
   firstname: string;
   lastname: string;
   email: string;
@@ -17,6 +19,7 @@ interface Inputs {
 }
 
 const schema = yup.object().shape({
+  customer_type: yup.string().oneOf(["individual", "business"]).required(),
   firstname: yup.string().required(),
   lastname: yup.string().required(),
   email: yup.string().email().required(),
@@ -32,9 +35,15 @@ const schema = yup.object().shape({
 });
 
 const SignUpForm: React.FC<Props> = (props) => {
-  const { handleSubmit, control, errors } = useForm<Inputs>({
+  const { handleSubmit, register, watch, control, errors } = useForm<Inputs>({
     resolver: yupResolver(schema),
+    defaultValues: {
+      customer_type: "individual",
+    },
   });
+
+  const customerType = watch("customer_type");
+
   const onSubmit = (data: Inputs) => console.log(data);
 
   return (
@@ -43,7 +52,44 @@ const SignUpForm: React.FC<Props> = (props) => {
         className="w-full flex justify-between flex-wrap"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex flex-wrap lg:flex-nowrap w-full lg:gap-8">
+        <div className="w-full flex mb-9 justify-around">
+          <label>
+            <input
+              name="customer_type"
+              value="individual"
+              defaultChecked={true}
+              className="hidden"
+              ref={register}
+              type="radio"
+            ></input>
+            <span className="inline-flex items-center">
+              {customerType === "individual" ? (
+                <MdRadioButtonChecked className="text-3xl" />
+              ) : (
+                <MdRadioButtonUnchecked className="text-3xl text-gray-300" />
+              )}
+              <span className="font-medium text-lg ml-3">Individual</span>
+            </span>
+          </label>
+          <label>
+            <input
+              name="customer_type"
+              value="business"
+              className="hidden"
+              ref={register}
+              type="radio"
+            ></input>
+            <span className="inline-flex items-center">
+              {customerType === "business" ? (
+                <MdRadioButtonChecked className="text-3xl" />
+              ) : (
+                <MdRadioButtonUnchecked className="text-3xl text-gray-300" />
+              )}
+              <span className="font-medium text-lg ml-3">E-Commerce</span>
+            </span>
+          </label>
+        </div>
+        <div className="flex flex-wrap lg:flex-nowrap w-full lg:gap-10">
           <div className="mb-8 w-full lg:w-1/2">
             <Controller
               name="firstname"
