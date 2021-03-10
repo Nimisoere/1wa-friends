@@ -1,6 +1,6 @@
 import React from "react";
 import PageHeader from "../../components/common/PageHeader";
-import QuoteForm from "../../components/QuoteForm";
+import ShippingForm from "../../components/ShippingForm";
 import SideMenu from "../../components/SideMenu";
 
 interface Props {}
@@ -21,7 +21,7 @@ const QuickShipping: React.FC<Props> = (props) => {
         </div>
         <div className="w-full">
           <div className="w-full bg-white rounded-lg p-4 lg:p-10">
-            <QuoteForm />
+            <ShippingForm />
           </div>
         </div>
       </div>

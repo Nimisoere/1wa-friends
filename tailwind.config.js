@@ -11,7 +11,7 @@ module.exports = {
         sans: ['Avenir', 'Inter', 'sans-serif']
       },
       colors: {
-        primary: '#8D090C',
+        primary: '#D5343A',
         secondary: '#333333'
       },
     },
