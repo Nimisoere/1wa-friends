@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { vehicles } from "../shippingform.utils";
+import { useHistory } from "react-router";
 
 interface Props {}
 
@@ -15,10 +16,22 @@ const schema = yup.object().shape({
 });
 
 export const VehicleInfo: React.FC<Props> = (props) => {
-  const { handleSubmit, control, errors } = useForm<Inputs>({
+  const history = useHistory();
+
+  const { handleSubmit, register, watch } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: Inputs) => console.log(data);
+
+  const vehicle_type = watch("vehicle_type");
+
+  React.useEffect(() => {
+    const onSubmit = (data: Inputs) => {
+      history.push("/giggo-delivery-app/shipping-information");
+    };
+    if (vehicle_type) {
+      handleSubmit(onSubmit)();
+    }
+  }, [handleSubmit, history, vehicle_type]);
 
   return (
     <div>
@@ -31,12 +44,26 @@ export const VehicleInfo: React.FC<Props> = (props) => {
          flex-wrap w-full"
         >
           {vehicles.map((vehicle) => (
-            <div className="p-4 w-1/2" key={vehicle.id}>
-              <div className="shadow-lg cursor-pointer border h-full border-gray-100 text-center my-2 p-5 rounded-lg">
+            <label className="p-4 w-1/2" key={vehicle.id}>
+              <div
+                className={`shadow-lg hover:border-secondary flex flex-col justify-center items-center cursor-pointer border h-full ${
+                  vehicle_type === vehicle.value
+                    ? "border-primary"
+                    : "border-gray-100"
+                } text-center my-2 p-5 rounded-lg`}
+              >
+                <p className="mb-5">{vehicle.icon}</p>
                 <h4 className="font-medium text-2xl mb-4">{vehicle.name}</h4>
                 <p className="text-sm font-normal">{vehicle.description}</p>
               </div>
-            </div>
+              <input
+                name="vehicle_type"
+                value={vehicle.value}
+                className="hidden"
+                ref={register}
+                type="radio"
+              ></input>
+            </label>
           ))}
         </div>
       </form>
