@@ -73,7 +73,8 @@ const schema = yup.object().shape({
     .typeError("Field must be a number"),
   item_image: yup
     .array(yup.string())
-    .required(getRequiredErrorMessage("Item image")),
+    .required(getRequiredErrorMessage("Item image"))
+    .typeError("One or more images required"),
 });
 
 interface Inputs {
@@ -93,7 +94,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
   const history = useHistory();
 
   const onSubmit = (data: Inputs) => {
-    history.push("/giggo-delivery-app/confirmation");
+    history.push("/giggo-delivery-app/34343/confirmation");
   };
 
   return (
@@ -102,7 +103,6 @@ export const ItemInfo: React.FC<Props> = (props) => {
         <Progressbar
           done={["pick-up", "shipment-details"]}
           steps={formSteps}
-          hasBackButton
           activeStep="upload-item"
         />
       </div>
@@ -286,6 +286,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     multiple
                     value={value}
                     customChange={onChange}
+                    error={errors["item_image"]}
                     accept="image/*"
                     DropZoneComponent={DropZoneComponent}
                   />
