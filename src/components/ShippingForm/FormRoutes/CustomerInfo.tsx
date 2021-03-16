@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 import * as yup from "yup";
 import {
   getRequiredErrorMessage,
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
   senders_name: yup.string().required(getRequiredErrorMessage("Sender's name")),
   senders_location: yup
     .string()
-    .required(getRequiredErrorMessage("Sender's name")),
+    .required(getRequiredErrorMessage("Sender's location")),
   senders_phonenumber: yup
     .string()
     .required(getRequiredErrorMessage("Sender's Phone number"))
@@ -35,7 +36,7 @@ const schema = yup.object().shape({
     .required(getRequiredErrorMessage("Receiver's name")),
   receivers_location: yup
     .string()
-    .required(getRequiredErrorMessage("Receiver's name")),
+    .required(getRequiredErrorMessage("Receiver's location")),
   receivers_phonenumber: yup
     .string()
     .required(getRequiredErrorMessage("Receiver's Phone number"))
@@ -59,14 +60,18 @@ export const CustomerInfo: React.FC<Props> = (props) => {
   const { handleSubmit, control, errors } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: Inputs) => console.log(data);
+
+  const history = useHistory();
+
+  const onSubmit = (data: Inputs) => {
+    history.push("/giggo-delivery-app/item-information");
+  };
 
   return (
     <div>
       <div className="w-full mb-5">
         <Progressbar
           steps={formSteps}
-          hasBackButton
           done={["pick-up"]}
           activeStep="shipment-details"
         />
@@ -76,8 +81,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
           <h4 className="p-3 font-semibold rounded-t-md bg-gray-100 text-center">
             Sender's Info
           </h4>
-          <div className="w-full px-20 py-10">
-            <div className="mb-8 w-full">
+          <div className="w-full px-5 sm:px-20 py-10">
+            <div className="mb-5 w-full">
               <Controller
                 name="senders_address"
                 control={control}
@@ -92,13 +97,15 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     id={name}
                     wrapperClassName="w-full"
                     error={errors["senders_address"]}
+                    label="Address"
+                    labelClassName="mb-2 ml-2 flex"
                     placeholder="Address"
                     customChange={onChange}
                   />
                 )}
               />
             </div>
-            <div className="mb-8 w-full">
+            <div className="mb-5 w-full">
               <Controller
                 name="senders_address2"
                 control={control}
@@ -114,12 +121,14 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     wrapperClassName="w-full"
                     error={errors["senders_address2"]}
                     placeholder="Address 2"
+                    label="Address 2"
+                    labelClassName="mb-2 ml-2 flex"
                     customChange={onChange}
                   />
                 )}
               />
             </div>
-            <div className="mb-8 w-full">
+            <div className="mb-5 w-full">
               <Controller
                 name="senders_name"
                 control={control}
@@ -132,32 +141,15 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     id={name}
                     wrapperClassName="w-full"
                     error={errors["senders_name"]}
+                    label="Name"
+                    labelClassName="mb-2 ml-2 flex"
                     placeholder="Name"
                     customChange={onChange}
                   />
                 )}
               />
             </div>
-            <div className="mb-8 w-full">
-              <Controller
-                name="senders_location"
-                control={control}
-                defaultValue=""
-                render={({ name, value, onChange }) => (
-                  <TextInput
-                    name={name}
-                    value={value}
-                    className={style.forminput}
-                    id={name}
-                    wrapperClassName="w-full"
-                    error={errors["senders_location"]}
-                    placeholder="Location"
-                    customChange={onChange}
-                  />
-                )}
-              />
-            </div>
-            <div className="mb-8 w-full">
+            <div className="mb-5 w-full">
               <Controller
                 name="senders_phonenumber"
                 control={control}
@@ -170,7 +162,30 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     id={name}
                     wrapperClassName="w-full"
                     error={errors["senders_phonenumber"]}
+                    label="Phone number"
+                    labelClassName="mb-2 ml-2 flex"
                     placeholder="Phone number"
+                    customChange={onChange}
+                  />
+                )}
+              />
+            </div>
+            <div className="mb-5 w-full">
+              <Controller
+                name="senders_location"
+                control={control}
+                defaultValue=""
+                render={({ name, value, onChange }) => (
+                  <TextInput
+                    name={name}
+                    value={value}
+                    className={style.forminput}
+                    id={name}
+                    wrapperClassName="w-full"
+                    error={errors["senders_location"]}
+                    label="Location"
+                    labelClassName="mb-2 ml-2 flex"
+                    placeholder="Location"
                     customChange={onChange}
                   />
                 )}
@@ -200,6 +215,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     wrapperClassName="w-full"
                     error={errors["receivers_address"]}
                     placeholder="Address"
+                    labelClassName="mb-2 ml-2 flex"
+                    label="Address"
                     customChange={onChange}
                   />
                 )}
@@ -221,6 +238,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     wrapperClassName="w-full"
                     error={errors["receivers_address2"]}
                     placeholder="Address 2"
+                    labelClassName="mb-2 ml-2 flex"
+                    label="Address 2"
                     customChange={onChange}
                   />
                 )}
@@ -240,6 +259,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     wrapperClassName="w-full"
                     error={errors["receivers_name"]}
                     placeholder="Reveiver name"
+                    labelClassName="mb-2 ml-2 flex"
+                    label="Reveiver name"
                     customChange={onChange}
                   />
                 )}
@@ -259,6 +280,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     wrapperClassName="w-full"
                     error={errors["receivers_phonenumber"]}
                     placeholder="Phone number"
+                    labelClassName="mb-2 ml-2 flex"
+                    label="Phone number"
                     customChange={onChange}
                   />
                 )}
@@ -278,6 +301,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     wrapperClassName="w-full"
                     error={errors["receivers_location"]}
                     placeholder="Location"
+                    labelClassName="mb-2 ml-2 flex"
+                    label="Location"
                     customChange={onChange}
                   />
                 )}
@@ -286,7 +311,20 @@ export const CustomerInfo: React.FC<Props> = (props) => {
           </div>
         </div>
 
-        <div></div>
+        <div className="flex justify-center gap-12">
+          <button
+            onClick={() => history.goBack()}
+            className="border border-secondary text-secondary py-3 px-14 font-bold text-lg rounded"
+          >
+            Back
+          </button>
+          <button
+            type="submit"
+            className="border border-secondary bg-secondary text-white py-3 px-14 font-bold text-lg rounded"
+          >
+            Next
+          </button>
+        </div>
       </form>
     </div>
   );

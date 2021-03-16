@@ -44,7 +44,6 @@ const RadioInput: React.FC<NoahRadioProps> = React.memo(
     }, [selectedValueProps]);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(event.target.value);
       setSelectedValue(event.target.value);
       !!customChange && customChange(event.target.value);
     };

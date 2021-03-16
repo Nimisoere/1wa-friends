@@ -91,13 +91,13 @@ const TextInput: React.FC<Props> = React.memo(
             onChange={onChange || handleChange}
           />
         )}
-        {(helperText || error?.message) && (
+        {error?.message && (
           <span
             className={`${
               error?.message ? "text-red-600" : "text-gray-600"
             } text-xs`}
           >
-            {error?.message || helperText}
+            {error.message}
           </span>
         )}
       </div>
