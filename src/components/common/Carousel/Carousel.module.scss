@@ -1,0 +1,61 @@
+.cardcarousel {
+  @apply flex;
+  @apply w-full;
+  @apply h-72;
+  @apply flex-col;
+  @apply items-center;
+  @apply relative;
+}
+
+.card {
+  @apply rounded-xl;
+  @apply h-full;
+  @apply w-full;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  @apply p-12;
+  @apply text-center;
+  @apply text-gray-500;
+  @apply text-lg;
+  @apply shadow-lg;
+  @apply bg-white;
+  @apply opacity-0;
+  @apply absolute;
+  @apply transform;
+  @apply scale-95;
+  @apply transition-all;
+  @apply translate-y-9;
+
+  &.active {
+    @apply w-full;
+    @apply opacity-100;
+    @apply transform;
+    @apply scale-100;
+    @apply translate-y-0;
+    @apply shadow-xl;
+    @apply transform;
+    z-index: 2;
+  }
+  &.next {
+    opacity: 1;
+    z-index: 1;
+  }
+  &.prev {
+    @apply w-full;
+    @apply transform;
+    transform: scale(1.1) translateY(-50px);
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &.inactive {
+    @apply w-full;
+    @apply opacity-100;
+    @apply transform;
+    @apply transform;
+    @apply scale-90;
+    @apply translate-y-16;
+    z-index: 0;
+  }
+}

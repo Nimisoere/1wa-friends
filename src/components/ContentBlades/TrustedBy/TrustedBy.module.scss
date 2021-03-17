@@ -1,0 +1,20 @@
+.cardQuote {
+  background: url("../../../assets/icons/quotes.svg") no-repeat;
+  background-position: 50% 10%;
+  @apply bg-white;
+}
+
+.trustedBy {
+  @apply w-full;
+  background-image: url("../../../assets/icons/pattern2.png"),
+    url("../../../assets/icons/pattern1.png"),
+    url("../../../assets/images/avatar1.svg"),
+    url("../../../assets/images/avatar2.svg"),
+    url("../../../assets/images/avatar3.svg"),
+    url("../../../assets/images/avatar4.svg");
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat;
+  background-size: 30%, 30%, 5%, 5%, 5%, 5%;
+  background-position: 30% 100%, 80% 0%, 0 0, 0 100%, 100% 100%, 100% 0;
+}

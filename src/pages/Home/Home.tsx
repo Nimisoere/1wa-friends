@@ -23,13 +23,15 @@ const Home: React.FC<Props> = (props) => {
       <div className="container mx-auto py-5">
         <Features />
       </div>
-      <div>
+      <div className="container mx-auto py-8">
         <AppBanner />
       </div>
-      <div>
-        <OurFocus />
+      <div className="bg-red-100">
+        <div className="container mx-auto py-16">
+          <OurFocus />
+        </div>
       </div>
-      <div>
+      <div className="container mx-auto py-16">
         <TrustedBy />
       </div>
     </div>
