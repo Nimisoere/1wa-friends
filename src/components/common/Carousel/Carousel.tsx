@@ -5,6 +5,7 @@ import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
+
 interface Props {
   slides: React.ReactElement[];
   cardClassName?: string;

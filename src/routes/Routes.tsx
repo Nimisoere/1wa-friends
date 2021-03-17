@@ -20,6 +20,7 @@ import QuickShipping from "../pages/QuickShipping";
 import OverseasShipping from "../pages/OverseasShipping";
 import ShipmentQuote from "../pages/ShipmentQuote";
 import Wallet from "../pages/Wallet";
+import Modal from "../components/Modal";
 
 interface RefrestToastProps extends ToastContentProps {
   action: () => void;
@@ -88,6 +89,7 @@ const Routes: React.FC<PropsFromRedux> = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ToastContainer />
       <ScrollToTop />
+      <Modal />
       <Switch>
         <Route exact path="/">
           <Layout component={<Home />} />

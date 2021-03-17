@@ -1,7 +1,13 @@
-import { AppState, FetchState, KeyFetchState, NotificationState } from ".";
+import {
+  AppState,
+  ModalState,
+  FetchState,
+  KeyFetchState,
+  NotificationState,
+} from ".";
 
 export const initialNotificationState: NotificationState = {
-  alertType: 'info',
+  alertType: "info",
   message: "",
 };
 
@@ -13,7 +19,15 @@ export const initialFetchState: FetchState = {
   error: null,
 };
 
+export const initialModalState: ModalState = {
+  modalProps: {
+    isOpen: false,
+  },
+  component: null,
+};
+
 export const initialState: AppState = {
   notification: initialNotificationState,
+  modal: initialModalState,
   apiRequest: {} as KeyFetchState,
 };

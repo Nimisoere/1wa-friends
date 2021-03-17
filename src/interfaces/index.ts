@@ -1,17 +1,18 @@
 import { AxiosError } from "axios";
+import { Props as ModalProps } from "react-modal";
 
 export type VerticalPosition = "top" | "bottom";
 export type HorizontalPosition = "left" | "right" | "center";
 export type AlertType = "success" | "error" | "info" | "warning";
 
-export enum NotificationActionTypes {
-  SHOW = "NOTIFICATION_SHOW",
-  CLEAR = "NOTIFICATION_CLEAR",
-}
-
 export interface NotificationActionProps {
   alertType: AlertType;
   message: string;
+}
+
+export interface ModalAction {
+  component: React.ReactElement | null;
+  modalProps: Omit<ModalProps, "isOpen">;
 }
 
 export interface NotificationState {
@@ -19,9 +20,15 @@ export interface NotificationState {
   message: string;
 }
 
+export interface ModalState {
+  component: React.ReactElement | null;
+  modalProps: ModalProps;
+}
+
 export interface AppState {
   notification: NotificationState;
   apiRequest: KeyFetchState;
+  modal: ModalState;
 }
 
 export interface KeyFetchState {

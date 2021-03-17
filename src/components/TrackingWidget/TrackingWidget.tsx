@@ -2,11 +2,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { getRequiredErrorMessage } from "../../utils/common.utils";
 import TextInput from "../form-controls/TextInput";
+import { PropsFromRedux } from ".";
+import TrackShipment from "../TrackShipment";
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
 const schema = yup.object().shape({
   tracking_code: yup
@@ -18,14 +20,29 @@ interface Inputs {
   tracking_code: string;
 }
 
-const TrackingWidget: React.FC<Props> = (props) => {
+const TrackingWidget: React.FC<Props> = ({ showModal, hideModal }) => {
   const { handleSubmit, control } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
 
+  const params = useParams<{ [x: string]: string }>();
+
   const history = useHistory();
 
+  React.useEffect(() => {
+    if (params?.trackingCode) {
+      showModal({
+        modalProps: {},
+        component: <TrackShipment />,
+      });
+    } else {
+      hideModal();
+    }
+  }, [params?.trackingCode, hideModal, history, showModal]);
+
   const onSubmit = (data: Inputs) => {
+    console.log();
+
     history.push(`/shipment/${data.tracking_code}`);
   };
 
