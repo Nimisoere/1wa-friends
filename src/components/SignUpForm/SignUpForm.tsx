@@ -4,7 +4,7 @@ import { MdRadioButtonChecked, MdRadioButtonUnchecked } from "react-icons/md";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import TextInput from "../form-controls/TextInput";
-import { phoneRegExp } from "../../utils/common.utils";
+import { PhoneNumberInput } from "../form-controls/PhoneNumberInput";
 
 interface Props {}
 
@@ -23,10 +23,7 @@ const schema = yup.object().shape({
   firstname: yup.string().required(),
   lastname: yup.string().required(),
   email: yup.string().email().required(),
-  phonenumber: yup
-    .string()
-    .required()
-    .matches(phoneRegExp, "Phone number is not valid"),
+  phonenumber: yup.string().required(),
   password: yup.string().required(),
   confirm_password: yup
     .string()
@@ -149,6 +146,7 @@ const SignUpForm: React.FC<Props> = (props) => {
             )}
           />
         </div>
+
         <div className="mb-8 w-full">
           <div className="w-full flex">
             <Controller
@@ -156,11 +154,13 @@ const SignUpForm: React.FC<Props> = (props) => {
               control={control}
               defaultValue=""
               render={({ name, value, onChange }) => (
-                <TextInput
+                <PhoneNumberInput
                   name={name}
                   value={value}
+                  defaultCountry="NG"
                   id={name}
-                  type="tel"
+                  inputClassName="h-full p-4 w-full rounded-md"
+                  international
                   className="w-full"
                   wrapperClassName="w-full"
                   error={errors["phonenumber"]}
