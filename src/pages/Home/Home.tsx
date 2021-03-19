@@ -6,6 +6,7 @@ import TrustedBy from "../../components/ContentBlades/TrustedBy";
 import TrackingWidget from "../../components/TrackingWidget";
 import { PropsFromRedux } from ".";
 import { ReactComponent as Logo } from "../../assets/images/dark-logo.svg";
+import styles from "./Home.module.scss";
 
 interface Props extends PropsFromRedux {}
 
@@ -26,7 +27,7 @@ const Home: React.FC<Props> = (props) => {
       <div className="container mx-auto py-8">
         <AppBanner />
       </div>
-      <div className="bg-red-100">
+      <div className={styles.ourFocusWrapper}>
         <div className="container mx-auto py-16">
           <OurFocus />
         </div>

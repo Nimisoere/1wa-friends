@@ -1,0 +1,25 @@
+.timeline {
+  @apply w-full;
+  @apply flex;
+  @apply justify-between;
+  @apply pb-9;
+  @apply relative;
+
+  @screen lg {
+    &:after {
+      content: " ";
+      @apply absolute;
+      @apply border-dashed;
+      @apply h-3/4;
+      @apply border-gray-400;
+      @apply border-l;
+      left: 0.75rem;
+      @apply bottom-0;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

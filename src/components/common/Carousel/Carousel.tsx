@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Carousel.module.scss";
-import { uid } from "uid";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
@@ -94,7 +93,7 @@ const Carousel: React.FC<Props> = ({
       <div className={styles.cardcarousel}>
         {slides.map((slide, index) => (
           <div
-            key={uid(8)}
+            key={slide as any} //Important for animation to work
             className={`${styles.card} ${determineClasses(
               indexes,
               index

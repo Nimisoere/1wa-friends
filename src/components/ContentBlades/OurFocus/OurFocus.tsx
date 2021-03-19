@@ -1,5 +1,6 @@
 import React from "react";
 import { focus } from "./focus.constants";
+import styles from "./OurFocus.module.scss";
 
 interface Props {}
 
@@ -14,16 +15,16 @@ const OurFocus: React.FC<Props> = (props) => {
         serve you better.
       </p>
       <div
-        style={{ maxHeight: "36rem" }}
-        className="lg:flex-col flex-wrap flex max-w-3xl mx-auto py-16 gap-8"
+        className={`${styles.cardWrapper} lg:flex-col flex-wrap flex max-w-3xl mx-auto py-16 gap-8`}
       >
         {focus.map((item, index) => (
           <div
             key={item.id}
-            className={`bg-red-200 rounded-3xl ${
+            className={`bg-red-400 shadow-xl rounded-3xl ${styles.focusCard} ${
               index > 0 ? "lg:w-1/2" : "lg:w-1/3"
             } flex flex-col p-7`}
           >
+            <div className="mb-3">{item.icon}</div>
             <h4 className="font-sans font-black text-lg">{item.title}</h4>
             <p className="text-sm">{item.description}</p>
           </div>

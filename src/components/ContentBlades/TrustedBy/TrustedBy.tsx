@@ -14,7 +14,6 @@ const TrustedBy: React.FC<Props> = (props) => {
       <div className={styles.trustedBy}>
         <div className="w-full my-10 max-w-xl mx-auto">
           <Carousel
-            autoplay
             cardClassName={styles.cardQuote}
             slides={testimonials.map((testimonial) => (
               <div className="" key={testimonial.id}>

@@ -24,6 +24,8 @@ const Modal: React.FC<Props> = ({ modal, hide }) => {
           margin: "auto",
           height: "auto",
           padding: 0,
+          border: "none",
+          backgroundColor: "transparent",
         },
       }}
       {...modal.modalProps}

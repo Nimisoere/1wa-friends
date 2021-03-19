@@ -58,7 +58,7 @@ const TrackingWidget: React.FC<Props> = ({ showModal, hideModal }) => {
               <TextInput
                 name={name}
                 value={value}
-                className="border-none rounded-none px-0 py-0 w-full h-full"
+                className="border-none rounded-none px-2 py-0 w-full h-full"
                 id={name}
                 wrapperClassName="w-full"
                 placeholder="Input tracking ID | Alpha code"
