@@ -1,0 +1,22 @@
+image: node:15.2.0
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - rm -rf build
+  - CI=false npx yarn install
+
+pages:
+  stage: deploy
+  script:
+    - CI=false npx yarn run build
+    - rm -rf public
+    - cp build/index.html build/404.html
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - develop
