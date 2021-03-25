@@ -1,7 +1,7 @@
-import React from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-import { OptionTypeBase } from "react-select";
-import { Datum } from "../../interfaces";
+import React from 'react';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { OptionTypeBase } from 'react-select';
+import { Datum } from '../../interfaces';
 
 interface Props {
   wrapperClassName?: string;
@@ -50,13 +50,13 @@ const LocationInput: React.FC<Props> = ({
       <GooglePlacesAutocomplete
         apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
         autocompletionRequest={{
-          types: ["address"],
+          types: ['address'],
         }}
         minLengthAutocomplete={3}
         selectProps={{
-          "aria-label": label,
+          'aria-label': label,
           isDisabled: disabled,
-          noOptionsMessage: (value) => value && "Location not found",
+          noOptionsMessage: (value) => value && 'Location not found',
           backspaceRemovesValue: true,
           className,
           escapeClearsValue: true,
@@ -66,17 +66,19 @@ const LocationInput: React.FC<Props> = ({
           openMenuOnClick: false,
           styles: {
             control: (base) => {
-              base.backgroundColor = "#F2F3F5";
-              base.border = "none";
-              base.borderRadius = "10px";
-              base.padding = "8px";
-              return base;
+              const newBase = { ...base };
+              newBase.backgroundColor = '#F2F3F5';
+              newBase.border = 'none';
+              newBase.borderRadius = '10px';
+              newBase.padding = '8px';
+              return newBase;
             },
             placeholder: (base) => {
-              base.color = "#BDBDBD";
-              base.fontWeight = 400;
-              base.fontSize = "14px";
-              return base;
+              const newBase = { ...base };
+              newBase.color = '#BDBDBD';
+              newBase.fontWeight = 400;
+              newBase.fontSize = '14px';
+              return newBase;
             },
           },
           components: {
@@ -90,7 +92,7 @@ const LocationInput: React.FC<Props> = ({
       {(helperText || error?.message) && (
         <span
           className={`${
-            error?.message ? "text-red-600" : "text-gray-600"
+            error?.message ? 'text-red-600' : 'text-gray-600'
           } text-xs`}
         >
           {error?.message || helperText}

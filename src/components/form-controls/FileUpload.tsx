@@ -1,7 +1,7 @@
-import React from "react";
-import { useDropzone, DropzoneProps, DropzoneState } from "react-dropzone";
-import { uid } from "uid";
-import { Datum } from "../../interfaces";
+import React from 'react';
+import { useDropzone, DropzoneProps, DropzoneState } from 'react-dropzone';
+import { uid } from 'uid';
+import { Datum } from '../../interfaces';
 
 interface DropZoneFile extends Blob {
   preview: string;
@@ -73,8 +73,6 @@ const FileUpload: React.FC<Props> = ({
         customChange && customChange([...newFiles, ...files]);
         acceptedFiles.forEach((file: Blob) => {
           const reader = new FileReader();
-          reader.onabort = () => console.log("file reading was aborted");
-          reader.onerror = () => console.log("file reading has failed");
           reader.readAsDataURL(file);
           reader.onloadend = () => {
             const newFileData: DropZoneFileData = {
@@ -136,8 +134,9 @@ const FileUpload: React.FC<Props> = ({
       </div>
       {errors.map((fileInputError) => (
         <span
+          key={fileInputError}
           className={`${
-            error?.message ? "text-red-600" : "text-gray-600"
+            error?.message ? 'text-red-600' : 'text-gray-600'
           } text-xs`}
         >
           {fileInputError}
@@ -146,7 +145,7 @@ const FileUpload: React.FC<Props> = ({
       {error?.message && (
         <span
           className={`${
-            error?.message ? "text-red-600" : "text-gray-600"
+            error?.message ? 'text-red-600' : 'text-gray-600'
           } text-xs`}
         >
           {error?.message}

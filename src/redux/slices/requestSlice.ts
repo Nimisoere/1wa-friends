@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { KeyFetchAction, KeyFetchState } from "../../interfaces";
-import { initialFetchState } from "../../interfaces/initialStates";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { KeyFetchAction, KeyFetchState } from '../../interfaces';
+import { initialFetchState } from '../../interfaces/initialStates';
 
 const apiRequest = createSlice({
-  name: "apiRequest",
+  name: 'apiRequest',
   initialState: {} as KeyFetchState,
   reducers: {
     apiRequestLoading(state, action: PayloadAction<KeyFetchAction>) {
@@ -37,6 +37,7 @@ const apiRequest = createSlice({
       };
     },
     apiRequestResetAll(state, action: PayloadAction<KeyFetchAction>) {
+      // eslint-disable-next-line no-param-reassign
       state = {} as KeyFetchState;
     },
     apiRequestUpdateResponse(state, action: PayloadAction<KeyFetchAction>) {

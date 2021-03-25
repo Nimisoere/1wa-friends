@@ -1,7 +1,7 @@
-import React from "react";
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { useHistory } from "react-router";
-import Seo from "../Seo/Seo";
+import React from 'react';
+import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
+import { useHistory } from 'react-router-dom';
+import Seo from '../Seo/Seo';
 
 interface Props {
   title: string;
@@ -22,11 +22,15 @@ const PageHeader: React.FC<Props> = ({
       <Seo title={title} description={description} />
       <div
         className={`${
-          !disablePadding ? "py-8 lg:py-16" : ""
+          !disablePadding ? 'py-8 lg:py-16' : ''
         } w-full flex flex-wrap text-center`}
       >
         {hasBackButton && (
-          <button className="mb-10 lg:mb-0" onClick={() => history.goBack()}>
+          <button
+            type="button"
+            className="mb-10 lg:mb-0"
+            onClick={() => history.back()}
+          >
             <HiOutlineArrowNarrowLeft className="inline-flex text-2xl" />
             Back
           </button>

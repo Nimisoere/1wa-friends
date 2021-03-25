@@ -1,13 +1,13 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
-import { Controller, InputState, useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import * as yup from "yup";
-import { Progressbar } from "../Components/Progressbar";
-import { formSteps } from "../shippingform.utils";
-import { getRequiredErrorMessage } from "../../../utils/common.utils";
-import TextInput from "../../form-controls/TextInput";
-import style from "./Confirmation.module.scss";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import { Controller, InputState, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
+import { Progressbar } from '../Components/Progressbar';
+import { formSteps } from '../shippingform.utils';
+import { getRequiredErrorMessage } from '../../../utils/common.utils';
+import TextInput from '../../form-controls/TextInput';
+import style from './Confirmation.module.scss';
 
 interface Props {}
 
@@ -38,14 +38,14 @@ export const Confirmation: React.FC<Props> = (props) => {
 
   const history = useHistory();
   const onSubmit = (data: InputState) => {
-    history.push("/");
+    history.push('/');
   };
 
   return (
     <div>
       <div className="w-full mb-5">
         <Progressbar
-          done={["pick-up", "shipment-details", "upload-item"]}
+          done={['pick-up', 'shipment-details', 'upload-item']}
           steps={formSteps}
           activeStep="upload-item"
         />
@@ -70,7 +70,7 @@ export const Confirmation: React.FC<Props> = (props) => {
                     rows={5}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["senders_address"]}
+                    error={errors['senders_address']}
                     label="Address"
                     labelClassName="mb-2 ml-2 flex"
                     placeholder="Address"
@@ -93,7 +93,7 @@ export const Confirmation: React.FC<Props> = (props) => {
                     rows={5}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["receivers_address"]}
+                    error={errors['receivers_address']}
                     placeholder="Address"
                     labelClassName="mb-2 ml-2 flex"
                     label="Address"
@@ -114,7 +114,7 @@ export const Confirmation: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["senders_name"]}
+                    error={errors['senders_name']}
                     label="Name"
                     labelClassName="mb-2 ml-2 flex"
                     placeholder="Name"
@@ -135,7 +135,7 @@ export const Confirmation: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["receivers_name"]}
+                    error={errors['receivers_name']}
                     placeholder="Reveiver name"
                     labelClassName="mb-2 ml-2 flex"
                     label="Reveiver name"
@@ -189,7 +189,8 @@ export const Confirmation: React.FC<Props> = (props) => {
 
         <div className="flex justify-center gap-12">
           <button
-            onClick={() => history.goBack()}
+            type="button"
+            onClick={() => history.back()}
             className="border border-secondary text-secondary py-3 px-14 font-bold text-lg rounded"
           >
             Back

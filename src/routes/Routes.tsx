@@ -1,40 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router";
-import { BrowserRouter } from "react-router-dom";
-import { ToastContainer, toast, ToastContentProps } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
-import { PropsFromRedux } from ".";
-import * as serviceWorker from "../serviceWorker";
-import ScrollToTop from "./ScrollToTop";
-import Layout from "../components/Layout";
-import ErrorPage from "../pages/Error/Error";
-import Home from "../pages/Home";
-import AboutUs from "../pages/AboutUs";
-import ContactUs from "../pages/ContactUs";
-import Location from "../pages/Location";
-import ServicePortfolio from "../pages/ServicePorfolio";
-import Service from "../pages/Service";
-import SignUp from "../pages/SignUp";
-import SignIn from "../pages/SignIn";
-import QuickShipping from "../pages/QuickShipping";
-import OverseasShipping from "../pages/OverseasShipping";
-import ShipmentQuote from "../pages/ShipmentQuote";
-import Wallet from "../pages/Wallet";
-import Modal from "../components/Modal";
+import React, { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer, toast, ToastContentProps } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { PropsFromRedux } from '.';
+import * as serviceWorker from '../serviceWorker';
+import ScrollToTop from './ScrollToTop';
+import Layout from '../components/Layout';
+import ErrorPage from '../pages/Error/Error';
+import Home from '../pages/Home';
+import AboutUs from '../pages/AboutUs';
+import ContactUs from '../pages/ContactUs';
+import Location from '../pages/Location';
+import ServicePortfolio from '../pages/ServicePorfolio';
+import Service from '../pages/Service';
+import SignUp from '../pages/SignUp';
+import SignIn from '../pages/SignIn';
+import QuickShipping from '../pages/QuickShipping';
+import OverseasShipping from '../pages/OverseasShipping';
+import ShipmentQuote from '../pages/ShipmentQuote';
+import Wallet from '../pages/Wallet';
+import Modal from '../components/Modal';
 
 interface RefrestToastProps extends ToastContentProps {
+  // eslint-disable-next-line react/no-unused-prop-types
   action: () => void;
 }
 
-const RefreshToast = ({ closeToast, action }: RefrestToastProps) => {
+const RefreshToast: React.FC<RefrestToastProps> = ({ closeToast, action }) => {
   const close = () => {
     action();
     closeToast && closeToast();
   };
+
   return (
     <div>
       New version available
-      <button onClick={close}>Refresh</button>
+      <button type="button" onClick={close}>
+        Refresh
+      </button>
     </div>
   );
 };
@@ -51,14 +55,14 @@ const Routes: React.FC<PropsFromRedux> = () => {
   };
 
   useEffect(() => {
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       serviceWorker.register({ onUpdate: onServiceWorkerUpdate });
     }
   }, []);
 
   useEffect(() => {
     const updateServiceWorker = () => {
-      waitingWorker && waitingWorker.postMessage({ type: "SKIP_WAITING" });
+      waitingWorker && waitingWorker.postMessage({ type: 'SKIP_WAITING' });
       setNewVersionAvailable(false);
       window.location.reload();
     };

@@ -46,6 +46,13 @@
         "ignoreComments": true
       }
     ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
+    ],
     "no-plusplus": [
       "error",
       {

@@ -1,19 +1,19 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import * as yup from "yup";
-import { MdClose } from "react-icons/md";
-import { getRequiredErrorMessage } from "../../../utils/common.utils";
-import { Progressbar } from "../Components/Progressbar";
-import { formSteps } from "../shippingform.utils";
-import Select from "../../form-controls/Select";
-import TextInput from "../../form-controls/TextInput";
-import style from "./ItemInfo.module.scss";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
+import { MdClose } from 'react-icons/md';
+import { getRequiredErrorMessage } from '../../../utils/common.utils';
+import { Progressbar } from '../Components/Progressbar';
+import { formSteps } from '../shippingform.utils';
+import Select from '../../form-controls/Select';
+import TextInput from '../../form-controls/TextInput';
+import style from './ItemInfo.module.scss';
 import FileUpload, {
   DropZoneComponentProps,
-} from "../../form-controls/FileUpload";
-import { ReactComponent as CloudUpload } from "../../../assets/icons/cloud-upload.svg";
+} from '../../form-controls/FileUpload';
+import { ReactComponent as CloudUpload } from '../../../assets/icons/cloud-upload.svg';
 
 interface Props {}
 
@@ -21,58 +21,58 @@ const DropZoneComponent: React.FC<DropZoneComponentProps> = ({
   files,
   deleteFile,
 }) => (
-    <div className="border border-dashed rounded-lg border-gray-300 w-full h-44 flex flex-col justify-center items-center">
-      {files.length ? (
-        <div className="flex w-full flex-wrap justify-start gap-5 items-start p-2">
-          {files?.map((file) => (
-            <div key={file.id} className="w-1/4 relative">
-              <button onClick={(e) => deleteFile(e, file.id)} type="button">
-                <MdClose className="absolute cursor-pointer right-0 top-0" />
-              </button>
-              <img
-                src={file.preview}
-                key={file.preview}
-                alt=""
-                className="max-h-32"
-              />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <>
-          <div className="mb-6">
-            <CloudUpload />
+  <div className="border border-dashed rounded-lg border-gray-300 w-full h-44 flex flex-col justify-center items-center">
+    {files.length ? (
+      <div className="flex w-full flex-wrap justify-start gap-5 items-start p-2">
+        {files?.map((file) => (
+          <div key={file.id} className="w-1/4 relative">
+            <button onClick={(e) => deleteFile(e, file.id)} type="button">
+              <MdClose className="absolute cursor-pointer right-0 top-0" />
+            </button>
+            <img
+              src={file.preview}
+              key={file.preview}
+              alt=""
+              className="max-h-32"
+            />
           </div>
-          <p className="text-xs text-secondary">Upload an image of the item</p>
-          <button
-            type="button"
-            className="text-gray-300 font-medium border-gray-300 border rounded px-5 py-2 my-4 text-sm"
-          >
-            Choose file
-          </button>
-        </>
-      )}
-    </div>
-  );
+        ))}
+      </div>
+    ) : (
+      <>
+        <div className="mb-6">
+          <CloudUpload />
+        </div>
+        <p className="text-xs text-secondary">Upload an image of the item</p>
+        <button
+          type="button"
+          className="text-gray-300 font-medium border-gray-300 border rounded px-5 py-2 my-4 text-sm"
+        >
+          Choose file
+        </button>
+      </>
+    )}
+  </div>
+);
 
 const schema = yup.object().shape({
-  category: yup.string().required(getRequiredErrorMessage("Item category")),
-  item: yup.string().required(getRequiredErrorMessage("Item")),
-  weight: yup.string().required(getRequiredErrorMessage("Weight")),
+  category: yup.string().required(getRequiredErrorMessage('Item category')),
+  item: yup.string().required(getRequiredErrorMessage('Item')),
+  weight: yup.string().required(getRequiredErrorMessage('Weight')),
   quantity: yup
     .number()
-    .min(1, "Value must be a number greater than 1")
-    .required(getRequiredErrorMessage("Quantity"))
-    .typeError("Field must be a number"),
+    .min(1, 'Value must be a number greater than 1')
+    .required(getRequiredErrorMessage('Quantity'))
+    .typeError('Field must be a number'),
   value: yup
     .number()
-    .min(1, "Value must be a number greater than 1")
-    .required(getRequiredErrorMessage("Item value"))
-    .typeError("Field must be a number"),
+    .min(1, 'Value must be a number greater than 1')
+    .required(getRequiredErrorMessage('Item value'))
+    .typeError('Field must be a number'),
   item_image: yup
     .array(yup.string())
-    .required(getRequiredErrorMessage("Item image"))
-    .typeError("One or more images required"),
+    .required(getRequiredErrorMessage('Item image'))
+    .typeError('One or more images required'),
 });
 
 interface Inputs {
@@ -92,14 +92,14 @@ export const ItemInfo: React.FC<Props> = (props) => {
   const history = useHistory();
 
   const onSubmit = (data: Inputs) => {
-    history.push("/giggo-delivery-app/34343/confirmation");
+    history.push('/giggo-delivery-app/34343/confirmation');
   };
 
   return (
     <div>
       <div className="w-full mb-5">
         <Progressbar
-          done={["pick-up", "shipment-details"]}
+          done={['pick-up', 'shipment-details']}
           steps={formSteps}
           activeStep="upload-item"
         />
@@ -121,15 +121,15 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     value={value}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["category"]}
+                    error={errors['category']}
                     placeholder="Category"
                     labelClassName="mb-2 ml-2 flex"
                     label="Select Category"
                     customChange={onChange}
                     className="rounded-lg"
                     options={[
-                      { label: "Food", value: "Food" },
-                      { label: "Electronics", value: "Electronics" },
+                      { label: 'Food', value: 'Food' },
+                      { label: 'Electronics', value: 'Electronics' },
                     ]}
                   />
                 )}
@@ -146,7 +146,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     value={value}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["item"]}
+                    error={errors['item']}
                     placeholder="Item"
                     labelClassName="mb-2 ml-2 flex"
                     label="Select item"
@@ -156,24 +156,24 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     className="rounded-lg"
                     options={[
                       {
-                        itemname: "Blender",
-                        item: "Blender",
-                        category: "Food",
+                        itemname: 'Blender',
+                        item: 'Blender',
+                        category: 'Food',
                       },
                       {
-                        itemname: "TV",
-                        item: "television",
-                        category: "Electronics",
+                        itemname: 'TV',
+                        item: 'television',
+                        category: 'Electronics',
                       },
                       {
-                        itemname: "Microwave",
-                        item: "microwave",
-                        category: "Food",
+                        itemname: 'Microwave',
+                        item: 'microwave',
+                        category: 'Food',
                       },
                       {
-                        itemname: "Laptop",
-                        item: "pc",
-                        category: "Electronics",
+                        itemname: 'Laptop',
+                        item: 'pc',
+                        category: 'Electronics',
                       },
                     ]}
                   />
@@ -191,7 +191,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     value={value}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["weight"]}
+                    error={errors['weight']}
                     placeholder="weight"
                     labelClassName="mb-2 ml-2 flex"
                     label="Select weight"
@@ -200,20 +200,20 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     className="rounded-lg"
                     options={[
                       {
-                        weightrange: "0.0 - 2.5",
-                        value: "0.0-2.5",
+                        weightrange: '0.0 - 2.5',
+                        value: '0.0-2.5',
                       },
                       {
-                        weightrange: "2.5 - 5.0",
-                        value: "2.5-5.0",
+                        weightrange: '2.5 - 5.0',
+                        value: '2.5-5.0',
                       },
                       {
-                        weightrange: "5.0 - 10.0",
-                        value: "5.0-10.0",
+                        weightrange: '5.0 - 10.0',
+                        value: '5.0-10.0',
                       },
                       {
-                        weightrange: "10.0 and above",
-                        value: "10+",
+                        weightrange: '10.0 and above',
+                        value: '10+',
                       },
                     ]}
                   />
@@ -237,7 +237,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
                       label="Quantity"
                       type="number"
                       wrapperClassName="w-full"
-                      error={errors["quantity"]}
+                      error={errors['quantity']}
                       placeholder="Quantity"
                       customChange={onChange}
                     />
@@ -259,7 +259,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
                       labelClassName="mb-2 ml-2 flex"
                       label="Value"
                       wrapperClassName="w-full"
-                      error={errors["value"]}
+                      error={errors['value']}
                       placeholder="Value"
                       customChange={onChange}
                     />
@@ -284,7 +284,7 @@ export const ItemInfo: React.FC<Props> = (props) => {
                     multiple
                     value={value}
                     customChange={onChange}
-                    error={errors["item_image"]}
+                    error={errors['item_image']}
                     accept="image/*"
                     DropZoneComponent={DropZoneComponent}
                   />
@@ -296,7 +296,8 @@ export const ItemInfo: React.FC<Props> = (props) => {
 
         <div className="flex justify-center gap-12">
           <button
-            onClick={() => history.goBack()}
+            type="button"
+            onClick={() => history.back()}
             className="border border-secondary text-secondary py-3 px-14 font-bold text-lg rounded"
           >
             Back

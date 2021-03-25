@@ -1,7 +1,7 @@
-import React from "react";
-import { FaCaretDown } from "react-icons/fa";
-import useComponentVisible from "../../hooks/useComponentVisible";
-import "./Dropdown.modules.scss";
+import React from 'react';
+import { FaCaretDown } from 'react-icons/fa';
+import { useComponentVisible } from '../../hooks/useComponentVisible';
+import './Dropdown.modules.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -17,6 +17,7 @@ const Dropdown: React.FC<Props> = ({ children }) => {
   return (
     <div ref={ref} className="w-full text-right relative">
       <button
+        type="button"
         className="p-2 hover:bg-gray-200 rounded"
         onClick={() => setIsComponentVisible(!isComponentVisible)}
       >

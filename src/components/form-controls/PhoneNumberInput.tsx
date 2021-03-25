@@ -1,8 +1,8 @@
-import React from "react";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import { Datum } from "../../interfaces";
-import "./phoneinput.scss";
+import React from 'react';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
+import { Datum } from '../../interfaces';
+import './phoneinput.scss';
 
 interface Props {
   wrapperClassName?: string;
@@ -45,15 +45,15 @@ export const PhoneNumberInput: React.FC<Props> = ({
   defaultCountry,
   international,
 }) => {
-  const [value, setValue] = React.useState(valueProps || "");
+  const [value, setValue] = React.useState(valueProps || '');
 
   React.useEffect(() => {
     setValue(valueProps);
   }, [valueProps]);
 
-  const handleChange = (value: string) => {
-    setValue(value);
-    !!customChange && customChange(value);
+  const handleChange = (selectedValue: string) => {
+    setValue(selectedValue);
+    !!customChange && customChange(selectedValue);
   };
 
   return (
@@ -68,7 +68,7 @@ export const PhoneNumberInput: React.FC<Props> = ({
         id={id}
         name={name}
         className={`p-0 border border-gray-400 rounded-md ${className} ${
-          error ? "border border-red-600" : ""
+          error ? 'border border-red-600' : ''
         }`}
         placeholder={placeholder}
         readOnly={readOnly}
@@ -85,7 +85,7 @@ export const PhoneNumberInput: React.FC<Props> = ({
       {error?.message && (
         <span
           className={`${
-            error?.message ? "text-red-600" : "text-gray-600"
+            error?.message ? 'text-red-600' : 'text-gray-600'
           } text-xs`}
         >
           {error.message}

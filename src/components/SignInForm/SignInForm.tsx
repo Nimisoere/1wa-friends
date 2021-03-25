@@ -1,8 +1,8 @@
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import TextInput from "../form-controls/TextInput";
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import TextInput from '../form-controls/TextInput';
 
 interface Props {}
 
@@ -21,7 +21,9 @@ const SignInForm: React.FC<Props> = (props) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: Inputs) => console.log(data);
+  const onSubmit = (data: Inputs) => {
+    // dispatch
+  };
 
   return (
     <div className="w-full">
@@ -39,7 +41,7 @@ const SignInForm: React.FC<Props> = (props) => {
                 type="email"
                 className="w-full"
                 wrapperClassName="w-full"
-                error={errors["email"]}
+                error={errors['email']}
                 placeholder="Email"
                 customChange={onChange}
               />
@@ -60,7 +62,7 @@ const SignInForm: React.FC<Props> = (props) => {
                 type="password"
                 className="w-full"
                 wrapperClassName="w-full"
-                error={errors["password"]}
+                error={errors['password']}
                 placeholder="Password"
                 customChange={onChange}
               />

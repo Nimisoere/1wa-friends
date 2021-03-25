@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
-import { uid } from "uid";
-import ecommerceLogisticsImg from "../../assets/images/e-commerce-logistics.svg";
-import cooperateCourierImg from "../../assets/images/corporate-courier.svg";
-import domesticCourierImg from "../../assets/images/domestic-courier.svg";
-import internationalCourierImg from "../../assets/images/international-courier.svg";
-import { ServicePageData } from "../../interfaces";
-import styles from "./Service.module.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { uid } from 'uid';
+import ecommerceLogisticsImg from '../../assets/images/e-commerce-logistics.svg';
+import cooperateCourierImg from '../../assets/images/corporate-courier.svg';
+import domesticCourierImg from '../../assets/images/domestic-courier.svg';
+import internationalCourierImg from '../../assets/images/international-courier.svg';
+import { ServicePageData } from '../../interfaces';
+import styles from './Service.module.scss';
 
 export const pages: ServicePageData[] = [
   {
     id: uid(8),
-    slug: "ecommerce-logistics-services",
-    title: "Ecommerce Logistics",
-    description: "A reputation for speed and reliability",
+    slug: 'ecommerce-logistics-services',
+    title: 'Ecommerce Logistics',
+    description: 'A reputation for speed and reliability',
     contentImg: ecommerceLogisticsImg,
     contentNode: (
       <>
@@ -34,7 +35,7 @@ export const pages: ServicePageData[] = [
         </p>
         <Link
           className="mb-5 font-bold text-sm bg-secondary text-white p-3 rounded-xl"
-          to={{ pathname: "https://giglogistics.com/deliverypartner" }}
+          to={{ pathname: 'https://giglogistics.com/deliverypartner' }}
           target="_blank"
         >
           Sign up as a merchant
@@ -42,26 +43,26 @@ export const pages: ServicePageData[] = [
       </>
     ),
     card_list: {
-      title: "Our Unique Services",
+      title: 'Our Unique Services',
       cards: [
         {
           id: uid(8),
-          icon: "",
-          title: "3rd Party Integration",
+          icon: '',
+          title: '3rd Party Integration',
           description:
             "Your Online store/Website need buyers to be fully satisfied and be loyal customers. The e-commerce 3rd Party Integration resource meets your needs and it's as user-friendly as possible. Thats why you have to integrate your marketplace with us at GIG Logistics. This e-Commerce integration will keep your online platform running at a high level.",
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Prepaid Services",
+          icon: '',
+          title: 'Prepaid Services',
           description:
-            "On our prepaid plan, you pay for your delivery service to your customer upfront. This Services is a pay as you use service with its related discount",
+            'On our prepaid plan, you pay for your delivery service to your customer upfront. This Services is a pay as you use service with its related discount',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Cash on Delivery Services",
+          icon: '',
+          title: 'Cash on Delivery Services',
           description:
             "Cash on Delivery offers you a convenient payment method with Cash/Card on delivery service, 100% payment collected on behalf of the shipper from the receiver's doorstep or the terminal station and remits directly to your bank account.",
         },
@@ -70,10 +71,10 @@ export const pages: ServicePageData[] = [
   },
   {
     id: uid(8),
-    slug: "corporate-courier-services",
-    title: "Corporate Courier Services",
+    slug: 'corporate-courier-services',
+    title: 'Corporate Courier Services',
     description:
-      "Dedicated team who are cognizant that our corporate patrons depend on our shipping services",
+      'Dedicated team who are cognizant that our corporate patrons depend on our shipping services',
     contentImg: cooperateCourierImg,
     contentNode: (
       <>
@@ -98,59 +99,59 @@ export const pages: ServicePageData[] = [
       </>
     ),
     card_list: {
-      title: "How we work",
+      title: 'How we work',
       cards: [
         {
           id: uid(8),
-          icon: "",
-          title: "Import Services",
+          icon: '',
+          title: 'Import Services',
           description:
-            "With our import services, you can import directly from your international suppliers. Arrange your inbound delivery through the personalized Import Services we provide. GIGL also provides tailor-made packaging services and transport solutions for companies within the technology sector.",
+            'With our import services, you can import directly from your international suppliers. Arrange your inbound delivery through the personalized Import Services we provide. GIGL also provides tailor-made packaging services and transport solutions for companies within the technology sector.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Haulage services",
+          icon: '',
+          title: 'Haulage services',
           description:
-            "On our prepaid plan, you pay for your delivery service to your customer upfront. This Services We have an extensive fleet of vehicles which enables us to provide a comprehensive range of services to a wide variety of industries. Our main areas of service are agricultural, manufacturing and industrial sectors as well as specialty project work such as transporting pipes and crane work materials. a pay as you use service with its related discount.",
+            'On our prepaid plan, you pay for your delivery service to your customer upfront. This Services We have an extensive fleet of vehicles which enables us to provide a comprehensive range of services to a wide variety of industries. Our main areas of service are agricultural, manufacturing and industrial sectors as well as specialty project work such as transporting pipes and crane work materials. a pay as you use service with its related discount.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Medical Courier Services",
+          icon: '',
+          title: 'Medical Courier Services',
           description:
-            "Our expertise in the medical courier services allows us to offer personalized healthcare logistics solutions to hospitals, laboratories and pharmaceutical industries. We understand the extreme sensitivity and the time critical nature of the shipments they carry.",
+            'Our expertise in the medical courier services allows us to offer personalized healthcare logistics solutions to hospitals, laboratories and pharmaceutical industries. We understand the extreme sensitivity and the time critical nature of the shipments they carry.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Warehousing & distribution services",
+          icon: '',
+          title: 'Warehousing & distribution services',
           description:
-            "Our warehousing and distribution services are designed to add value to your business. Here at GIG Logistics, we understand the movement of goods across suppliers, vendors, and customers.",
+            'Our warehousing and distribution services are designed to add value to your business. Here at GIG Logistics, we understand the movement of goods across suppliers, vendors, and customers.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Mail Room Services",
+          icon: '',
+          title: 'Mail Room Services',
           description:
-            "For larger companies that often have a need for inter-office mail delivery, GIGL offers Mail Room services. Our couriers will pickup and disperse office mail on a daily or twice daily basis; following your explicit instructions.",
+            'For larger companies that often have a need for inter-office mail delivery, GIGL offers Mail Room services. Our couriers will pickup and disperse office mail on a daily or twice daily basis; following your explicit instructions.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Pick Up & Delivery Services",
+          icon: '',
+          title: 'Pick Up & Delivery Services',
           description:
-            "With GIG Logistics Pickup & delivery services, we take away the hassle customers undergo when sending parcels. Our experienced dispatch riders are one phone call away from scheduling your parcel collection at your desired pick up and drop off location.",
+            'With GIG Logistics Pickup & delivery services, we take away the hassle customers undergo when sending parcels. Our experienced dispatch riders are one phone call away from scheduling your parcel collection at your desired pick up and drop off location.',
         },
       ],
     },
   },
   {
     id: uid(8),
-    slug: "domestic-courier-solutions",
-    title: "Domestic Courier Services",
+    slug: 'domestic-courier-solutions',
+    title: 'Domestic Courier Services',
     description:
-      "Dedicated team who are cognizant that our corporate patrons depend on our shipping services",
+      'Dedicated team who are cognizant that our corporate patrons depend on our shipping services',
     contentImg: domesticCourierImg,
     contentNode: (
       <>
@@ -171,59 +172,59 @@ export const pages: ServicePageData[] = [
       </>
     ),
     card_list: {
-      title: "How we work",
+      title: 'How we work',
       cards: [
         {
           id: uid(8),
-          icon: "",
-          title: "Express Delivery Services",
+          icon: '',
+          title: 'Express Delivery Services',
           description:
-            "With our import services, you can import directly from your international suppliers. Arrange your inbound delivery through the personalized Import Services we provide. GIGL also provides tailor-made packaging services and transport solutions for companies within the technology sector.",
+            'With our import services, you can import directly from your international suppliers. Arrange your inbound delivery through the personalized Import Services we provide. GIGL also provides tailor-made packaging services and transport solutions for companies within the technology sector.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Pick Up & Delivery Services",
+          icon: '',
+          title: 'Pick Up & Delivery Services',
           description:
-            "On our prepaid plan, you pay for your delivery service to your customer upfront. This Services We have an extensive fleet of vehicles which enables us to provide a comprehensive range of services to a wide variety of industries. Our main areas of service are agricultural, manufacturing and industrial sectors as well as specialty project work such as transporting pipes and crane work materials. a pay as you use service with its related discount.",
+            'On our prepaid plan, you pay for your delivery service to your customer upfront. This Services We have an extensive fleet of vehicles which enables us to provide a comprehensive range of services to a wide variety of industries. Our main areas of service are agricultural, manufacturing and industrial sectors as well as specialty project work such as transporting pipes and crane work materials. a pay as you use service with its related discount.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Household moving & Office Relocation Services",
+          icon: '',
+          title: 'Household moving & Office Relocation Services',
           description:
-            "Our expertise in the medical courier services allows us to offer personalized healthcare logistics solutions to hospitals, laboratories and pharmaceutical industries. We understand the extreme sensitivity and the time critical nature of the shipments they carry.",
+            'Our expertise in the medical courier services allows us to offer personalized healthcare logistics solutions to hospitals, laboratories and pharmaceutical industries. We understand the extreme sensitivity and the time critical nature of the shipments they carry.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Mail Room Services",
+          icon: '',
+          title: 'Mail Room Services',
           description:
-            "Our warehousing and distribution services are designed to add value to your business. Here at GIG Logistics, we understand the movement of goods across suppliers, vendors, and customers.",
+            'Our warehousing and distribution services are designed to add value to your business. Here at GIG Logistics, we understand the movement of goods across suppliers, vendors, and customers.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "GIGL Business Solution",
+          icon: '',
+          title: 'GIGL Business Solution',
           description:
-            "For larger companies that often have a need for inter-office mail delivery, GIGL offers Mail Room services. Our couriers will pickup and disperse office mail on a daily or twice daily basis; following your explicit instructions.",
+            'For larger companies that often have a need for inter-office mail delivery, GIGL offers Mail Room services. Our couriers will pickup and disperse office mail on a daily or twice daily basis; following your explicit instructions.',
         },
         {
           id: uid(8),
-          icon: "",
-          title: "Sensitive & Fragile Technology Freight",
+          icon: '',
+          title: 'Sensitive & Fragile Technology Freight',
           description:
-            "With GIG Logistics Pickup & delivery services, we take away the hassle customers undergo when sending parcels. Our experienced dispatch riders are one phone call away from scheduling your parcel collection at your desired pick up and drop off location.",
+            'With GIG Logistics Pickup & delivery services, we take away the hassle customers undergo when sending parcels. Our experienced dispatch riders are one phone call away from scheduling your parcel collection at your desired pick up and drop off location.',
         },
       ],
     },
   },
   {
     id: uid(8),
-    slug: "international-courier-services",
-    title: "International Courier Services",
+    slug: 'international-courier-services',
+    title: 'International Courier Services',
     description:
-      "Dedicated team who are cognizant that our corporate patrons depend on our shipping services",
+      'Dedicated team who are cognizant that our corporate patrons depend on our shipping services',
     contentImg: internationalCourierImg,
     contentNode: (
       <>
@@ -243,7 +244,7 @@ export const pages: ServicePageData[] = [
         </p>
         <Link
           className="mb-5 font-bold text-sm bg-secondary text-white p-3 rounded-xl"
-          to={{ pathname: "/contact-us" }}
+          to={{ pathname: '/contact-us' }}
         >
           Contact Us
         </Link>
@@ -292,7 +293,7 @@ export const pages: ServicePageData[] = [
             value of the item(s). In a case where you want to ship multiple
             items, you can also take advantage of our consolidated shipping
             service while saving time and money. If you have further enquiries,
-            we are happy to help. Please reach us on+1-281-741-1748.{" "}
+            we are happy to help. Please reach us on+1-281-741-1748.{' '}
           </p>
           <p>
             It takes less than 5 minutes to complete a shipping request on the
@@ -302,6 +303,6 @@ export const pages: ServicePageData[] = [
       </div>
     ),
     embedded_stream:
-      "https://res.cloudinary.com/gig-logistics/video/upload/v1611736809/Oversea_Ship_cd0pbd.mp4",
+      'https://res.cloudinary.com/gig-logistics/video/upload/v1611736809/Oversea_Ship_cd0pbd.mp4',
   },
 ];

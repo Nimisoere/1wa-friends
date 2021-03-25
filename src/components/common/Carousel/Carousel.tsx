@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
-} from "react-icons/hi";
-import styles from "./Carousel.module.scss";
+} from 'react-icons/hi';
+import styles from './Carousel.module.scss';
 
 interface Props {
   slides: React.ReactElement[];
@@ -21,9 +21,11 @@ interface Indexes {
 const determineClasses = (indexes: Indexes, cardIndex: number) => {
   if (indexes.currentIndex === cardIndex) {
     return styles.active;
-  } if (indexes.nextIndex === cardIndex) {
+  }
+  if (indexes.nextIndex === cardIndex) {
     return styles.next;
-  } if (indexes.previousIndex === cardIndex) {
+  }
+  if (indexes.previousIndex === cardIndex) {
     return styles.prev;
   }
   return styles.inactive;
@@ -86,6 +88,7 @@ const Carousel: React.FC<Props> = ({
       }, timing || 4000);
       return () => clearInterval(transitionInterval);
     }
+    return () => {};
   }, [autoplay, handleCardTransition, indexes, timing]);
 
   return (
@@ -104,10 +107,10 @@ const Carousel: React.FC<Props> = ({
         ))}
       </div>
       <div className="flex gap-2 my-20 justify-end w-full">
-        <button onClick={handleCardTransitionBack}>
+        <button type="button" onClick={handleCardTransitionBack}>
           <HiOutlineArrowNarrowLeft className=" text-3xl opacity-50 hover:opacity-100 hover:scale-150 transform transition-transform" />
-        </button>{" "}
-        <button onClick={handleCardTransition}>
+        </button>{' '}
+        <button type="button" onClick={handleCardTransition}>
           <HiOutlineArrowNarrowRight className="text-3xl opacity-50 hover:opacity-100 hover:scale-150 transform transition-transform" />
         </button>
       </div>

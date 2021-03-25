@@ -1,11 +1,11 @@
-import React from "react";
-import { useParams } from "react-router";
-import PageHeader from "../../components/common/PageHeader";
-import TwoColumnContent from "../../components/ContentBlades/TwoColumnContent/TwoColumnContent";
-import ServiceCardGroup from "../../components/ServiceCardGroup";
-import { ServicePageData } from "../../interfaces";
-import ErrorPage from "../Error/Error";
-import { pages } from "./service-page-data";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import PageHeader from '../../components/common/PageHeader';
+import TwoColumnContent from '../../components/ContentBlades/TwoColumnContent/TwoColumnContent';
+import ServiceCardGroup from '../../components/ServiceCardGroup';
+import { ServicePageData } from '../../interfaces';
+import ErrorPage from '../Error/Error';
+import { pages } from './service-page-data';
 
 interface Props {}
 
@@ -20,8 +20,8 @@ const Service: React.FC<Props> = (props) => {
   if (!pageData)
     return (
       <ErrorPage
-        error={pageData === null ? "404" : "Loading..."}
-        description={pageData === null ? "Service unavailable" : ""}
+        error={pageData === null ? '404' : 'Loading...'}
+        description={pageData === null ? 'Service unavailable' : ''}
       />
     );
 
@@ -43,6 +43,7 @@ const Service: React.FC<Props> = (props) => {
         {pageData.embedded_stream && (
           <div className="w-full bg-secondary h-96 mb-20 h-">
             <video className="h-full w-full" preload="auto" controls>
+              <track kind="captions" />
               <source src={pageData.embedded_stream} type="video/mp4" />
             </video>
           </div>

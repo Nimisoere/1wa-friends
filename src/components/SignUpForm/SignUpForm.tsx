@@ -1,15 +1,15 @@
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { MdRadioButtonChecked, MdRadioButtonUnchecked } from "react-icons/md";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import TextInput from "../form-controls/TextInput";
-import { PhoneNumberInput } from "../form-controls/PhoneNumberInput";
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { MdRadioButtonChecked, MdRadioButtonUnchecked } from 'react-icons/md';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import TextInput from '../form-controls/TextInput';
+import { PhoneNumberInput } from '../form-controls/PhoneNumberInput';
 
 interface Props {}
 
 interface Inputs {
-  customer_type: "individual" | "business";
+  customer_type: 'individual' | 'business';
   firstname: string;
   lastname: string;
   email: string;
@@ -19,7 +19,7 @@ interface Inputs {
 }
 
 const schema = yup.object().shape({
-  customer_type: yup.string().oneOf(["individual", "business"]).required(),
+  customer_type: yup.string().oneOf(['individual', 'business']).required(),
   firstname: yup.string().required(),
   lastname: yup.string().required(),
   email: yup.string().email().required(),
@@ -27,21 +27,23 @@ const schema = yup.object().shape({
   password: yup.string().required(),
   confirm_password: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match")
-    .required("Password confirm is required"),
+    .oneOf([yup.ref('password'), null], 'Passwords must match')
+    .required('Password confirm is required'),
 });
 
 const SignUpForm: React.FC<Props> = (props) => {
   const { handleSubmit, register, watch, control, errors } = useForm<Inputs>({
     resolver: yupResolver(schema),
     defaultValues: {
-      customer_type: "individual",
+      customer_type: 'individual',
     },
   });
 
-  const customerType = watch("customer_type");
+  const customerType = watch('customer_type');
 
-  const onSubmit = (data: Inputs) => console.log(data);
+  const onSubmit = (data: Inputs) => {
+    // dispatch
+  };
 
   return (
     <div className="w-full">
@@ -50,17 +52,18 @@ const SignUpForm: React.FC<Props> = (props) => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="w-full flex mb-9 justify-around">
-          <label>
+          <label htmlFor="individual">
             <input
               name="customer_type"
+              id="individual"
               value="individual"
               defaultChecked={true}
               className="hidden"
               ref={register}
               type="radio"
-             />
+            />
             <span className="inline-flex items-center">
-              {customerType === "individual" ? (
+              {customerType === 'individual' ? (
                 <MdRadioButtonChecked className="text-3xl" />
               ) : (
                 <MdRadioButtonUnchecked className="text-3xl text-gray-300" />
@@ -68,16 +71,17 @@ const SignUpForm: React.FC<Props> = (props) => {
               <span className="font-medium text-lg ml-3">Individual</span>
             </span>
           </label>
-          <label>
+          <label htmlFor="business">
             <input
               name="customer_type"
               value="business"
+              id="business"
               className="hidden"
               ref={register}
               type="radio"
-             />
+            />
             <span className="inline-flex items-center">
-              {customerType === "business" ? (
+              {customerType === 'business' ? (
                 <MdRadioButtonChecked className="text-3xl" />
               ) : (
                 <MdRadioButtonUnchecked className="text-3xl text-gray-300" />
@@ -99,7 +103,7 @@ const SignUpForm: React.FC<Props> = (props) => {
                   className="w-full"
                   id={name}
                   wrapperClassName="w-full"
-                  error={errors["firstname"]}
+                  error={errors['firstname']}
                   placeholder="First Name"
                   customChange={onChange}
                 />
@@ -118,7 +122,7 @@ const SignUpForm: React.FC<Props> = (props) => {
                   id={name}
                   className="w-full"
                   wrapperClassName="w-full"
-                  error={errors["lastname"]}
+                  error={errors['lastname']}
                   placeholder="Last Name"
                   customChange={onChange}
                 />
@@ -139,7 +143,7 @@ const SignUpForm: React.FC<Props> = (props) => {
                 type="email"
                 className="w-full"
                 wrapperClassName="w-full"
-                error={errors["email"]}
+                error={errors['email']}
                 placeholder="Email Name"
                 customChange={onChange}
               />
@@ -163,7 +167,7 @@ const SignUpForm: React.FC<Props> = (props) => {
                   international
                   className="w-full"
                   wrapperClassName="w-full"
-                  error={errors["phonenumber"]}
+                  error={errors['phonenumber']}
                   placeholder="Phone Number"
                   customChange={onChange}
                 />
@@ -185,7 +189,7 @@ const SignUpForm: React.FC<Props> = (props) => {
                 type="password"
                 className="w-full"
                 wrapperClassName="w-full"
-                error={errors["password"]}
+                error={errors['password']}
                 placeholder="Password"
                 customChange={onChange}
               />
@@ -206,7 +210,7 @@ const SignUpForm: React.FC<Props> = (props) => {
                 type="password"
                 className="w-full"
                 wrapperClassName="w-full"
-                error={errors["confirm_password"]}
+                error={errors['confirm_password']}
                 placeholder="Confirm password"
                 customChange={onChange}
               />

@@ -1,50 +1,50 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import * as yup from "yup";
-import { getRequiredErrorMessage, phoneRegExp } from "../../utils/common.utils";
-import TextInput from "../form-controls/TextInput";
-import style from "./QuoteForm.module.scss";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { getRequiredErrorMessage, phoneRegExp } from '../../utils/common.utils';
+import TextInput from '../form-controls/TextInput';
+import style from './QuoteForm.module.scss';
 
 interface Props {}
 
 const schema = yup.object().shape({
-  companyname: yup.string().required(getRequiredErrorMessage("Company name")),
-  firstname: yup.string().required(getRequiredErrorMessage("First name")),
-  lastname: yup.string().required(getRequiredErrorMessage("Last name")),
-  email: yup.string().email(getRequiredErrorMessage("Email")).required(),
+  companyname: yup.string().required(getRequiredErrorMessage('Company name')),
+  firstname: yup.string().required(getRequiredErrorMessage('First name')),
+  lastname: yup.string().required(getRequiredErrorMessage('Last name')),
+  email: yup.string().email(getRequiredErrorMessage('Email')).required(),
   phonenumber: yup
     .string()
-    .required(getRequiredErrorMessage("Phone number"))
-    .matches(phoneRegExp, "Phone number is not valid"),
+    .required(getRequiredErrorMessage('Phone number'))
+    .matches(phoneRegExp, 'Phone number is not valid'),
   pickup_address: yup
     .string()
-    .required(getRequiredErrorMessage("Pick up address")),
+    .required(getRequiredErrorMessage('Pick up address')),
   destination_address: yup
     .string()
-    .required(getRequiredErrorMessage("Destination address")),
-  pickup_city: yup.string().required(getRequiredErrorMessage("Pickup city")),
-  pickup_state: yup.string().required(getRequiredErrorMessage("Pickup state")),
-  pickup_zip: yup.string().required(getRequiredErrorMessage("Pickup zip")),
+    .required(getRequiredErrorMessage('Destination address')),
+  pickup_city: yup.string().required(getRequiredErrorMessage('Pickup city')),
+  pickup_state: yup.string().required(getRequiredErrorMessage('Pickup state')),
+  pickup_zip: yup.string().required(getRequiredErrorMessage('Pickup zip')),
   destination_city: yup
     .string()
-    .required(getRequiredErrorMessage("Destination city")),
+    .required(getRequiredErrorMessage('Destination city')),
   destination_state: yup
     .string()
-    .required(getRequiredErrorMessage("Destination state")),
+    .required(getRequiredErrorMessage('Destination state')),
   destination_zip: yup
     .string()
-    .required(getRequiredErrorMessage("Destination zip")),
+    .required(getRequiredErrorMessage('Destination zip')),
   package_information: yup
     .string()
-    .required(getRequiredErrorMessage("Package information")),
+    .required(getRequiredErrorMessage('Package information')),
   number_of_pieces: yup
     .number()
     .min(1)
-    .required(getRequiredErrorMessage("Number of peices"))
-    .typeError("Field must be a number"),
-  weight: yup.string().required(getRequiredErrorMessage("Weight")),
-  dimensions: yup.string().required(getRequiredErrorMessage("Dimensions")),
+    .required(getRequiredErrorMessage('Number of peices'))
+    .typeError('Field must be a number'),
+  weight: yup.string().required(getRequiredErrorMessage('Weight')),
+  dimensions: yup.string().required(getRequiredErrorMessage('Dimensions')),
   special_instructions: yup.string(),
 });
 
@@ -73,7 +73,9 @@ const QuoteForm: React.FC<Props> = (props) => {
   const { handleSubmit, control, errors } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: Inputs) => console.log(data);
+  const onSubmit = (data: Inputs) => {
+    // dispatch
+  };
 
   return (
     <div className="w-full">
@@ -96,7 +98,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["companyname"]}
+                    error={errors['companyname']}
                     placeholder="Company Name"
                     customChange={onChange}
                   />
@@ -115,7 +117,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["firstname"]}
+                    error={errors['firstname']}
                     placeholder="Contact First Name"
                     customChange={onChange}
                   />
@@ -134,7 +136,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["lastname"]}
+                    error={errors['lastname']}
                     placeholder="Contact Last Name"
                     customChange={onChange}
                   />
@@ -156,7 +158,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     id={name}
                     type="email"
                     wrapperClassName="w-full"
-                    error={errors["email"]}
+                    error={errors['email']}
                     placeholder="Email"
                     customChange={onChange}
                   />
@@ -176,7 +178,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     id={name}
                     type="tel"
                     wrapperClassName="w-full"
-                    error={errors["phonenumber"]}
+                    error={errors['phonenumber']}
                     placeholder="Phone number"
                     customChange={onChange}
                   />
@@ -206,7 +208,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     multiline
                     rows={5}
                     wrapperClassName="w-full"
-                    error={errors["pickup_address"]}
+                    error={errors['pickup_address']}
                     placeholder="Pick-Up Address"
                     customChange={onChange}
                   />
@@ -227,7 +229,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     multiline
                     rows={5}
                     wrapperClassName="w-full"
-                    error={errors["destination_address"]}
+                    error={errors['destination_address']}
                     placeholder="Destination Address"
                     customChange={onChange}
                   />
@@ -248,7 +250,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["pickup_city"]}
+                    error={errors['pickup_city']}
                     placeholder="Pick up city"
                     customChange={onChange}
                   />
@@ -267,7 +269,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["pickup_state"]}
+                    error={errors['pickup_state']}
                     placeholder="Pick up state"
                     customChange={onChange}
                   />
@@ -287,7 +289,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["pickup_zip"]}
+                    error={errors['pickup_zip']}
                     placeholder="Pick up zip"
                     customChange={onChange}
                   />
@@ -308,7 +310,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["destination_city"]}
+                    error={errors['destination_city']}
                     placeholder="Destination city"
                     customChange={onChange}
                   />
@@ -327,7 +329,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["destination_state"]}
+                    error={errors['destination_state']}
                     placeholder="Destination state"
                     customChange={onChange}
                   />
@@ -347,7 +349,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["destination_zip"]}
+                    error={errors['destination_zip']}
                     placeholder="Destination zip"
                     customChange={onChange}
                   />
@@ -371,7 +373,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["package_information"]}
+                    error={errors['package_information']}
                     placeholder="Package information"
                     customChange={onChange}
                   />
@@ -390,7 +392,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     id={name}
                     type="number"
                     wrapperClassName="w-full"
-                    error={errors["number_of_pieces"]}
+                    error={errors['number_of_pieces']}
                     placeholder="Number of pieces"
                     customChange={onChange}
                   />
@@ -409,7 +411,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["weight"]}
+                    error={errors['weight']}
                     placeholder="Weight"
                     customChange={onChange}
                   />
@@ -430,7 +432,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     className={style.quoteforminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["dimensions"]}
+                    error={errors['dimensions']}
                     placeholder="Dimensions"
                     customChange={onChange}
                   />
@@ -450,7 +452,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                     multiline
                     rows={5}
                     wrapperClassName="w-full"
-                    error={errors["special_instructions"]}
+                    error={errors['special_instructions']}
                     placeholder="Special instructions"
                     customChange={onChange}
                   />

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { baseInstance } from '.';
 import { API_KEYS, API_LIBRARY as IAPI_LIBRARY } from '../interfaces/api';
 

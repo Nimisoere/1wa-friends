@@ -1,19 +1,19 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
-import * as yup from "yup";
-import { Controller, useForm } from "react-hook-form";
-import { useHistory, useParams } from "react-router";
-import { getRequiredErrorMessage } from "../../utils/common.utils";
-import TextInput from "../form-controls/TextInput";
-import { PropsFromRedux } from ".";
-import TrackShipment from "../TrackShipment";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import * as yup from 'yup';
+import { Controller, useForm } from 'react-hook-form';
+import { useHistory, useParams } from 'react-router-dom';
+import { getRequiredErrorMessage } from '../../utils/common.utils';
+import TextInput from '../form-controls/TextInput';
+import { PropsFromRedux } from '.';
+import TrackShipment from '../TrackShipment';
 
 interface Props extends PropsFromRedux {}
 
 const schema = yup.object().shape({
   tracking_code: yup
     .string()
-    .required(getRequiredErrorMessage("Tracking code")),
+    .required(getRequiredErrorMessage('Tracking code')),
 });
 
 interface Inputs {
@@ -41,8 +41,6 @@ const TrackingWidget: React.FC<Props> = ({ showModal, hideModal }) => {
   }, [params?.trackingCode, hideModal, history, showModal]);
 
   const onSubmit = (data: Inputs) => {
-    console.log();
-
     history.push(`/shipment/${data.tracking_code}`);
   };
 

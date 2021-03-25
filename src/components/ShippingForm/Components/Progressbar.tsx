@@ -1,9 +1,9 @@
-import React from "react";
-import { HiOutlineArrowNarrowLeft , HiCheck } from "react-icons/hi";
-import { useHistory } from "react-router";
-import { FormSteps } from "../shippingform.utils";
+import React from 'react';
+import { HiOutlineArrowNarrowLeft, HiCheck } from 'react-icons/hi';
+import { useHistory } from 'react-router-dom';
+import { FormSteps } from '../shippingform.utils';
 
-import styles from "./Progressbar.module.scss";
+import styles from './Progressbar.module.scss';
 
 interface Props {
   steps: FormSteps[];
@@ -26,7 +26,11 @@ export const Progressbar: React.FC<Props> = ({
       } w-full flex flex-wrap text-center`}
     >
       {hasBackButton && (
-        <button className="mb-10 lg:mb-0" onClick={() => history.goBack()}>
+        <button
+          type="button"
+          className="mb-10 lg:mb-0"
+          onClick={() => history.back()}
+        >
           <HiOutlineArrowNarrowLeft className="inline-flex text-2xl" />
         </button>
       )}
@@ -39,15 +43,15 @@ export const Progressbar: React.FC<Props> = ({
               } ${
                 activeStep === step.name || done?.includes(step.name)
                   ? styles.active
-                  : ""
+                  : ''
               }`}
               key={step.name}
             >
               <div
                 className={`w-7 h-7 z-10 rounded-full border  flex justify-center items-center text-xs ${
                   activeStep === step.name || done?.includes(step.name)
-                    ? "bg-black border-black text-white font-normal"
-                    : "bg-white border-gray-300 text-gray-300 font-bold"
+                    ? 'bg-black border-black text-white font-normal'
+                    : 'bg-white border-gray-300 text-gray-300 font-bold'
                 }`}
               >
                 {done?.includes(step.name) ? <HiCheck /> : step.caption}
@@ -55,8 +59,8 @@ export const Progressbar: React.FC<Props> = ({
               <p
                 className={`text-sm w-full ${
                   activeStep === step.name || done?.includes(step.name)
-                    ? "text-black"
-                    : "text-gray-300"
+                    ? 'text-black'
+                    : 'text-gray-300'
                 }`}
               >
                 {step.label}

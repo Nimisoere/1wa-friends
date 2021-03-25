@@ -1,16 +1,16 @@
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { getRequiredErrorMessage } from "../../utils/common.utils";
-import TextInput from "../form-controls/TextInput";
-import style from "./RatingForm.module.scss";
-import { ratings } from "./ratings.constant";
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { getRequiredErrorMessage } from '../../utils/common.utils';
+import TextInput from '../form-controls/TextInput';
+import style from './RatingForm.module.scss';
+import { ratings } from './ratings.constant';
 
 interface Props {}
 
 const schema = yup.object().shape({
-  rating: yup.string().required(getRequiredErrorMessage("Rating")),
+  rating: yup.string().required(getRequiredErrorMessage('Rating')),
   comment: yup.string(),
 });
 
@@ -23,9 +23,11 @@ export const RatingForm = (props: Props) => {
   const { handleSubmit, control, errors, register, watch } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: Inputs) => console.log(data);
+  const onSubmit = (data: Inputs) => {
+    // Dispatch
+  };
 
-  const selectedRating = watch("rating");
+  const selectedRating = watch('rating');
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -35,19 +37,21 @@ export const RatingForm = (props: Props) => {
           {ratings.map((rating) => (
             <label
               className={` hover:scale-125 transform transition-all ${
-                Number(selectedRating) === rating.value ? "scale-150" : ""
+                Number(selectedRating) === rating.value ? 'scale-150' : ''
               } cursor-pointer`}
               title={rating.title}
               key={rating.title}
+              htmlFor={`${rating.value}`}
             >
               {rating.icon}
               <input
                 name="rating"
+                id={`${rating.value}`}
                 value={rating.value}
                 className="hidden"
                 ref={register}
                 type="radio"
-               />
+              />
             </label>
           ))}
         </div>
@@ -65,7 +69,7 @@ export const RatingForm = (props: Props) => {
                 rows={5}
                 className={style.forminput}
                 wrapperClassName="w-full"
-                error={errors["comment"]}
+                error={errors['comment']}
                 placeholder="Express yourself here"
                 customChange={onChange}
               />

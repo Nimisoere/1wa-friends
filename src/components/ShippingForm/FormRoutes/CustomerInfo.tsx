@@ -1,16 +1,16 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
 import {
   getRequiredErrorMessage,
   phoneRegExp,
-} from "../../../utils/common.utils";
-import TextInput from "../../form-controls/TextInput";
-import { Progressbar } from "../Components/Progressbar";
-import { formSteps } from "../shippingform.utils";
-import style from "./CustomerInfo.module.scss";
+} from '../../../utils/common.utils';
+import TextInput from '../../form-controls/TextInput';
+import { Progressbar } from '../Components/Progressbar';
+import { formSteps } from '../shippingform.utils';
+import style from './CustomerInfo.module.scss';
 
 interface Props {}
 
@@ -26,7 +26,7 @@ const schema = yup.object().shape({
   senders_phonenumber: yup
     .string()
     .required(getRequiredErrorMessage("Sender's Phone number"))
-    .matches(phoneRegExp, "Phone number is not valid"),
+    .matches(phoneRegExp, 'Phone number is not valid'),
   receivers_address: yup
     .string()
     .required(getRequiredErrorMessage("Receiver's address")),
@@ -40,7 +40,7 @@ const schema = yup.object().shape({
   receivers_phonenumber: yup
     .string()
     .required(getRequiredErrorMessage("Receiver's Phone number"))
-    .matches(phoneRegExp, "Phone number is not valid"),
+    .matches(phoneRegExp, 'Phone number is not valid'),
 });
 
 interface Inputs {
@@ -64,7 +64,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
   const history = useHistory();
 
   const onSubmit = (data: Inputs) => {
-    history.push("/giggo-delivery-app/item-information");
+    history.push('/giggo-delivery-app/item-information');
   };
 
   return (
@@ -72,7 +72,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
       <div className="w-full mb-5">
         <Progressbar
           steps={formSteps}
-          done={["pick-up"]}
+          done={['pick-up']}
           activeStep="shipment-details"
         />
       </div>
@@ -96,7 +96,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     rows={5}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["senders_address"]}
+                    error={errors['senders_address']}
                     label="Address"
                     labelClassName="mb-2 ml-2 flex"
                     placeholder="Address"
@@ -119,7 +119,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     multiline
                     rows={5}
                     wrapperClassName="w-full"
-                    error={errors["senders_address2"]}
+                    error={errors['senders_address2']}
                     placeholder="Address 2"
                     label="Address 2"
                     labelClassName="mb-2 ml-2 flex"
@@ -140,7 +140,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["senders_name"]}
+                    error={errors['senders_name']}
                     label="Name"
                     labelClassName="mb-2 ml-2 flex"
                     placeholder="Name"
@@ -161,7 +161,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["senders_phonenumber"]}
+                    error={errors['senders_phonenumber']}
                     label="Phone number"
                     labelClassName="mb-2 ml-2 flex"
                     placeholder="Phone number"
@@ -182,7 +182,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["senders_location"]}
+                    error={errors['senders_location']}
                     label="Location"
                     labelClassName="mb-2 ml-2 flex"
                     placeholder="Location"
@@ -213,7 +213,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     rows={5}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["receivers_address"]}
+                    error={errors['receivers_address']}
                     placeholder="Address"
                     labelClassName="mb-2 ml-2 flex"
                     label="Address"
@@ -236,7 +236,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     multiline
                     rows={5}
                     wrapperClassName="w-full"
-                    error={errors["receivers_address2"]}
+                    error={errors['receivers_address2']}
                     placeholder="Address 2"
                     labelClassName="mb-2 ml-2 flex"
                     label="Address 2"
@@ -257,7 +257,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["receivers_name"]}
+                    error={errors['receivers_name']}
                     placeholder="Reveiver name"
                     labelClassName="mb-2 ml-2 flex"
                     label="Reveiver name"
@@ -278,7 +278,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["receivers_phonenumber"]}
+                    error={errors['receivers_phonenumber']}
                     placeholder="Phone number"
                     labelClassName="mb-2 ml-2 flex"
                     label="Phone number"
@@ -299,7 +299,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
                     className={style.forminput}
                     id={name}
                     wrapperClassName="w-full"
-                    error={errors["receivers_location"]}
+                    error={errors['receivers_location']}
                     placeholder="Location"
                     labelClassName="mb-2 ml-2 flex"
                     label="Location"
@@ -313,7 +313,8 @@ export const CustomerInfo: React.FC<Props> = (props) => {
 
         <div className="flex justify-center gap-12">
           <button
-            onClick={() => history.goBack()}
+            type="button"
+            onClick={() => history.back()}
             className="border border-secondary text-secondary py-3 px-14 font-bold text-lg rounded"
           >
             Back

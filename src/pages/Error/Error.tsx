@@ -1,7 +1,7 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import Seo from "../../components/Seo/Seo";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
+import Seo from '../../components/Seo/Seo';
 
 interface ErrorPageProps {
   error: string;
@@ -22,7 +22,8 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
         </h2>
         <p color="textSecondary">{description}</p>
         <button
-          onClick={() => history.goBack()}
+          type="button"
+          onClick={() => history.back()}
           className="mt-10 text-primary p-2 rounded"
         >
           <HiOutlineArrowNarrowLeft className="inline-flex" /> Go Back

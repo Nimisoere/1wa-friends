@@ -1,13 +1,13 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
-import { Controller, useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import * as yup from "yup";
-import { getRequiredErrorMessage } from "../../../utils/common.utils";
-import LocationInput from "../../form-controls/PlacesAutocomplete";
-import { Progressbar } from "../Components/Progressbar";
-import { formSteps } from "../shippingform.utils";
-import { ReactComponent as Dots } from "../../../assets/icons/dots.svg";
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
+import { getRequiredErrorMessage } from '../../../utils/common.utils';
+import LocationInput from '../../form-controls/PlacesAutocomplete';
+import { Progressbar } from '../Components/Progressbar';
+import { formSteps } from '../shippingform.utils';
+import { ReactComponent as Dots } from '../../../assets/icons/dots.svg';
 
 interface Props {}
 
@@ -19,10 +19,10 @@ interface Inputs {
 const schema = yup.object().shape({
   pickup_address: yup
     .string()
-    .required(getRequiredErrorMessage("Pickup address")),
+    .required(getRequiredErrorMessage('Pickup address')),
   delivery_address: yup
     .string()
-    .required(getRequiredErrorMessage("Delivery address")),
+    .required(getRequiredErrorMessage('Delivery address')),
 });
 
 export const ShippingInfo: React.FC<Props> = (props) => {
@@ -32,11 +32,11 @@ export const ShippingInfo: React.FC<Props> = (props) => {
     resolver: yupResolver(schema),
   });
   const onSubmit = (data: Inputs) => {
-    history.push("/giggo-delivery-app/customer-information");
+    history.push('/giggo-delivery-app/customer-information');
   };
 
   const mapUrl =
-    "https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJlZisjon5OxARmL23eBevwdo&destination=place_id:ChIJSWGXDYr2OxARCzJ3PFd_BJ4&key=AIzaSyAXjWTPsX9a9YvVnTdxsXSvfcoouoX639I";
+    'https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJlZisjon5OxARmL23eBevwdo&destination=place_id:ChIJSWGXDYr2OxARCzJ3PFd_BJ4&key=AIzaSyAXjWTPsX9a9YvVnTdxsXSvfcoouoX639I';
 
   return (
     <div>
@@ -56,7 +56,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
                 className="w-full"
                 wrapperClassName="w-full"
                 labelClassName="text-sm mb-2 flex font-medium"
-                error={errors["pickup_address"]}
+                error={errors['pickup_address']}
                 placeholder="Pickup Address"
                 label="Pickup Address"
                 customChange={onChange}
@@ -78,7 +78,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
                 className="w-full"
                 labelClassName="text-sm mb-2 flex font-medium"
                 wrapperClassName="w-full"
-                error={errors["delivery_address"]}
+                error={errors['delivery_address']}
                 placeholder="Delivery Address"
                 label="Delivery Address"
                 customChange={onChange}
@@ -90,7 +90,6 @@ export const ShippingInfo: React.FC<Props> = (props) => {
         <div className="w-full rounded-xl flex mb-10">
           <iframe
             aria-hidden="false"
-            tabIndex={0}
             title="googlemaps"
             width="100%"
             height="450"
@@ -100,7 +99,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
             loading="lazy"
             allowFullScreen
             src={mapUrl}
-           />
+          />
         </div>
         <div className="flex justify-center w-full">
           <button

@@ -1,8 +1,7 @@
-import React from "react";
-import ReactSelect, { OptionTypeBase } from "react-select";
-import { MdArrowDropDown } from "react-icons/md";
-import { Datum } from "../../interfaces";
-
+import React from 'react';
+import ReactSelect, { OptionTypeBase } from 'react-select';
+import { MdArrowDropDown } from 'react-icons/md';
+import { Datum } from '../../interfaces';
 
 interface Props {
   wrapperClassName?: string;
@@ -53,8 +52,8 @@ const Select: React.FC<Props> = ({
   error,
   isClearable,
   isSearchable,
-  labelKey = "label",
-  valueKey = "value",
+  labelKey = 'label',
+  valueKey = 'value',
   openMenuOnClick,
 }) => {
   const [, setValue] = React.useState<any>(null);
@@ -67,7 +66,7 @@ const Select: React.FC<Props> = ({
   const handleChange = (option: OptionTypeBase | null) => {
     setValue(option);
     // setInputValue(option ? option[valueKey] : "");
-    !!customChange && customChange(option ? option[valueKey] : "");
+    !!customChange && customChange(option ? option[valueKey] : '');
   };
 
   return (
@@ -96,17 +95,19 @@ const Select: React.FC<Props> = ({
         getOptionValue={(option) => option[valueKey]}
         styles={{
           control: (base) => {
-            base.backgroundColor = "#FFF";
-            base.borderColor = "#D0C9D6";
-            base.borderRadius = "10px";
-            base.padding = "8px";
-            return base;
+            const newBase = { ...base };
+            newBase.backgroundColor = '#FFF';
+            newBase.borderColor = '#D0C9D6';
+            newBase.borderRadius = '10px';
+            newBase.padding = '8px';
+            return newBase;
           },
           placeholder: (base) => {
-            base.color = "#BDBDBD";
-            base.fontWeight = 400;
-            base.fontSize = "14px";
-            return base;
+            const newBase = { ...base };
+            newBase.color = '#BDBDBD';
+            newBase.fontWeight = 400;
+            newBase.fontSize = '14px';
+            return newBase;
           },
         }}
         components={{
@@ -117,7 +118,7 @@ const Select: React.FC<Props> = ({
       {error?.message && (
         <span
           className={`${
-            error?.message ? "text-red-600" : "text-gray-600"
+            error?.message ? 'text-red-600' : 'text-gray-600'
           } text-xs`}
         >
           {error?.message}

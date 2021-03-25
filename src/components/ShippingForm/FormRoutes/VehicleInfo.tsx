@@ -1,18 +1,18 @@
-import React from "react";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router";
-import { vehicles } from "../shippingform.utils";
+import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { vehicles } from '../shippingform.utils';
 
 interface Props {}
 
 interface Inputs {
-  vehicle_type: "bike" | "car" | "van" | "truck";
+  vehicle_type: 'bike' | 'car' | 'van' | 'truck';
 }
 
 const schema = yup.object().shape({
-  vehicle_type: yup.string().oneOf(["bike", "car", "van", "truck"]).required(),
+  vehicle_type: yup.string().oneOf(['bike', 'car', 'van', 'truck']).required(),
 });
 
 export const VehicleInfo: React.FC<Props> = (props) => {
@@ -22,11 +22,11 @@ export const VehicleInfo: React.FC<Props> = (props) => {
     resolver: yupResolver(schema),
   });
 
-  const vehicle_type = watch("vehicle_type");
+  const vehicle_type = watch('vehicle_type');
 
   React.useEffect(() => {
     const onSubmit = (data: Inputs) => {
-      history.push("/giggo-delivery-app/shipping-information");
+      history.push('/giggo-delivery-app/shipping-information');
     };
     if (vehicle_type) {
       handleSubmit(onSubmit)();
@@ -44,12 +44,12 @@ export const VehicleInfo: React.FC<Props> = (props) => {
          flex-wrap w-full"
         >
           {vehicles.map((vehicle) => (
-            <label className="p-4 w-1/2" key={vehicle.id}>
+            <label htmlFor={vehicle.id} className="p-4 w-1/2" key={vehicle.id}>
               <div
                 className={`shadow-lg hover:border-secondary flex flex-col justify-center items-center cursor-pointer border h-full ${
                   vehicle_type === vehicle.value
-                    ? "border-primary"
-                    : "border-gray-100"
+                    ? 'border-primary'
+                    : 'border-gray-100'
                 } text-center my-2 p-5 rounded-lg`}
               >
                 <p className="mb-5">{vehicle.icon}</p>
@@ -57,12 +57,13 @@ export const VehicleInfo: React.FC<Props> = (props) => {
                 <p className="text-sm font-normal">{vehicle.description}</p>
               </div>
               <input
+                id={vehicle.id}
                 name="vehicle_type"
                 value={vehicle.value}
                 className="hidden"
                 ref={register}
                 type="radio"
-               />
+              />
             </label>
           ))}
         </div>
