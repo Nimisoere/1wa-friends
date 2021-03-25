@@ -100,7 +100,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
             loading="lazy"
             allowFullScreen
             src={mapUrl}
-          ></iframe>
+           />
         </div>
         <div className="flex justify-center w-full">
           <button

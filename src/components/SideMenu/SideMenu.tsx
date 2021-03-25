@@ -7,8 +7,7 @@ import { ReactComponent as Wallet } from "../../assets/icons/wallet.svg";
 
 interface Props {}
 
-const SideMenu: React.FC<Props> = (props) => {
-  return (
+const SideMenu: React.FC<Props> = (props) => (
     <nav className="w-full sticky top-28 mb-10 flex flex-wrap shadow-2xl rounded-lg">
       <NavLink
         activeClassName="bg-secondary text-white"
@@ -44,6 +43,5 @@ const SideMenu: React.FC<Props> = (props) => {
       </NavLink>
     </nav>
   );
-};
 
 export default SideMenu;

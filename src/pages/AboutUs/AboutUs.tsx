@@ -6,8 +6,7 @@ import { PropsFromRedux } from ".";
 
 interface Props extends PropsFromRedux {}
 
-const AboutUs: React.FC<Props> = () => {
-  return (
+const AboutUs: React.FC<Props> = () => (
     <div className="w-full">
       <div className="container mx-auto">
         <PageHeader
@@ -69,6 +68,5 @@ const AboutUs: React.FC<Props> = () => {
       </div>
     </div>
   );
-};
 
 export default AboutUs;

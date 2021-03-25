@@ -5,8 +5,7 @@ interface INoAccessProps {
   allowedPermissions: string[];
 }
 
-const NoAccess: React.FC<INoAccessProps> = ({}) => {
-  return (
+const NoAccess: React.FC<INoAccessProps> = ({}) => (
     <div className="container flex justify-center items-center">
       <div>
         <h4 className="text-center text-primary">
@@ -21,6 +20,5 @@ const NoAccess: React.FC<INoAccessProps> = ({}) => {
       </div>
     </div>
   );
-};
 
 export default NoAccess;

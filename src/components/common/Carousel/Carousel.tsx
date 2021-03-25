@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Carousel.module.scss";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
+import styles from "./Carousel.module.scss";
 
 interface Props {
   slides: React.ReactElement[];
@@ -21,9 +21,9 @@ interface Indexes {
 const determineClasses = (indexes: Indexes, cardIndex: number) => {
   if (indexes.currentIndex === cardIndex) {
     return styles.active;
-  } else if (indexes.nextIndex === cardIndex) {
+  } if (indexes.nextIndex === cardIndex) {
     return styles.next;
-  } else if (indexes.previousIndex === cardIndex) {
+  } if (indexes.previousIndex === cardIndex) {
     return styles.prev;
   }
   return styles.inactive;
@@ -93,7 +93,7 @@ const Carousel: React.FC<Props> = ({
       <div className={styles.cardcarousel}>
         {slides.map((slide, index) => (
           <div
-            key={slide as any} //Important for animation to work
+            key={slide as any} // Important for animation to work
             className={`${styles.card} ${determineClasses(
               indexes,
               index

@@ -5,8 +5,6 @@ interface Props {
   description: string;
 }
 
-const Card: React.FC<Props> = ({ title, description }) => {
-  return <div></div>;
-};
+const Card: React.FC<Props> = ({ title, description }) => <div />;
 
 export default Card;

@@ -5,7 +5,7 @@ export const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|(
  * @param {Number to stringify} number
  */
 export const commanumbers = (number: number): string => {
-  let numberString = "";
+  let numberString = '';
   if (number !== undefined) {
     numberString = number.toLocaleString(undefined, {
       maximumFractionDigits: 2,
@@ -23,9 +23,9 @@ export const downloadFile = (
   filename: string,
   fileExtension: string
 ): void => {
-  const link = document.createElement("a");
+  const link = document.createElement('a');
   link.href = filePath;
-  link.setAttribute("download", `${filename}.${fileExtension}`);
+  link.setAttribute('download', `${filename}.${fileExtension}`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -41,13 +41,13 @@ export const formatMoney = (
   fractions?: number
 ): string => {
   const options = {
-    style: "currency",
+    style: 'currency',
     currency,
     minimumFractionDigits: fractions || fractions === 0 ? fractions : 2,
   };
   // if its a whole, dollar amount, leave off the .00
   // if (amount % 100 === 0) options.minimumFractionDigits = 0;
-  const formatter = new Intl.NumberFormat("en-US", options);
+  const formatter = new Intl.NumberFormat('en-US', options);
   return formatter.format(amount);
 };
 
@@ -57,12 +57,12 @@ export const formatMoney = (
  * @param  {String|Function} criteria The criteria to group by
  * @return {Object}                   The grouped object
  */
-export const groupBy = (arr: Array<any>, criteria: string | Function) => {
-  return arr.reduce((obj, item) => {
+export const groupBy = (arr: Array<any>, criteria: string | Function) =>
+  arr.reduce((obj, item) => {
     const newObj = { ...obj };
     // Check if the criteria is a function to run on the item or a property of it
     const key =
-      typeof criteria === "function" ? criteria(item) : item[criteria];
+      typeof criteria === 'function' ? criteria(item) : item[criteria];
     if (key) {
       // If the key doesn't exist yet, create it
       const objHasKey = Object.prototype.hasOwnProperty.call(newObj, key);
@@ -75,7 +75,6 @@ export const groupBy = (arr: Array<any>, criteria: string | Function) => {
     // Return the object to the next item in the loop
     return newObj;
   }, {});
-};
 
 export const ordinalSuffixOf = (i: number) => {
   const j = i % 10;
@@ -92,26 +91,26 @@ export const ordinalSuffixOf = (i: number) => {
   return `${i}th`;
 };
 
-export const titleCase = (str: string = "", lowerCase?: boolean) => {
-  let newStr = str || "";
+export const titleCase = (str: string = '', lowerCase?: boolean) => {
+  let newStr = str || '';
   if (lowerCase) {
     newStr = newStr.toLowerCase();
   }
-  const splitStr = newStr.split(" ");
+  const splitStr = newStr.split(' ');
   for (let i = 0; i < splitStr.length; i++) {
     splitStr[i] =
       splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
   }
-  return splitStr.join(" ");
+  return splitStr.join(' ');
 };
 
 export const countDecimals = (value: number) => {
   if (Math.floor(value) === value) return 0;
-  return value.toString().split(".")[1].length;
+  return value.toString().split('.')[1].length;
 };
 
 export const getDate = (dob: string) => {
-  const splitted = dob.split("T")[0].split("-");
+  const splitted = dob.split('T')[0].split('-');
   const year = Number(splitted[0]);
   const month = Number(splitted[1]) - 1;
   const day = Number(splitted[2]);
@@ -138,10 +137,10 @@ export const copyToClipboard = async (text: string) => {
       await navigator.clipboard.writeText(text);
     } catch (err) {
       /* istanbul ignore next */
-      throw new Error("Could not copy to clipboard");
+      throw new Error('Could not copy to clipboard');
     }
   } else {
-    const dummy = document.createElement("textarea");
+    const dummy = document.createElement('textarea');
     dummy.textContent = text;
     document.body.appendChild(dummy);
 
@@ -150,7 +149,7 @@ export const copyToClipboard = async (text: string) => {
     range.selectNode(dummy);
     selection && selection.removeAllRanges();
     selection && selection.addRange(range);
-    document.execCommand("copy");
+    document.execCommand('copy');
     selection && selection.removeAllRanges();
     document.body.removeChild(dummy);
   }

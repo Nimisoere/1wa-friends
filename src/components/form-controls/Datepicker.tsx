@@ -5,8 +5,6 @@ interface Props {
   description: string;
 }
 
-const LocationInput: React.FC<Props> = ({ title, description }) => {
-  return <div></div>;
-};
+const LocationInput: React.FC<Props> = ({ title, description }) => <div />;
 
 export default LocationInput;

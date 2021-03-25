@@ -5,11 +5,9 @@ import { PropsFromRedux } from ".";
 interface Props extends PropsFromRedux {}
 
 const Modal: React.FC<Props> = ({ modal, hide }) => {
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(() => () => {
       hide();
-    };
-  }, [hide]);
+    }, [hide]);
   return (
     <ReactModal
       style={{

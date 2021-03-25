@@ -1,8 +1,8 @@
 import React from "react";
-import { OptionTypeBase } from "react-select";
-import { Datum } from "../../interfaces";
-import ReactSelect from "react-select";
+import ReactSelect, { OptionTypeBase } from "react-select";
 import { MdArrowDropDown } from "react-icons/md";
+import { Datum } from "../../interfaces";
+
 
 interface Props {
   wrapperClassName?: string;

@@ -1,8 +1,8 @@
 import React from "react";
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import { HiOutlineArrowNarrowLeft , HiCheck } from "react-icons/hi";
 import { useHistory } from "react-router";
 import { FormSteps } from "../shippingform.utils";
-import { HiCheck } from "react-icons/hi";
+
 import styles from "./Progressbar.module.scss";
 
 interface Props {

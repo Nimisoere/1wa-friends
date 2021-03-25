@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Seo from "../../components/Seo/Seo";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import Seo from "../../components/Seo/Seo";
 
 interface ErrorPageProps {
   error: string;

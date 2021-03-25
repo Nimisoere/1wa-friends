@@ -5,8 +5,6 @@ interface Props {
   description: string;
 }
 
-const Button: React.FC<Props> = ({ title, description }) => {
-  return <div></div>;
-};
+const Button: React.FC<Props> = ({ title, description }) => <div />;
 
 export default Button;

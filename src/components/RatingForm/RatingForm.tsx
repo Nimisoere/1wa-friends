@@ -47,7 +47,7 @@ export const RatingForm = (props: Props) => {
                 className="hidden"
                 ref={register}
                 type="radio"
-              ></input>
+               />
             </label>
           ))}
         </div>

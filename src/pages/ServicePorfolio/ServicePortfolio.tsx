@@ -1,15 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import styles from "./ServicePortfolio.module.scss";
 import rider from "../../assets/images/giggo-rider.png";
 import { services } from "./service-nav-data";
-import { Link } from "react-router-dom";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { PropsFromRedux } from ".";
 
 interface Props extends PropsFromRedux {}
 
-const ServicePortfolio: React.FC<Props> = (props) => {
-  return (
+const ServicePortfolio: React.FC<Props> = (props) => (
     <div className="container flex flex-wrap mx-auto py-20">
       <div className="w-full sm:w-2/5 lg:w-3/5">
         <div>
@@ -38,6 +37,5 @@ const ServicePortfolio: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
 
 export default ServicePortfolio;

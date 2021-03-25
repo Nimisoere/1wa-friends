@@ -43,7 +43,7 @@ const Service: React.FC<Props> = (props) => {
         {pageData.embedded_stream && (
           <div className="w-full bg-secondary h-96 mb-20 h-">
             <video className="h-full w-full" preload="auto" controls>
-              <source src={pageData.embedded_stream} type="video/mp4"></source>
+              <source src={pageData.embedded_stream} type="video/mp4" />
             </video>
           </div>
         )}

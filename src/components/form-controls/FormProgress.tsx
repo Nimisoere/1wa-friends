@@ -5,8 +5,6 @@ interface Props {
   description: string;
 }
 
-const FormProgress: React.FC<Props> = ({ title, description }) => {
-  return <div></div>;
-};
+const FormProgress: React.FC<Props> = ({ title, description }) => <div />;
 
 export default FormProgress;

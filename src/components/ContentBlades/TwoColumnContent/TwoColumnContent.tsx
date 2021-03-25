@@ -6,8 +6,7 @@ interface Props extends PropsFromRedux {
   children: React.ReactElement;
 }
 
-const TwoColumnContent: React.FC<Props> = ({ bannerUrl, children }) => {
-  return (
+const TwoColumnContent: React.FC<Props> = ({ bannerUrl, children }) => (
     <div className="w-full flex-wrap justify-between flex">
       <div className="w-full sm:w-6/12">
         <img src={bannerUrl} className="mb-8" alt="About us" />
@@ -17,6 +16,5 @@ const TwoColumnContent: React.FC<Props> = ({ bannerUrl, children }) => {
       </div>
     </div>
   );
-};
 
 export default TwoColumnContent;

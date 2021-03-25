@@ -6,8 +6,7 @@ import style from "./TopNav.module.scss";
 
 interface Props {}
 
-const TopNav: React.FC<Props> = () => {
-  return (
+const TopNav: React.FC<Props> = () => (
     <nav className="flex flex-wrap justify-between w-full font-serif">
       {NavLinks.map((link) => (
         <div
@@ -43,6 +42,5 @@ const TopNav: React.FC<Props> = () => {
       ))}
     </nav>
   );
-};
 
 export default TopNav;

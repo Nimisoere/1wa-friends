@@ -6,8 +6,7 @@ import { ReactComponent as Ellipse } from "../../assets/images/placeholder-ellip
 
 interface Props {}
 
-const WalletTransactions: React.FC<Props> = (props) => {
-  return (
+const WalletTransactions: React.FC<Props> = (props) => (
     <div className="w-full">
       <div className="w-full font-semibold flex px-10 mb-3">
         <div className="w-3/4">Details</div>
@@ -46,6 +45,5 @@ const WalletTransactions: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
 
 export default WalletTransactions;

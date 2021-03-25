@@ -7,8 +7,7 @@ interface Props {
   component: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ component }) => {
-  return (
+const Layout: React.FC<Props> = ({ component }) => (
     <>
       <Seo title="" description="" />
       <div className="flex font-serif min-h-full flex-col items-stretch w-full">
@@ -20,6 +19,5 @@ const Layout: React.FC<Props> = ({ component }) => {
       </div>
     </>
   );
-};
 
 export default Layout;

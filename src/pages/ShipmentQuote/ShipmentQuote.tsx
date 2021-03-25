@@ -5,8 +5,7 @@ import SideMenu from "../../components/SideMenu";
 
 interface Props {}
 
-const ShipmentQuote: React.FC<Props> = (props) => {
-  return (
+const ShipmentQuote: React.FC<Props> = (props) => (
     <div className="container flex flex-wrap mx-auto py-10 lg:py-20">
       <div className="w-full sm:w-1/5">
         <SideMenu />
@@ -27,6 +26,5 @@ const ShipmentQuote: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
 
 export default ShipmentQuote;

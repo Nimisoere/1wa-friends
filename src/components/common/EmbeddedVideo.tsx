@@ -5,8 +5,6 @@ interface Props {
   description: string;
 }
 
-const EmbeddedVideo: React.FC<Props> = ({ title, description }) => {
-  return <div></div>;
-};
+const EmbeddedVideo: React.FC<Props> = ({ title, description }) => <div />;
 
 export default EmbeddedVideo;

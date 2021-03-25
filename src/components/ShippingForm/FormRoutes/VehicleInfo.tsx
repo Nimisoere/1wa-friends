@@ -2,8 +2,8 @@ import React from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { vehicles } from "../shippingform.utils";
 import { useHistory } from "react-router";
+import { vehicles } from "../shippingform.utils";
 
 interface Props {}
 
@@ -62,7 +62,7 @@ export const VehicleInfo: React.FC<Props> = (props) => {
                 className="hidden"
                 ref={register}
                 type="radio"
-              ></input>
+               />
             </label>
           ))}
         </div>

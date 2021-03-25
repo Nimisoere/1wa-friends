@@ -75,7 +75,7 @@ const TextInput: React.FC<Props> = React.memo(
             value={onChange ? valueProps : value}
             onChange={(onChange as any) || handleChange}
             rows={rows}
-          ></textarea>
+           />
         ) : (
           <input
             id={id}

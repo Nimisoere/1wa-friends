@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { IoIosMenu } from "react-icons/io";
 import logo from "../../assets/images/logo.png";
 import AuthHeaderMenu from "../AuthHeaderMenu";
 import TopNav from "../TopNav";
 import styles from "./Header.module.scss";
-import { IoIosMenu } from "react-icons/io";
 
 interface Props {}
 

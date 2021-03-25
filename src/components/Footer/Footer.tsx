@@ -5,8 +5,7 @@ import styles from "./Footer.module.scss";
 
 interface Props {}
 
-const Footer: React.FC<Props> = () => {
-  return (
+const Footer: React.FC<Props> = () => (
     <div className={styles.footer}>
       <div className="container flex flex-wrap justify-around py-8 lg:py-24 mx-auto">
         {footerLinks.map((footerLinkColum) => (
@@ -48,6 +47,5 @@ const Footer: React.FC<Props> = () => {
       </div>
     </div>
   );
-};
 
 export default Footer;

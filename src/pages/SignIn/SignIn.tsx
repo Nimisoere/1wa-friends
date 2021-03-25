@@ -5,8 +5,7 @@ import SignInForm from "../../components/SignInForm";
 
 interface Props {}
 
-const SignIn: React.FC<Props> = (props) => {
-  return (
+const SignIn: React.FC<Props> = (props) => (
     <>
       <Seo title="Sign In" description="" />
       <div className="container flex mx-auto">
@@ -25,6 +24,5 @@ const SignIn: React.FC<Props> = (props) => {
       </div>
     </>
   );
-};
 
 export default SignIn;

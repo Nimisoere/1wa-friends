@@ -3,6 +3,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import * as yup from "yup";
+import { MdClose } from "react-icons/md";
 import { getRequiredErrorMessage } from "../../../utils/common.utils";
 import { Progressbar } from "../Components/Progressbar";
 import { formSteps } from "../shippingform.utils";
@@ -13,15 +14,13 @@ import FileUpload, {
   DropZoneComponentProps,
 } from "../../form-controls/FileUpload";
 import { ReactComponent as CloudUpload } from "../../../assets/icons/cloud-upload.svg";
-import { MdClose } from "react-icons/md";
 
 interface Props {}
 
 const DropZoneComponent: React.FC<DropZoneComponentProps> = ({
   files,
   deleteFile,
-}) => {
-  return (
+}) => (
     <div className="border border-dashed rounded-lg border-gray-300 w-full h-44 flex flex-col justify-center items-center">
       {files.length ? (
         <div className="flex w-full flex-wrap justify-start gap-5 items-start p-2">
@@ -55,7 +54,6 @@ const DropZoneComponent: React.FC<DropZoneComponentProps> = ({
       )}
     </div>
   );
-};
 
 const schema = yup.object().shape({
   category: yup.string().required(getRequiredErrorMessage("Item category")),

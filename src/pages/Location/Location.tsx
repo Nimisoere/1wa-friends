@@ -4,8 +4,7 @@ import { PropsFromRedux } from ".";
 
 interface Props extends PropsFromRedux {}
 
-const Locations: React.FC<Props> = () => {
-  return (
+const Locations: React.FC<Props> = () => (
     <div className="w-full">
       <div className="container">
         <PageHeader
@@ -15,6 +14,5 @@ const Locations: React.FC<Props> = () => {
       </div>
     </div>
   );
-};
 
 export default Locations;

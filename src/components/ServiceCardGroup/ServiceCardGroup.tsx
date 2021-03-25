@@ -9,8 +9,7 @@ interface Props {
   cardList: ServicePageDataCardList;
 }
 
-export const ServiceCardGroup: React.FC<Props> = ({ cardList }) => {
-  return (
+export const ServiceCardGroup: React.FC<Props> = ({ cardList }) => (
     <div className="w-full py-8 lg:py-24">
       <h4 className="font-bold text-center mb-10 text-3xl">{cardList.title}</h4>
       <div className="w-full flex flex-wrap justify-center">
@@ -20,4 +19,3 @@ export const ServiceCardGroup: React.FC<Props> = ({ cardList }) => {
       </div>
     </div>
   );
-};

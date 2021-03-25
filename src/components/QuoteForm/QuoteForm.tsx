@@ -183,7 +183,7 @@ const QuoteForm: React.FC<Props> = (props) => {
                 )}
               />
             </div>
-            <div className="w-full sm:w-1/3"></div>
+            <div className="w-full sm:w-1/3" />
           </div>
         </div>
 

@@ -58,7 +58,7 @@ const SignUpForm: React.FC<Props> = (props) => {
               className="hidden"
               ref={register}
               type="radio"
-            ></input>
+             />
             <span className="inline-flex items-center">
               {customerType === "individual" ? (
                 <MdRadioButtonChecked className="text-3xl" />
@@ -75,7 +75,7 @@ const SignUpForm: React.FC<Props> = (props) => {
               className="hidden"
               ref={register}
               type="radio"
-            ></input>
+             />
             <span className="inline-flex items-center">
               {customerType === "business" ? (
                 <MdRadioButtonChecked className="text-3xl" />

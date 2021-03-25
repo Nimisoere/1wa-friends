@@ -7,8 +7,7 @@ interface Props {
   index: number;
 }
 
-export const ServiceCard: React.FC<Props> = ({ card, index }) => {
-  return (
+export const ServiceCard: React.FC<Props> = ({ card, index }) => (
     <div
       key={card.id}
       className={`flex mb-8 lg:mb-20 justify-${
@@ -25,4 +24,3 @@ export const ServiceCard: React.FC<Props> = ({ card, index }) => {
       </div>
     </div>
   );
-};

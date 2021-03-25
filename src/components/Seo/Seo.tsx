@@ -9,8 +9,7 @@ interface Props {
 const defaultDescription =
   "As the leading logistics service provider in Africa, GIGL offers convenient, affordable, express delivery services with its GIGGo App";
 
-const Seo: React.FC<Props> = ({ title, description }) => {
-  return (
+const Seo: React.FC<Props> = ({ title, description }) => (
     <div className="application">
       <Helmet
         titleTemplate="%s | GIG Logistics"
@@ -23,6 +22,5 @@ const Seo: React.FC<Props> = ({ title, description }) => {
       </Helmet>
     </div>
   );
-};
 
 export default Seo;

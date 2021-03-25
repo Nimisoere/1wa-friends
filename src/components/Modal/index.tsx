@@ -8,7 +8,7 @@ const mapState = (state: AppState) => ({
 });
 
 const mapDispatch = {
-  hide: hide,
+  hide,
 };
 
 const connector = connect(mapState, mapDispatch);

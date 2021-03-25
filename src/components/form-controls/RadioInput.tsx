@@ -66,7 +66,7 @@ const RadioInput: React.FC<NoahRadioProps> = React.memo(
             type="radio"
             name={name}
             id={id}
-          ></input>
+           />
           {labelPlacement === "end" && (
             <span className={labelClassName}>{label}</span>
           )}

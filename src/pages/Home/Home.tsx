@@ -10,8 +10,7 @@ import styles from "./Home.module.scss";
 
 interface Props extends PropsFromRedux {}
 
-const Home: React.FC<Props> = (props) => {
-  return (
+const Home: React.FC<Props> = (props) => (
     <div className="w-full">
       <div className="container mx-auto pt-24">
         <div className="w-full flex mb-10 justify-center">
@@ -37,6 +36,5 @@ const Home: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
 
 export default Home;

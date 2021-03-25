@@ -2,8 +2,6 @@ import React from "react";
 
 interface Props {}
 
-const Map: React.FC<Props> = (props) => {
-  return <div></div>;
-};
+const Map: React.FC<Props> = (props) => <div />;
 
 export default Map;

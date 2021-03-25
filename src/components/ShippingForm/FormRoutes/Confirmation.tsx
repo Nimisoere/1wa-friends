@@ -2,9 +2,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { Controller, InputState, useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import * as yup from "yup";
 import { Progressbar } from "../Components/Progressbar";
 import { formSteps } from "../shippingform.utils";
-import * as yup from "yup";
 import { getRequiredErrorMessage } from "../../../utils/common.utils";
 import TextInput from "../../form-controls/TextInput";
 import style from "./Confirmation.module.scss";
@@ -150,7 +150,7 @@ export const Confirmation: React.FC<Props> = (props) => {
           <h4 className="p-5 font-semibold rounded-t-md  border-b border-gray-300 text-center">
             Delivery Items
           </h4>
-          <div className="w-full px-5 sm:px-20 py-10"></div>
+          <div className="w-full px-5 sm:px-20 py-10" />
         </div>
         <div className="shadow-lg mb-10 rounded-md">
           <h4 className="p-5 font-semibold rounded-t-md  border-b border-gray-300 text-center">

@@ -6,8 +6,7 @@ import { PropsFromRedux } from ".";
 
 interface Props extends PropsFromRedux {}
 
-const SignUp: React.FC<Props> = (props) => {
-  return (
+const SignUp: React.FC<Props> = (props) => (
     <>
       <Seo title="Sign Up" description="" />
       <div className="container flex mx-auto">
@@ -28,6 +27,5 @@ const SignUp: React.FC<Props> = (props) => {
       </div>
     </>
   );
-};
 
 export default SignUp;

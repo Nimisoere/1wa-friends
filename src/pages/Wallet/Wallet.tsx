@@ -6,8 +6,7 @@ import WalletTransactions from "../../components/WalletTransactions";
 
 interface Props {}
 
-const Wallet: React.FC<Props> = (props) => {
-  return (
+const Wallet: React.FC<Props> = (props) => (
     <div className="container mx-auto flex flex-wrap py-10 lg:py-20">
       <div className="w-full sm:w-1/5">
         <SideMenu />
@@ -25,6 +24,5 @@ const Wallet: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
 
 export default Wallet;
