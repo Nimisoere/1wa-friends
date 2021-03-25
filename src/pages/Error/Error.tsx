@@ -23,7 +23,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
         <p color="textSecondary">{description}</p>
         <button
           type="button"
-          onClick={() => history.back()}
+          onClick={() => history.go(-1)}
           className="mt-10 text-primary p-2 rounded"
         >
           <HiOutlineArrowNarrowLeft className="inline-flex" /> Go Back

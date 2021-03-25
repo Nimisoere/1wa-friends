@@ -29,7 +29,7 @@ const PageHeader: React.FC<Props> = ({
           <button
             type="button"
             className="mb-10 lg:mb-0"
-            onClick={() => history.back()}
+            onClick={() => history.go(-1)}
           >
             <HiOutlineArrowNarrowLeft className="inline-flex text-2xl" />
             Back

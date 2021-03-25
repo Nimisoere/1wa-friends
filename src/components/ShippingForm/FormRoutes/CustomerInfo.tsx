@@ -314,7 +314,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
         <div className="flex justify-center gap-12">
           <button
             type="button"
-            onClick={() => history.back()}
+            onClick={() => history.go(-1)}
             className="border border-secondary text-secondary py-3 px-14 font-bold text-lg rounded"
           >
             Back
