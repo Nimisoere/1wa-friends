@@ -64,15 +64,6 @@ export interface FetchAction {
 
 export type Data = Datum[];
 
-export enum API_KEYS {
-  GET_TEMPLATES = "GET_TEMPLATES",
-  GET_TEMPLATE = "GET_TEMPLATES",
-  CREATE_TEMPLATE = "GET_TEMPLATES",
-  UPDATE_TEMPLATE = "GET_TEMPLATES",
-  GENERATE_PDF = "GENERATE_PDF",
-  CONVERT_XLS = "CONVERT_XLS",
-}
-
 export interface ServiceCard {
   id: string;
   icon: string;
