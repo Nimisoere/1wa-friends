@@ -6,14 +6,21 @@ const apiRequest = createSlice({
   name: 'apiRequest',
   initialState: {} as KeyFetchState,
   reducers: {
-    apiRequestLoading(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestLoading(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       state[action.payload.key] = {
         ...state[action.payload.key],
         loading: true,
+        success: false,
         request: action.payload.request || null,
       };
     },
-    apiRequestSuccess(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestSuccess(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       state[action.payload.key] = {
         ...state[action.payload.key],
         loading: false,
@@ -22,7 +29,10 @@ const apiRequest = createSlice({
         error: null,
       };
     },
-    apiRequestFailure(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestFailure(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       state[action.payload.key] = {
         ...state[action.payload.key],
         loading: false,
@@ -30,17 +40,26 @@ const apiRequest = createSlice({
         error: action.payload.error || null,
       };
     },
-    apiRequestReset(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestReset(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       state[action.payload.key] = {
         ...state[action.payload.key],
         ...initialFetchState,
       };
     },
-    apiRequestResetAll(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestResetAll(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       // eslint-disable-next-line no-param-reassign
       state = {} as KeyFetchState;
     },
-    apiRequestUpdateResponse(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestUpdateResponse(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       state[action.payload.key] = {
         ...state[action.payload.key],
         loading: false,
@@ -51,7 +70,10 @@ const apiRequest = createSlice({
         },
       };
     },
-    apiRequestReplaceResponse(state, action: PayloadAction<KeyFetchAction>) {
+    apiRequestReplaceResponse(
+      state: KeyFetchState,
+      action: PayloadAction<KeyFetchAction>
+    ) {
       state[action.payload.key] = {
         ...state[action.payload.key],
         loading: false,

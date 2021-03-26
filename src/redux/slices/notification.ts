@@ -1,16 +1,22 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { NotificationActionProps } from "../../interfaces";
-import { initialNotificationState } from "../../interfaces/initialStates";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { NotificationActionProps, NotificationState } from '../../interfaces';
+import { initialNotificationState } from '../../interfaces/initialStates';
 
 const notification = createSlice({
-  name: "notification",
+  name: 'notification',
   initialState: initialNotificationState,
   reducers: {
-    show(state, action: PayloadAction<NotificationActionProps>) {
+    show(
+      state: NotificationState,
+      action: PayloadAction<NotificationActionProps>
+    ) {
       state.alertType = action.payload.alertType;
       state.message = action.payload.message;
     },
-    clear(state, action: PayloadAction<NotificationActionProps>) {},
+    clear(
+      state: NotificationState,
+      action: PayloadAction<NotificationActionProps>
+    ) {},
   },
 });
 

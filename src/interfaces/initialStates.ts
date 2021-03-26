@@ -4,11 +4,11 @@ import {
   FetchState,
   KeyFetchState,
   NotificationState,
-} from ".";
+} from '.';
 
 export const initialNotificationState: NotificationState = {
-  alertType: "info",
-  message: "",
+  alertType: 'info',
+  message: '',
 };
 
 export const initialFetchState: FetchState = {

@@ -1,16 +1,16 @@
-import React from "react";
-import { render, hydrate } from "react-dom";
-import { Provider } from "react-redux";
-import { persistStore } from "redux-persist";
-import { PersistGate } from "redux-persist/integration/react";
-import "./index.scss";
-import reportWebVitals from "./reportWebVitals";
-import store from "./redux/store";
-import ErrorBoundary from "./components/ErrorBoundary";
-import Routes from "./routes/Routes";
+import React from 'react';
+import { render, hydrate } from 'react-dom';
+import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+import './index.scss';
+import reportWebVitals from './reportWebVitals';
+import store from './redux/store';
+import ErrorBoundary from './components/ErrorBoundary';
+import Routes from './routes/Routes';
 
 const persistor = persistStore(store);
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 const BaseComponent: React.FC = () => (
   <React.StrictMode>

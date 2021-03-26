@@ -1,9 +1,10 @@
-import { AxiosError } from "axios";
-import { Props as ModalProps } from "react-modal";
+import { AxiosError } from 'axios';
+import { Props as ModalProps } from 'react-modal';
+import { API_KEYS } from './api';
 
-export type VerticalPosition = "top" | "bottom";
-export type HorizontalPosition = "left" | "right" | "center";
-export type AlertType = "success" | "error" | "info" | "warning";
+export type VerticalPosition = 'top' | 'bottom';
+export type HorizontalPosition = 'left' | 'right' | 'center';
+export type AlertType = 'success' | 'error' | 'info' | 'warning';
 
 export interface NotificationActionProps {
   alertType: AlertType;
@@ -12,7 +13,7 @@ export interface NotificationActionProps {
 
 export interface ModalAction {
   component: React.ReactElement | null;
-  modalProps: Omit<ModalProps, "isOpen">;
+  modalProps: Omit<ModalProps, 'isOpen'>;
 }
 
 export interface NotificationState {
@@ -31,23 +32,23 @@ export interface AppState {
   modal: ModalState;
 }
 
-export interface KeyFetchState {
-  [x: string]: FetchState;
-}
+export type KeyFetchState = {
+  [x in API_KEYS]?: FetchState;
+};
 
 export interface KeyFetchAction {
-  key: string;
+  key: API_KEYS;
   request?: Datum | null;
-  response?: Data | Datum | null;
+  response?: Datum | null;
   error?: AxiosError | null;
 }
 
 export interface FetchState {
   loading: boolean;
   success: boolean;
-  request: Datum | null;
-  response: any | null;
-  error: AxiosError | null;
+  request?: Datum | null;
+  response?: Datum | null;
+  error?: AxiosError | null;
 }
 
 export interface Datum {

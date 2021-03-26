@@ -1,12 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ModalAction } from "../../interfaces";
-import { initialModalState } from "../../interfaces/initialStates";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ModalAction, ModalState } from '../../interfaces';
+import { initialModalState } from '../../interfaces/initialStates';
 
 const modal = createSlice({
-  name: "modal",
+  name: 'modal',
   initialState: initialModalState,
   reducers: {
-    show(state, action: PayloadAction<ModalAction>) {
+    show(state: ModalState, action: PayloadAction<ModalAction>) {
       state.modalProps = {
         ...state.modalProps,
         ...action.payload.modalProps,
@@ -14,7 +14,7 @@ const modal = createSlice({
       };
       state.component = action.payload.component;
     },
-    hide(state) {
+    hide(state: ModalState) {
       state.modalProps = {
         isOpen: false,
       };
