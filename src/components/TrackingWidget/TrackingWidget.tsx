@@ -7,6 +7,7 @@ import { getRequiredErrorMessage } from '../../utils/common.utils';
 import TextInput from '../form-controls/TextInput';
 import { PropsFromRedux } from '.';
 import TrackShipment from '../TrackShipment';
+import { API_KEYS } from '../../interfaces/api';
 
 interface Props extends PropsFromRedux {}
 
@@ -20,7 +21,13 @@ interface Inputs {
   tracking_code: string;
 }
 
-const TrackingWidget: React.FC<Props> = ({ showModal, hideModal }) => {
+const TrackingWidget: React.FC<Props> = ({
+  showModal,
+  hideModal,
+  trackShipmentState,
+  trackShipment,
+  resetApi,
+}) => {
   const { handleSubmit, control } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
@@ -28,6 +35,8 @@ const TrackingWidget: React.FC<Props> = ({ showModal, hideModal }) => {
   const params = useParams<{ [x: string]: string }>();
 
   const history = useHistory();
+
+  console.log(trackShipmentState);
 
   React.useEffect(() => {
     if (params?.trackingCode) {
@@ -38,9 +47,13 @@ const TrackingWidget: React.FC<Props> = ({ showModal, hideModal }) => {
     } else {
       hideModal();
     }
-  }, [params?.trackingCode, hideModal, history, showModal]);
+    return () => {
+      resetApi(API_KEYS.TRACK_SHIPMENT);
+    };
+  }, [params?.trackingCode, hideModal, history, showModal, resetApi]);
 
   const onSubmit = (data: Inputs) => {
+    trackShipment(data.tracking_code);
     history.push(`/shipment/${data.tracking_code}`);
   };
 

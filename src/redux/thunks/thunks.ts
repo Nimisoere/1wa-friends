@@ -28,93 +28,82 @@ import { Thunk } from './interfaces/thunks.interface';
 import { WALLET_PAYMENT_LOG_REQUEST } from './interfaces/wallet.interface';
 
 export const thunks: Thunk = {
-  LOGIN: (request: LOGIN_VALUES) => {
+  LOGIN: (request: LOGIN_VALUES) =>
     apiThunk<LOGIN_VALUES>({
       key: API_KEYS.LOGIN,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  SIGN_UP: (request: SIGNUP_VALUES) => {
+    }),
+  SIGN_UP: (request: SIGNUP_VALUES) =>
     apiThunk<SIGNUP_VALUES>({
       key: API_KEYS.SIGN_UP,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  EDIT_PROFILE: (request: PROFILE_VALUES) => {
+    }),
+  EDIT_PROFILE: (request: PROFILE_VALUES) =>
     apiThunk<PROFILE_VALUES>({
       key: API_KEYS.EDIT_PROFILE,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  FORGOT_PASSWORD: (request: Pick<PROFILE_VALUES, 'Email'>) => {
+    }),
+  FORGOT_PASSWORD: (request: Pick<PROFILE_VALUES, 'Email'>) =>
     apiThunk<Pick<PROFILE_VALUES, 'Email'>>({
       key: API_KEYS.EDIT_PROFILE,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  CHANGE_PASSWORD: (request: CHANGE_PASSWORD_URLPARAMS) => {
+    }),
+  CHANGE_PASSWORD: (request: CHANGE_PASSWORD_URLPARAMS) =>
     apiThunk<CHANGE_PASSWORD_URLPARAMS>({
       key: API_KEYS.EDIT_PROFILE,
       request,
       apiOptions: {},
       urlParams: (request as unknown) as Datum,
-    });
-  },
-  GET_WALLET_BALANCE: () => {
+    }),
+  GET_WALLET_BALANCE: () =>
     apiThunk({
       key: API_KEYS.GET_WALLET_BALANCE,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_STATIONS: () => {
+    }),
+  GET_STATIONS: () =>
     apiThunk({
       key: API_KEYS.GET_STATIONS,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_ITEM_TYPES: () => {
+    }),
+  GET_ITEM_TYPES: () =>
     apiThunk({
       key: API_KEYS.GET_ITEM_TYPES,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_ACTIVE_LGAS: () => {
+    }),
+  GET_ACTIVE_LGAS: () =>
     apiThunk({
       key: API_KEYS.GET_ACTIVE_LGAS,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_SPECIAL_PACKAGES: () => {
+    }),
+  GET_SPECIAL_PACKAGES: () =>
     apiThunk({
       key: API_KEYS.GET_SPECIAL_PACKAGES,
       request: {},
       apiOptions: {},
-    });
-  },
-  WALLET_TRANSACTIONS_SHIPMENT_HISTORY: () => {
+    }),
+  WALLET_TRANSACTIONS_SHIPMENT_HISTORY: () =>
     apiThunk({
       key: API_KEYS.WALLET_TRANSACTIONS_SHIPMENT_HISTORY,
       request: {},
       apiOptions: {},
-    });
-  },
-  TRACK_SHIPMENT: (waybillnumber: string) => {
+    }),
+  TRACK_SHIPMENT: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.TRACK_SHIPMENT,
       request: { waybillnumber },
@@ -122,25 +111,22 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  GET_HAULAGE: () => {
+    }),
+  GET_HAULAGE: () =>
     apiThunk({
       key: API_KEYS.GET_HAULAGE,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_HAULAGE_PRICE: (request: HAULAGE_PRICE_REQUEST) => {
+    }),
+  GET_HAULAGE_PRICE: (request: HAULAGE_PRICE_REQUEST) =>
     apiThunk<HAULAGE_PRICE_REQUEST>({
       key: API_KEYS.GET_HAULAGE_PRICE,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  GET_SHIPMENT_DETAILS: (waybillnumber: string) => {
+    }),
+  GET_SHIPMENT_DETAILS: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.GET_SHIPMENT_DETAILS,
       request: { waybillnumber },
@@ -148,16 +134,14 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  GET_SHIPMENT_IN_DISPUTE: () => {
+    }),
+  GET_SHIPMENT_IN_DISPUTE: () =>
     apiThunk({
       key: API_KEYS.GET_SHIPMENT_IN_DISPUTE,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_DROPOFF: (waybillnumber: number) => {
+    }),
+  GET_DROPOFF: (waybillnumber: number) =>
     apiThunk({
       key: API_KEYS.GET_DROPOFF,
       request: { waybillnumber },
@@ -165,16 +149,14 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  GET_OUTSTANDING_PAYMENTS: () => {
+    }),
+  GET_OUTSTANDING_PAYMENTS: () =>
     apiThunk({
       key: API_KEYS.GET_OUTSTANDING_PAYMENTS,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_PAYMENT_STATUS: (waybillnumber: number) => {
+    }),
+  GET_PAYMENT_STATUS: (waybillnumber: number) =>
     apiThunk({
       key: API_KEYS.GET_PAYMENT_STATUS,
       request: { waybillnumber },
@@ -182,16 +164,14 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  GET_HOME_DELIVERY_LOCATIONS: () => {
+    }),
+  GET_HOME_DELIVERY_LOCATIONS: () =>
     apiThunk({
       key: API_KEYS.GET_HOME_DELIVERY_LOCATIONS,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_SERVICE_CENTERS_BY_STATION: (stationid: string | number) => {
+    }),
+  GET_SERVICE_CENTERS_BY_STATION: (stationid: string | number) =>
     apiThunk({
       key: API_KEYS.GET_SERVICE_CENTERS_BY_STATION,
       request: { stationid },
@@ -199,9 +179,8 @@ export const thunks: Thunk = {
       urlParams: {
         stationid,
       },
-    });
-  },
-  GET_SERVICE_CENTERS_BY_COUNTRY: (countryid: string | number) => {
+    }),
+  GET_SERVICE_CENTERS_BY_COUNTRY: (countryid: string | number) =>
     apiThunk({
       key: API_KEYS.GET_SERVICE_CENTERS_BY_COUNTRY,
       request: { countryid },
@@ -209,37 +188,32 @@ export const thunks: Thunk = {
       urlParams: {
         countryid,
       },
-    });
-  },
-  GET_IDENTIFICATION_TYPES: () => {
+    }),
+  GET_IDENTIFICATION_TYPES: () =>
     apiThunk({
       key: API_KEYS.GET_IDENTIFICATION_TYPES,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_ACTIVE_COUNTRIES: () => {
+    }),
+  GET_ACTIVE_COUNTRIES: () =>
     apiThunk({
       key: API_KEYS.GET_ACTIVE_COUNTRIES,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_SHIPMENT_MESSAGE: () => {
+    }),
+  GET_SHIPMENT_MESSAGE: () =>
     apiThunk({
       key: API_KEYS.GET_SHIPMENT_MESSAGE,
       request: {},
       apiOptions: {},
-    });
-  },
-  GET_NOTIFICATIONS: () => {
+    }),
+  GET_NOTIFICATIONS: () =>
     apiThunk({
       key: API_KEYS.GET_NOTIFICATIONS,
       request: {},
       apiOptions: {},
-    });
-  },
-  UPDATE_NOTIFICATION: (notificationid: string | number) => {
+    }),
+  UPDATE_NOTIFICATION: (notificationid: string | number) =>
     apiThunk({
       key: API_KEYS.UPDATE_NOTIFICATION,
       request: { notificationid },
@@ -247,9 +221,8 @@ export const thunks: Thunk = {
       urlParams: {
         notificationid,
       },
-    });
-  },
-  GET_STORES_BY_COUNTRY: (countryid: string | number) => {
+    }),
+  GET_STORES_BY_COUNTRY: (countryid: string | number) =>
     apiThunk({
       key: API_KEYS.GET_STORES_BY_COUNTRY,
       request: { countryid },
@@ -257,16 +230,14 @@ export const thunks: Thunk = {
       urlParams: {
         countryid,
       },
-    });
-  },
-  GET_INTERNATIONAL_SHIPMENTS: () => {
+    }),
+  GET_INTERNATIONAL_SHIPMENTS: () =>
     apiThunk({
       key: API_KEYS.GET_INTERNATIONAL_SHIPMENTS,
       request: {},
       apiOptions: {},
-    });
-  },
-  VERIFY_PAYMENT: (waybillnumber: string) => {
+    }),
+  VERIFY_PAYMENT: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.GET_PAYMENT_STATUS,
       request: { waybillnumber },
@@ -274,52 +245,46 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  REPORT_ISSUES: (request: Report_Issues) => {
+    }),
+  REPORT_ISSUES: (request: Report_Issues) =>
     apiThunk<Report_Issues>({
       key: API_KEYS.REPORT_ISSUES,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  GET_PRICE: (request: GET_PRICE_REQUEST) => {
+    }),
+  GET_PRICE: (request: GET_PRICE_REQUEST) =>
     apiThunk<GET_PRICE_REQUEST>({
       key: API_KEYS.GET_PRICE,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  ADD_WAYBILL_PAYMENT_LOG: (request: WAYBILL_PAYMENT_LOG_REQUEST) => {
+    }),
+  ADD_WAYBILL_PAYMENT_LOG: (request: WAYBILL_PAYMENT_LOG_REQUEST) =>
     apiThunk<WAYBILL_PAYMENT_LOG_REQUEST>({
       key: API_KEYS.ADD_WAYBILL_PAYMENT_LOG,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  CREATE_SHIPMENT: (request: SHIPMENT_REQUEST) => {
+    }),
+  CREATE_SHIPMENT: (request: SHIPMENT_REQUEST) =>
     apiThunk<SHIPMENT_REQUEST>({
       key: API_KEYS.CREATE_SHIPMENT,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  RESOLVE_DISPUTE: () => {
+    }),
+  RESOLVE_DISPUTE: () =>
     apiThunk({
       key: API_KEYS.RESOLVE_DISPUTE,
       request: {},
       apiOptions: {},
-    });
-  },
-  CANCEL_SHIPMENT: (waybillnumber: string) => {
+    }),
+  CANCEL_SHIPMENT: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.CANCEL_SHIPMENT,
       request: { waybillnumber },
@@ -327,9 +292,8 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  CANCEL_SHIPMENT_NOCHARGE: (waybillnumber: string) => {
+    }),
+  CANCEL_SHIPMENT_NOCHARGE: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.CANCEL_SHIPMENT_NOCHARGE,
       request: { waybillnumber },
@@ -337,63 +301,56 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  ADD_WALLET_PAYMENT_LOG: (request: WALLET_PAYMENT_LOG_REQUEST) => {
+    }),
+  ADD_WALLET_PAYMENT_LOG: (request: WALLET_PAYMENT_LOG_REQUEST) =>
     apiThunk<WALLET_PAYMENT_LOG_REQUEST>({
       key: API_KEYS.ADD_WALLET_PAYMENT_LOG,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  ADD_RATING: (request: RATING_REQUEST) => {
+    }),
+  ADD_RATING: (request: RATING_REQUEST) =>
     apiThunk<RATING_REQUEST>({
       key: API_KEYS.ADD_RATING,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  VERIFY_OTP: (request: VERIFY_OTP_REQUEST) => {
+    }),
+  VERIFY_OTP: (request: VERIFY_OTP_REQUEST) =>
     apiThunk<VERIFY_OTP_REQUEST>({
       key: API_KEYS.VERIFY_OTP,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  RESEND_OTP: (request: REQUEST_OTP_REQUEST) => {
+    }),
+  RESEND_OTP: (request: REQUEST_OTP_REQUEST) =>
     apiThunk<REQUEST_OTP_REQUEST>({
       key: API_KEYS.VERIFY_OTP,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  GET_DROPOFF_PRICE: (request: DROPOFF_REQUEST) => {
+    }),
+  GET_DROPOFF_PRICE: (request: DROPOFF_REQUEST) =>
     apiThunk<DROPOFF_REQUEST>({
       key: API_KEYS.GET_DROPOFF_PRICE,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  CREATE_DROPOFF: (request: CREATE_DROPOFF_REQUEST) => {
+    }),
+  CREATE_DROPOFF: (request: CREATE_DROPOFF_REQUEST) =>
     apiThunk<CREATE_DROPOFF_REQUEST>({
       key: API_KEYS.CREATE_DROPOFF,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  CANCEL_DROPOFF: (tempcode: string) => {
+    }),
+  CANCEL_DROPOFF: (tempcode: string) =>
     apiThunk({
       key: API_KEYS.CANCEL_DROPOFF,
       request: { tempcode },
@@ -401,36 +358,32 @@ export const thunks: Thunk = {
       urlParams: {
         tempcode,
       },
-    });
-  },
-  INTL_SHIPMENT_REQUEST_LIST: (request: DATE_FILTER) => {
+    }),
+  INTL_SHIPMENT_REQUEST_LIST: (request: DATE_FILTER) =>
     apiThunk<DATE_FILTER>({
       key: API_KEYS.GET_DROP_OFF_LIST,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  GET_DROP_OFF_LIST: (request: DATE_FILTER) => {
+    }),
+  GET_DROP_OFF_LIST: (request: DATE_FILTER) =>
     apiThunk<DATE_FILTER>({
       key: API_KEYS.GET_DROP_OFF_LIST,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  CREATE_INTL_SHIPMENT_REQUEST: (request: CREATE_INTL_SHIPMENT_REQUEST) => {
+    }),
+  CREATE_INTL_SHIPMENT_REQUEST: (request: CREATE_INTL_SHIPMENT_REQUEST) =>
     apiThunk<CREATE_INTL_SHIPMENT_REQUEST>({
       key: API_KEYS.CREATE_INTL_SHIPMENT_REQUEST,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  EDIT_INTL_SHIPMENT_REQUEST: (requestnumber: string) => {
+    }),
+  EDIT_INTL_SHIPMENT_REQUEST: (requestnumber: string) =>
     apiThunk({
       key: API_KEYS.EDIT_INTL_SHIPMENT_REQUEST,
       request: { requestnumber },
@@ -438,9 +391,8 @@ export const thunks: Thunk = {
       urlParams: {
         requestnumber,
       },
-    });
-  },
-  GET_INTL_SHIPMENT_MESSAGE: (countryid: number) => {
+    }),
+  GET_INTL_SHIPMENT_MESSAGE: (countryid: number) =>
     apiThunk({
       key: API_KEYS.GET_INTL_SHIPMENT_MESSAGE,
       request: { countryid },
@@ -449,34 +401,30 @@ export const thunks: Thunk = {
           countryid,
         },
       },
-    });
-  },
-  PROFILE_INTL_USER: (request: PROFILE_INTL_USER_REQUEST) => {
+    }),
+  PROFILE_INTL_USER: (request: PROFILE_INTL_USER_REQUEST) =>
     apiThunk<PROFILE_INTL_USER_REQUEST>({
       key: API_KEYS.PROFILE_INTL_USER,
       request,
       apiOptions: {
         data: request,
       },
-    });
-  },
-  GET_VEHICLE_STATUS: () => {
+    }),
+  GET_VEHICLE_STATUS: () =>
     apiThunk({
       key: API_KEYS.GET_VEHICLE_STATUS,
       request: {},
       apiOptions: {},
-    });
-  },
-  UPLOAD_IMAGE: (file: Blob) => {
+    }),
+  UPLOAD_IMAGE: (file: Blob) =>
     apiThunk({
       key: API_KEYS.UPLOAD_IMAGE,
       request: { file },
       apiOptions: {
         data: file,
       },
-    });
-  },
-  HANDLE_SHIPMENT: (waybillnumber: string) => {
+    }),
+  HANDLE_SHIPMENT: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.HANDLE_SHIPMENT,
       request: { waybillnumber },
@@ -484,9 +432,8 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  GET_PARTNER_DETAILS: (waybillnumber: string) => {
+    }),
+  GET_PARTNER_DETAILS: (waybillnumber: string) =>
     apiThunk({
       key: API_KEYS.GET_PARTNER_DETAILS,
       request: { waybillnumber },
@@ -494,9 +441,8 @@ export const thunks: Thunk = {
       urlParams: {
         waybillnumber,
       },
-    });
-  },
-  DELETE_SHIPMENT: (tempcode: string) => {
+    }),
+  DELETE_SHIPMENT: (tempcode: string) =>
     apiThunk({
       key: API_KEYS.DELETE_SHIPMENT,
       request: { tempcode },
@@ -504,6 +450,5 @@ export const thunks: Thunk = {
       urlParams: {
         tempcode,
       },
-    });
-  },
+    }),
 };
