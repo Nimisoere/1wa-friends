@@ -16,7 +16,10 @@ const notification = createSlice({
     clear(
       state: NotificationState,
       action: PayloadAction<NotificationActionProps>
-    ) {},
+    ) {
+      state.alertType = 'info';
+      state.message = '';
+    },
   },
 });
 

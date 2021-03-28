@@ -44,7 +44,7 @@ export const apiThunk = <Req>({
   try {
     const response = await makeRequest(key, apiOptions, urlParams);
     if ([200, 201, 204].includes(response.status)) {
-      dispatch(apiRequestSuccess({ key, response }));
+      dispatch(apiRequestSuccess({ key, response: response.data as any }));
       if (showSuccessAlert) {
         dispatch(
           showNotification({
@@ -61,12 +61,12 @@ export const apiThunk = <Req>({
       }
     }
   } catch (error: any) {
-    dispatch(apiRequestFailure({ key, error }));
+    dispatch(apiRequestFailure({ key, error: error.data }));
     if (showErrorAlert) {
       dispatch(
         showNotification({
           alertType: 'error',
-          message: errorAlertMessage || error.response.data.ShortDescription,
+          message: errorAlertMessage || error?.data?.ShortDescription,
         })
       );
     }
@@ -79,6 +79,4 @@ export const apiThunk = <Req>({
   }
 };
 
-export const resetApiThunk = (key: API_KEYS) => {
-  apiRequestReset({ key });
-};
+export const resetApiThunk = (key: API_KEYS) => apiRequestReset({ key });

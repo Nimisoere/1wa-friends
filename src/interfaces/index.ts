@@ -7,8 +7,8 @@ export type HorizontalPosition = 'left' | 'right' | 'center';
 export type AlertType = 'success' | 'error' | 'info' | 'warning';
 
 export interface NotificationActionProps {
-  alertType: AlertType;
-  message: string;
+  alertType?: AlertType;
+  message?: string;
 }
 
 export interface ModalAction {
@@ -17,8 +17,8 @@ export interface ModalAction {
 }
 
 export interface NotificationState {
-  alertType: AlertType;
-  message: string;
+  alertType?: AlertType;
+  message?: string;
 }
 
 export interface ModalState {

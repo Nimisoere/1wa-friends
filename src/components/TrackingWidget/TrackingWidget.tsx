@@ -36,8 +36,6 @@ const TrackingWidget: React.FC<Props> = ({
 
   const history = useHistory();
 
-  console.log(trackShipmentState);
-
   React.useEffect(() => {
     if (params?.trackingCode) {
       showModal({
@@ -54,7 +52,7 @@ const TrackingWidget: React.FC<Props> = ({
 
   const onSubmit = (data: Inputs) => {
     trackShipment(data.tracking_code);
-    history.push(`/shipment/${data.tracking_code}`);
+    // history.push(`/shipment/${data.tracking_code}`);
   };
 
   return (

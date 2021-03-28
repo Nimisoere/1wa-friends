@@ -437,17 +437,17 @@ export const makeRequest = async (
     const response = await api.instance.request({
       headers: {
         Authorization:
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiJiNDc2ZmVhOC04NGU0LTRjNWItYWM1MS0yZWZkNjg1MjZmZGMiLCJ1bmlxdWVfbmFtZSI6IklORDI2NTkzNiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6ImEwMTc3NWUxLTc2ZTMtNDJhNC1hN2RhLWEzOTM2MWViZmY2YiIsInJvbGUiOiJUaGlyZFBhcnR5IiwiQWN0aXZpdHkiOlsiQ3JlYXRlLlRoaXJkUGFydHkiLCJEZWxldGUuVGhpcmRQYXJ0eSIsIlVwZGF0ZS5UaGlyZFBhcnR5IiwiVmlldy5UaGlyZFBhcnR5Il0sImlzcyI6Imh0dHBzOi8vYWdpbGl0eXN5c3RlbWFwaWRldm0uYXp1cmV3ZWJzaXRlcy5uZXQvIiwiYXVkIjoiNDE0ZTE5MjdhMzg4NGY2OGFiYzc5ZjcyODM4MzdmZDEiLCJleHAiOjE2MTY5Mjc2OTcsIm5iZiI6MTYxNjQ5NTY5N30.rs46tko1LsAYZAeUjxhzmZEtziHZAay94AurwEZ9-D4',
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1laWQiOiJiNDc2ZmVhOC04NGU0LTRjNWItYWM1MS0yZWZkNjg1MjZmZGMiLCJ1bmlxdWVfbmFtZSI6IklORDI2NTkzNiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYWNjZXNzY29udHJvbHNlcnZpY2UvMjAxMC8wNy9jbGFpbXMvaWRlbnRpdHlwcm92aWRlciI6IkFTUC5ORVQgSWRlbnRpdHkiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6ImEwMTc3NWUxLTc2ZTMtNDJhNC1hN2RhLWEzOTM2MWViZmY2YiIsInJvbGUiOiJUaGlyZFBhcnR5IiwiQWN0aXZpdHkiOlsiQ3JlYXRlLlRoaXJkUGFydHkiLCJEZWxldGUuVGhpcmRQYXJ0eSIsIlVwZGF0ZS5UaGlyZFBhcnR5IiwiVmlldy5UaGlyZFBhcnR5Il0sImlzcyI6Imh0dHBzOi8vYWdpbGl0eXN5c3RlbWFwaWRldm0uYXp1cmV3ZWJzaXRlcy5uZXQvIiwiYXVkIjoiNDE0ZTE5MjdhMzg4NGY2OGFiYzc5ZjcyODM4MzdmZDEiLCJleHAiOjE2MTczOTk5MTMsIm5iZiI6MTYxNjk2NzkxM30.SByymEhPUEnzKB-8sCGPjoILPSs_09AclL8REkwFJN0',
       },
       ...api.request,
       url: apiUrl,
       ...apiOptions,
     });
     if (response?.data?.Code !== '200') {
-      throw new Error(response?.data?.Code.ShortDescription);
+      return await Promise.reject(response);
     }
     return response;
   } catch (err) {
-    return err;
+    return Promise.reject(err.response || err);
   }
 };

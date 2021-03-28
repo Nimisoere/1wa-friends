@@ -7,7 +7,7 @@ import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import ErrorBoundary from './components/ErrorBoundary';
-import Routes from './routes/Routes';
+import Routes from './routes';
 
 const persistor = persistStore(store);
 const rootElement = document.getElementById('root');

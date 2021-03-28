@@ -43,7 +43,9 @@ const RefreshToast: React.FC<RefrestToastProps> = ({ closeToast, action }) => {
   );
 };
 
-const Routes: React.FC<PropsFromRedux> = () => {
+interface RouterProps extends PropsFromRedux {}
+
+const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
   const [newVersionAvailable, setNewVersionAvailable] = useState(false);
   const [waitingWorker, setWaitingWorker] = useState<any>({
     postMessage: (message: any) => message,
@@ -53,6 +55,17 @@ const Routes: React.FC<PropsFromRedux> = () => {
     setWaitingWorker(registration?.waiting);
     if (registration) setNewVersionAvailable(true);
   };
+
+  useEffect(() => {
+    if (notification.alertType && notification.message) {
+      toast[notification.alertType](notification.message, {
+        position: 'top-right',
+        onClose: () => {
+          clear({});
+        },
+      });
+    }
+  }, [clear, notification.alertType, notification.message]);
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
