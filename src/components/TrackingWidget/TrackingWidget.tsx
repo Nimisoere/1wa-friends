@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import * as yup from 'yup';
+import Loader from 'react-spinners/BeatLoader';
 import { Controller, useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import { getRequiredErrorMessage } from '../../utils/common.utils';
@@ -8,6 +9,7 @@ import TextInput from '../form-controls/TextInput';
 import { PropsFromRedux } from '.';
 import TrackShipment from '../TrackShipment';
 import { API_KEYS } from '../../interfaces/api';
+import { initialFetchState } from '../../interfaces/initialStates';
 
 interface Props extends PropsFromRedux {}
 
@@ -24,10 +26,12 @@ interface Inputs {
 const TrackingWidget: React.FC<Props> = ({
   showModal,
   hideModal,
-  trackShipmentState,
+  trackShipmentState = initialFetchState,
   trackShipment,
   resetApi,
 }) => {
+  const { loading } = trackShipmentState;
+
   const { handleSubmit, control } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
@@ -78,9 +82,14 @@ const TrackingWidget: React.FC<Props> = ({
         </div>
         <button
           type="submit"
+          disabled={loading}
           className="bg-secondary flex justify-between items-center rounded-xl px-6 text-white"
         >
-          Search
+          {loading ? (
+            <Loader color="white" size={8} loading={loading} />
+          ) : (
+            'Search'
+          )}
         </button>
       </div>
     </form>

@@ -1,10 +1,10 @@
-import React from "react";
-import { Redirect, Route, useRouteMatch } from "react-router";
-import { Confirmation } from "./FormRoutes/Confirmation";
-import { CustomerInfo } from "./FormRoutes/CustomerInfo";
-import { ItemInfo } from "./FormRoutes/ItemInfo";
-import { ShippingInfo } from "./FormRoutes/ShippingInfo";
-import { VehicleInfo } from "./FormRoutes/VehicleInfo";
+import React from 'react';
+import { Redirect, Route, useRouteMatch } from 'react-router';
+import { Confirmation } from './FormRoutes/Confirmation';
+import { CustomerInfo } from './FormRoutes/CustomerInfo';
+import { ItemInfo } from './FormRoutes/ItemInfo';
+import { ShippingInfo } from './FormRoutes/ShippingInfo';
+import VehicleInfo from './FormRoutes/VehicleInfo';
 
 interface Props {}
 

@@ -3,9 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { vehicles } from '../shippingform.utils';
+import { vehicles } from '../../shippingform.utils';
+import { PropsFromRedux } from '.';
+import TonnageModal from '../../../TonnageModal';
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
 interface Inputs {
   vehicle_type: 'bike' | 'car' | 'van' | 'truck';
@@ -15,7 +17,7 @@ const schema = yup.object().shape({
   vehicle_type: yup.string().oneOf(['bike', 'car', 'van', 'truck']).required(),
 });
 
-export const VehicleInfo: React.FC<Props> = (props) => {
+export const VehicleInfo: React.FC<Props> = ({ showModal }) => {
   const history = useHistory();
 
   const { handleSubmit, register, watch } = useForm<Inputs>({
@@ -28,10 +30,15 @@ export const VehicleInfo: React.FC<Props> = (props) => {
     const onSubmit = (data: Inputs) => {
       history.push('/giggo-delivery-app/shipping-information');
     };
-    if (vehicle_type) {
+    if (vehicle_type !== 'truck') {
       handleSubmit(onSubmit)();
+    } else {
+      showModal({
+        component: <TonnageModal />,
+        modalProps: {},
+      });
     }
-  }, [handleSubmit, history, vehicle_type]);
+  }, [handleSubmit, history, showModal, vehicle_type]);
 
   return (
     <div>
