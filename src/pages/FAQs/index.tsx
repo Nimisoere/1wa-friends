@@ -1,6 +1,6 @@
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../../interfaces';
-import Header from './Header';
+import FAQs from './Faqs';
 
 const mapState = (state: AppState) => ({});
 
@@ -10,4 +10,4 @@ const connector = connect(mapState, mapDispatch);
 
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 
-export default connector(Header);
+export default connector(FAQs);

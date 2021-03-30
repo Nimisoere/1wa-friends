@@ -21,6 +21,7 @@ import OverseasShipping from '../pages/OverseasShipping';
 import ShipmentQuote from '../pages/ShipmentQuote';
 import Wallet from '../pages/Wallet';
 import Modal from '../components/Modal';
+import FAQs from '../pages/FAQs';
 
 interface RefrestToastProps extends ToastContentProps {
   // eslint-disable-next-line react/no-unused-prop-types
@@ -110,6 +111,9 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
       <Switch>
         <Route exact path="/">
           <Layout component={<Home />} />
+        </Route>
+        <Route exact path="/faqs">
+          <Layout component={<FAQs />} />
         </Route>
         <Route exact path="/about-us">
           <Layout component={<AboutUs />} />

@@ -7,6 +7,7 @@ import {
 } from './wallettransactions.constants';
 import { ReactComponent as Ellipse } from '../../assets/images/placeholder-ellipse.svg';
 import { ReactComponent as Ellipse2 } from '../../assets/images/placeholder-ellipse-down.svg';
+import DatePicker from '../form-controls/Datepicker';
 
 interface Props {}
 
@@ -51,8 +52,21 @@ const Transaction: React.FC<TransactionProps> = ({ transaction, index }) => (
 const Transactions: React.FC<Props> = () => (
   <div className="w-full">
     <div className="flex w-full my-7">
-      <div className="flex-grow text-center">
+      <div className="w-2/3 text-center">
         <h4 className="font-semibold text-xl">Transaction history</h4>
+      </div>
+      <div className="w-1/3">
+        <DatePicker
+          selectsRange
+          maxDate={new Date()}
+          isClearable
+          selectsEnd={true}
+          calendarClassName="font-bold text-xs font-serif"
+          showPopperArrow={false}
+          placeholderText="Filter by date"
+          className="p-3 w-full text-sm rounded-md"
+          onChange={() => null}
+        />
       </div>
     </div>
     <div className="w-full font-semibold flex px-10 mb-3">
