@@ -37,7 +37,7 @@ const Tonnage: React.FC<Props> = ({ hideModal }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full px-4 bg-gray-100 rounded-xl lg:px-14 py-10 relative"
+      className="w-full px-4 bg-white rounded-xl lg:px-14 py-10 relative"
     >
       <MdClose
         className="absolute cursor-pointer text-2xl right-5 top-5"

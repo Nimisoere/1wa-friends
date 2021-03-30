@@ -67,7 +67,7 @@ export type Data = Datum[];
 
 export interface ServiceCard {
   id: string;
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactSelect, { OptionTypeBase } from 'react-select';
+import * as CSS from 'csstype';
 import { MdArrowDropDown } from 'react-icons/md';
 import { Datum } from '../../interfaces';
 
@@ -29,6 +30,8 @@ interface Props {
   isClearable?: boolean;
   isSearchable?: boolean;
   openMenuOnClick?: boolean;
+  controlStyles?: CSS.Properties;
+  placeholderStyles?: CSS.Properties;
 }
 
 const Select: React.FC<Props> = ({
@@ -55,6 +58,8 @@ const Select: React.FC<Props> = ({
   labelKey = 'label',
   valueKey = 'value',
   openMenuOnClick,
+  placeholderStyles,
+  controlStyles,
 }) => {
   const [, setValue] = React.useState<any>(null);
   // const [inputValue, setInputValue] = React.useState<any>(valueProps || "");
@@ -100,14 +105,14 @@ const Select: React.FC<Props> = ({
             newBase.borderColor = '#D0C9D6';
             newBase.borderRadius = '10px';
             newBase.padding = '8px';
-            return newBase;
+            return { ...newBase, ...controlStyles };
           },
           placeholder: (base) => {
             const newBase = { ...base };
             newBase.color = '#BDBDBD';
             newBase.fontWeight = 400;
             newBase.fontSize = '14px';
-            return newBase;
+            return { ...newBase, ...placeholderStyles };
           },
         }}
         components={{

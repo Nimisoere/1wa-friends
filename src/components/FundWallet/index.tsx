@@ -1,7 +1,7 @@
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../../interfaces';
 import { show, hide } from '../../redux/slices/modal';
-import WalletCard from './WalletCard';
+import FundWallet from './FundWallet';
 
 const mapState = (state: AppState) => ({});
 
@@ -14,4 +14,4 @@ const connector = connect(mapState, mapDispatch);
 
 export type PropsFromRedux = ConnectedProps<typeof connector>;
 
-export default connector(WalletCard);
+export default connector(FundWallet);

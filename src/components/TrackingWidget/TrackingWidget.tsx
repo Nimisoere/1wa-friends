@@ -55,8 +55,8 @@ const TrackingWidget: React.FC<Props> = ({
   }, [params?.trackingCode, hideModal, history, showModal, resetApi]);
 
   const onSubmit = (data: Inputs) => {
-    trackShipment(data.tracking_code);
-    // history.push(`/shipment/${data.tracking_code}`);
+    // trackShipment(data.tracking_code);
+    history.push(`/shipment/${data.tracking_code}`);
   };
 
   return (
