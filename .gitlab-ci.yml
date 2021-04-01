@@ -31,4 +31,4 @@ deploy:
     - ls -a
     - lftp -e "set ssl:verify-certificate false; mirror --reverse --verbose --delete build/ ./site/wwwroot ; quit" -u $USERNAME,$PASSWORD $HOST
   only:
-    - master
+    - develop
