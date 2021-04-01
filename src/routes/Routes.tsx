@@ -22,7 +22,7 @@ import ShipmentQuote from '../pages/ShipmentQuote';
 import Wallet from '../pages/Wallet';
 import Modal from '../components/Modal';
 import FAQs from '../pages/FAQs';
-import OverseasShippingForm from '../components/OverseasShippingForm/OverseasShippingForm';
+import OverseasShippingForm from '../components/OverseasShippingForm';
 
 interface RefrestToastProps extends ToastContentProps {
   // eslint-disable-next-line react/no-unused-prop-types

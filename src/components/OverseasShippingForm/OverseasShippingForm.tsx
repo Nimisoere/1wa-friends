@@ -2,13 +2,18 @@ import React from 'react';
 import { Redirect, Route, useRouteMatch } from 'react-router';
 import PageHeader from '../common/PageHeader';
 import SideMenu from '../SideMenu';
+import { PropsFromRedux } from '.';
 import { CustomerInfo } from './FormRoutes/CustomerInfo';
 import { ItemInfo } from './FormRoutes/ItemInfo';
 import { ShippingInfo } from './FormRoutes/ShippingInfo';
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
-const OverseasShippingForm: React.FC<Props> = () => {
+const OverseasShippingForm: React.FC<Props> = ({
+  hideModal,
+  showModal,
+  modal,
+}) => {
   const match = useRouteMatch();
   if (match.isExact)
     return <Redirect to={`${match.path}/shipping-information`} />;
@@ -34,7 +39,11 @@ const OverseasShippingForm: React.FC<Props> = () => {
               <ItemInfo />
             </Route>
             <Route exact path={`${match.path}/:transactionid/process-shipping`}>
-              <CustomerInfo />
+              <CustomerInfo
+                hideModal={hideModal}
+                showModal={showModal}
+                modal={modal}
+              />
             </Route>
           </div>
         </div>

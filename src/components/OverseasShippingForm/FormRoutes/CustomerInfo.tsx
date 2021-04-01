@@ -1,8 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import {
+  ActionCreatorWithoutPayload,
+  ActionCreatorWithPayload,
+} from '@reduxjs/toolkit';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
+import { ModalAction, ModalState } from '../../../interfaces';
 import {
   getRequiredErrorMessage,
   phoneRegExp,
@@ -10,10 +14,15 @@ import {
 import Select from '../../form-controls/Select';
 import TextInput from '../../form-controls/TextInput';
 import { Progressbar } from '../Components/Progressbar';
+import SenderIdForm from '../Modals/SenderId';
 import { formSteps } from '../shippingform.utils';
 import style from './CustomerInfo.module.scss';
 
-interface Props {}
+interface Props {
+  hideModal: ActionCreatorWithoutPayload<string>;
+  showModal: ActionCreatorWithPayload<ModalAction, string>;
+  modal: ModalState;
+}
 
 const schema = yup.object().shape({
   receivers_name: yup
@@ -43,15 +52,26 @@ interface Inputs {
   receivers_terminal: string;
 }
 
-export const CustomerInfo: React.FC<Props> = (props) => {
+export const CustomerInfo: React.FC<Props> = ({
+  hideModal,
+  showModal,
+  modal,
+}) => {
   const { handleSubmit, control, errors, watch } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
 
-  const history = useHistory();
-
   const onSubmit = (data: Inputs) => {
-    history.push('/giggo-delivery-app/item-information');
+    showModal({
+      modalProps: {},
+      component: (
+        <SenderIdForm
+          hideModal={hideModal}
+          showModal={showModal}
+          modal={modal}
+        />
+      ),
+    });
   };
 
   const deliveryOption = watch('delivery_type');

@@ -1,5 +1,5 @@
 import React from 'react';
-import OverseasShippingForm from '../../components/OverseasShippingForm';
+import OverseasShippingForm from '../../components/OverseasShipping';
 
 interface Props {}
 
