@@ -85,7 +85,10 @@ export const CustomerInfo: React.FC<Props> = ({
           activeStep="process-shipping"
         />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-4/5 mx-auto my-5">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full sm:w-4/5 mx-auto my-5"
+      >
         <p className="text-center mt-5">
           To guarantee hassle-free shiping please input details of item(s)
           purchased from store in order to complete the overseas shipping
@@ -166,7 +169,7 @@ export const CustomerInfo: React.FC<Props> = ({
           <h4 className="p-3 font-semibold rounded-t-md bg-gray-100 text-center">
             Delivery Details
           </h4>
-          <div className="w-full px-20 py-10">
+          <div className="w-full px-5 sm:px-20 py-10">
             <div className="mb-8 w-full">
               <Controller
                 name="delivery_type"

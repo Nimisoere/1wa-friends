@@ -19,9 +19,9 @@ const OurFocus: React.FC<Props> = (props) => (
       {focus.map((item, index) => (
         <div
           key={item.id}
-          className={`bg-red-400 shadow-xl rounded-3xl ${styles.focusCard} ${
-            index > 0 ? 'lg:w-1/2' : 'lg:w-1/3'
-          } flex flex-col p-7`}
+          className={`bg-red-400 mb-5 sm:mb-0 shadow-xl rounded-3xl ${
+            styles.focusCard
+          } ${index > 0 ? 'lg:w-1/2' : 'lg:w-1/3'} flex flex-col p-7`}
         >
           <div className="mb-3">{item.icon}</div>
           <h4 className="font-sans font-black text-lg">{item.title}</h4>

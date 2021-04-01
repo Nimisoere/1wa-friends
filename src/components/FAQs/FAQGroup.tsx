@@ -9,11 +9,11 @@ interface Props extends PropsFromRedux {
 }
 
 const FAQGroup: React.FC<Props> = ({ title, data }) => (
-  <div className="w-full text-gray-900 flex justify-between mb-10">
-    <div className="w-1/6">
+  <div className="w-full text-gray-900 flex flex-wrap justify-between mb-10">
+    <div className="w-full md:w-1/6">
       <span className="font-semibold text-2xl">{title}</span>
     </div>
-    <div className="w-4/6">
+    <div className="w-full md:w-4/6">
       {data.map((faq) => (
         <QuestionAnswer key={faq.id} faq={faq} />
       ))}

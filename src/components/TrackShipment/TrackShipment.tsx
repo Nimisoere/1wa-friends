@@ -1,13 +1,13 @@
-import React from "react";
-import { MdClose } from "react-icons/md";
-import { useHistory } from "react-router";
-import { IoIosCheckmarkCircle } from "react-icons/io";
-import { IoEllipse } from "react-icons/io5";
-import { PropsFromRedux } from ".";
-import { formatMoney } from "../../utils/common.utils";
-import { trackingData } from "./tracking.constants";
-import styles from "./TrackingShipment.module.scss";
-import RatingForm from "../RatingForm";
+import React from 'react';
+import { MdClose } from 'react-icons/md';
+import { useHistory } from 'react-router';
+import { IoIosCheckmarkCircle } from 'react-icons/io';
+import { IoEllipse } from 'react-icons/io5';
+import { PropsFromRedux } from '.';
+import { formatMoney } from '../../utils/common.utils';
+import { trackingData } from './tracking.constants';
+import styles from './TrackingShipment.module.scss';
+import RatingForm from '../RatingForm';
 
 interface Props extends PropsFromRedux {}
 
@@ -16,9 +16,9 @@ const TrackShipment: React.FC<Props> = ({ hideModal }) => {
   return (
     <div className="w-full px-4 bg-gray-100 lg:px-14 py-10 relative">
       <MdClose
-        className="absolute cursor-pointer text-2xl right-5 top-5"
+        className="sticky sm:absolute cursor-pointer text-2xl top-0 left-full sm:left-auto sm:right-5 sm:top-5"
         onClick={() => {
-          history.push("/");
+          history.push('/');
           hideModal();
         }}
       />
@@ -37,7 +37,7 @@ const TrackShipment: React.FC<Props> = ({ hideModal }) => {
         <div className="w-1/2 lg:w-1/4">
           <p className="text-xs font-medium mb-1">Amount paid</p>
           <p className="text-lg font-medium">
-            {formatMoney(trackingData.amount_paid, "NGN").replace("NGN", "N")}
+            {formatMoney(trackingData.amount_paid, 'NGN').replace('NGN', 'N')}
           </p>
         </div>
         <div className="w-1/2 lg:w-1/4">
@@ -86,7 +86,7 @@ const TrackShipment: React.FC<Props> = ({ hideModal }) => {
           )}
           <div
             className={`flex-grow px-4 ${
-              !trackingData.status.payment_confirmed.done && "opacity-70"
+              !trackingData.status.payment_confirmed.done && 'opacity-70'
             }`}
           >
             <h4 className="font-medium mb-2">Payment Confirmed</h4>
@@ -104,7 +104,7 @@ const TrackShipment: React.FC<Props> = ({ hideModal }) => {
           )}
           <div
             className={`flex-grow px-4 ${
-              !trackingData.status.delivered.done && "opacity-70"
+              !trackingData.status.delivered.done && 'opacity-70'
             }`}
           >
             <h4 className="font-medium mb-2">Item Delivered</h4>

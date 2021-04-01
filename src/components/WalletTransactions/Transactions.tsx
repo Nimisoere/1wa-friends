@@ -18,10 +18,12 @@ interface TransactionProps {
 
 const Transaction: React.FC<TransactionProps> = ({ transaction, index }) => (
   <div
-    className={`w-full flex px-10 py-4 ${index % 2 === 1 ? 'bg-gray-100' : ''}`}
+    className={`w-full flex flex-wrap px-4 sm:px-10 py-4 ${
+      index % 2 === 1 ? 'bg-gray-100' : ''
+    }`}
     key={transaction.id}
   >
-    <div className="w-3/4 flex">
+    <div className="w-full sm:w-3/4 flex">
       <div className="inline-flex mr-7">
         {transaction.type === 'credit' && <Ellipse2 />}
         {transaction.type === 'debit' && <Ellipse />}
@@ -38,7 +40,7 @@ const Transaction: React.FC<TransactionProps> = ({ transaction, index }) => (
         </p>
       </div>
     </div>
-    <div className="w-1/4 text-right">
+    <div className="w-full sm:w-1/4 text-right">
       <p className="font-semibold text-lg">
         {formatMoney(transaction.amount, 'NGN', 0).replace('NGN', '₦')}
       </p>
@@ -51,16 +53,17 @@ const Transaction: React.FC<TransactionProps> = ({ transaction, index }) => (
 
 const Transactions: React.FC<Props> = () => (
   <div className="w-full">
-    <div className="flex w-full my-7">
-      <div className="w-2/3 text-center">
+    <div className="flex flex-wrap w-full my-7">
+      <div className="w-full sm:w-2/3 text-center">
         <h4 className="font-semibold text-xl">Transaction history</h4>
       </div>
-      <div className="w-1/3">
+      <div className="w-full sm:w-1/3">
         <DatePicker
           selectsRange
           maxDate={new Date()}
           isClearable
           selectsEnd={true}
+          wrapperClassName="w-full"
           calendarClassName="font-bold text-xs font-serif"
           showPopperArrow={false}
           placeholderText="Filter by date"

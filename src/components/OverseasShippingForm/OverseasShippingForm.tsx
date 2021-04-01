@@ -19,10 +19,10 @@ const OverseasShippingForm: React.FC<Props> = ({
     return <Redirect to={`${match.path}/shipping-information`} />;
   return (
     <div className="container flex flex-wrap mx-auto py-10 lg:py-20">
-      <div className="w-full sm:w-1/5">
+      <div className="w-full md:w-1/5">
         <SideMenu />
       </div>
-      <div className="w-full sm:w-4/5 sm:px-10 lg:px-20">
+      <div className="w-full md:w-4/5 sm:px-10 lg:px-20">
         <div className="w-full: lg:w-4/5 mb-10">
           <PageHeader
             disablePadding

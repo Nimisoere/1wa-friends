@@ -16,7 +16,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
       <div className="flex w-full flex-col flex-wrap justify-center items-center">
         <h2
           title={error}
-          className="font-semibold my-8 text-gray-300 text-6xl lg:text-9xl"
+          className="font-semibold text-center my-8 text-gray-300 text-6xl lg:text-9xl"
         >
           {error}
         </h2>

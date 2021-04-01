@@ -61,7 +61,7 @@ const SenderIdForm: React.FC<Props> = ({ hideModal, showModal, modal }) => {
       className="w-full px-4 bg-white rounded-md lg:px-14 py-10 relative"
     >
       <MdClose
-        className="absolute cursor-pointer text-2xl right-5 top-5"
+        className="sticky sm:absolute cursor-pointer text-2xl top-0 left-full sm:left-auto sm:right-5 sm:top-5"
         onClick={() => {
           hideModal();
         }}

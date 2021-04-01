@@ -76,12 +76,15 @@ export const CustomerInfo: React.FC<Props> = (props) => {
           activeStep="shipment-details"
         />
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-4/5 mx-auto my-5">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full sm:w-4/5 mx-auto my-5"
+      >
         <div className="shadow-lg mb-10 rounded-md">
           <h4 className="p-3 font-semibold rounded-t-md bg-gray-100 text-center">
             Sender's Info
           </h4>
-          <div className="w-full px-5 sm:px-20 py-10">
+          <div className="w-full px-4 sm:px-20 py-10">
             <div className="mb-5 w-full">
               <Controller
                 name="senders_address"
@@ -198,7 +201,7 @@ export const CustomerInfo: React.FC<Props> = (props) => {
           <h4 className="p-3 font-semibold rounded-t-md bg-gray-100 text-center">
             Receiver's Info
           </h4>
-          <div className="w-full px-20 py-10">
+          <div className="w-full px-4 sm:px-20 py-10">
             <div className="mb-8 w-full">
               <Controller
                 name="receivers_address"
@@ -311,17 +314,17 @@ export const CustomerInfo: React.FC<Props> = (props) => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-12">
+        <div className="flex flex-wrap justify-center gap-12">
           <button
             type="button"
             onClick={() => history.go(-1)}
-            className="border border-secondary text-secondary py-3 px-14 font-bold text-lg rounded"
+            className="border border-secondary w-full sm:w-auto text-secondary py-3 px-14 font-bold text-lg rounded"
           >
             Back
           </button>
           <button
             type="submit"
-            className="border border-secondary bg-secondary text-white py-3 px-14 font-bold text-lg rounded"
+            className="border border-secondary w-full sm:w-auto bg-secondary text-white py-3 px-14 font-bold text-lg rounded"
           >
             Next
           </button>

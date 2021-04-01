@@ -16,7 +16,7 @@ export const SelectCountry: React.FC<Props> = (props) => {
   return (
     <div className="w-full">
       <div className="w-full">
-        <div className="container flex mx-auto">
+        <div className="container flex flex-wrap mx-auto">
           <div className="sm:w-1/2 py-24 w-full">
             <h4 className="font-bold mb-7 text-3xl">
               Ship anything, anywhere, anytime…
@@ -38,7 +38,7 @@ export const SelectCountry: React.FC<Props> = (props) => {
               </p>
             </div>
           </div>
-          <div className="sm:w-1/2 w-full">
+          <div className="sm:w-1/2 w-full hidden sm:block">
             <OverseasBg className="w-full h-96" />
           </div>
         </div>

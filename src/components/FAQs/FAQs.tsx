@@ -9,7 +9,7 @@ interface Props extends PropsFromRedux {}
 const FAQs: React.FC<Props> = (props) => {
   const groupedData = groupBy(faqData, 'category');
   return (
-    <div className="container mx-auto my-10">
+    <div className="my-10">
       {Object.keys(groupedData).map((key) => (
         <FAQGroup key={key} data={groupedData[key]} title={key} />
       ))}

@@ -91,8 +91,8 @@ export const ShippingInfo: React.FC<Props> = (props) => {
               )}
             />
           </div>
-          <div className="mb-5 flex w-full sm:gap-6">
-            <div className="w-full sm:w-1/2">
+          <div className="flex sm:flex-nowrap flex-wrap w-full gap-0 sm:gap-6">
+            <div className="w-full sm:w-1/2 mb-5">
               <Controller
                 name="state"
                 control={control}
@@ -113,7 +113,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
                 )}
               />
             </div>
-            <div className="w-full sm:w-1/2">
+            <div className="w-full sm:w-1/2 mb-5 ">
               <Controller
                 name="zipcode"
                 control={control}
@@ -153,7 +153,10 @@ export const ShippingInfo: React.FC<Props> = (props) => {
           <div className="w-full">
             <div className="w-full justify-center my-5 flex-wrap flex">
               {shops.map((shop) => (
-                <div key={shop.StoreId} className="p-2 w-1/4">
+                <div
+                  key={shop.StoreId}
+                  className="p-2 w-full sm:w-1/2 md:w-1/4"
+                >
                   <div className="shadow p-4 h-full flex justify-center items-center rounded-md">
                     <img
                       className="w-full"

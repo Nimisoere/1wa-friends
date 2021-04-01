@@ -51,7 +51,11 @@ export const VehicleInfo: React.FC<Props> = ({ showModal }) => {
          flex-wrap w-full"
         >
           {vehicles.map((vehicle) => (
-            <label htmlFor={vehicle.id} className="p-4 w-1/2" key={vehicle.id}>
+            <label
+              htmlFor={vehicle.id}
+              className="p-4 w-full sm:w-1/2"
+              key={vehicle.id}
+            >
               <div
                 className={`shadow-lg hover:border-secondary flex flex-col justify-center items-center cursor-pointer border h-full ${
                   vehicle_type === vehicle.value

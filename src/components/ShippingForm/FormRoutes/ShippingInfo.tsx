@@ -49,7 +49,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
         <Progressbar steps={formSteps} hasBackButton activeStep="pick-up" />
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="">
-        <div className="flex justify-between items-center shadow-lg rounded-xl px-10 py-8 mb-10 w-full">
+        <div className="flex flex-wrap md:flex-nowrap justify-between items-center shadow-lg rounded-xl px-4 sm:px-10 py-8 mb-10 w-full">
           <Controller
             name="pickup_address"
             control={control}

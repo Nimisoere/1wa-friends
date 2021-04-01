@@ -33,7 +33,7 @@ const FAQs: React.FC<Props> = (props) => (
       </div>
     </div>
 
-    <div className="container">
+    <div className="container mx-auto">
       <FAQComponent />
     </div>
   </div>
