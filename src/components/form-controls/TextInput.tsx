@@ -1,5 +1,5 @@
-import React from "react";
-import { Datum } from "../../interfaces";
+import React from 'react';
+import { Datum } from '../../interfaces';
 
 interface Props {
   wrapperClassName?: string;
@@ -42,7 +42,7 @@ const TextInput: React.FC<Props> = React.memo(
     rows,
     readOnly,
   }) => {
-    const [value, setValue] = React.useState(valueProps || "");
+    const [value, setValue] = React.useState(valueProps || '');
 
     React.useEffect(() => {
       setValue(valueProps);
@@ -66,8 +66,8 @@ const TextInput: React.FC<Props> = React.memo(
           <textarea
             id={id}
             name={name}
-            className={`p-4 border border-gray-400 rounded-md ${className} ${
-              error ? "border border-red-600" : ""
+            className={`${className} p-4 border border-gray-400 rounded-md  ${
+              error ? 'border border-red-600' : ''
             }`}
             placeholder={placeholder}
             readOnly={readOnly}
@@ -75,15 +75,15 @@ const TextInput: React.FC<Props> = React.memo(
             value={onChange ? valueProps : value}
             onChange={(onChange as any) || handleChange}
             rows={rows}
-           />
+          />
         ) : (
           <input
             id={id}
             name={name}
             className={`p-4 border border-gray-400 rounded-md ${className} ${
-              error ? "border border-red-600" : ""
+              error ? 'border border-red-600' : ''
             }`}
-            type={type || "text"}
+            type={type || 'text'}
             placeholder={placeholder}
             readOnly={readOnly}
             disabled={disabled}
@@ -94,7 +94,7 @@ const TextInput: React.FC<Props> = React.memo(
         {error?.message && (
           <span
             className={`${
-              error?.message ? "text-red-600" : "text-gray-600"
+              error?.message ? 'text-red-600' : 'text-gray-600'
             } text-xs`}
           >
             {error.message}

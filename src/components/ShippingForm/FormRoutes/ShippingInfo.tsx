@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
+import { OptionTypeBase } from 'react-select';
 import { Controller, useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
@@ -28,6 +29,9 @@ const schema = yup.object().shape({
 export const ShippingInfo: React.FC<Props> = (props) => {
   const history = useHistory();
 
+  const [origin, setOrigin] = React.useState('');
+  const [destination, setDestination] = React.useState('');
+
   const { handleSubmit, errors, control } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
@@ -35,8 +39,9 @@ export const ShippingInfo: React.FC<Props> = (props) => {
     history.push('/giggo-delivery-app/customer-information');
   };
 
-  const mapUrl =
-    'https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJlZisjon5OxARmL23eBevwdo&destination=place_id:ChIJSWGXDYr2OxARCzJ3PFd_BJ4&key=AIzaSyAXjWTPsX9a9YvVnTdxsXSvfcoouoX639I';
+  const defaultMapUrl = `https://www.google.com/maps/embed/v1/place?q=My+Location&zoom=15&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
+
+  const mapUrl = `https://www.google.com/maps/embed/v1/directions?origin=place_id:${origin}&destination=place_id:${destination}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
 
   return (
     <div>
@@ -59,7 +64,10 @@ export const ShippingInfo: React.FC<Props> = (props) => {
                 error={errors['pickup_address']}
                 placeholder="Pickup Address"
                 label="Pickup Address"
-                customChange={onChange}
+                customChange={(locationValue: OptionTypeBase) => {
+                  setOrigin(locationValue?.value.place_id);
+                  onChange(locationValue?.label);
+                }}
                 id={name}
               />
             )}
@@ -81,7 +89,10 @@ export const ShippingInfo: React.FC<Props> = (props) => {
                 error={errors['delivery_address']}
                 placeholder="Delivery Address"
                 label="Delivery Address"
-                customChange={onChange}
+                customChange={(locationValue: OptionTypeBase) => {
+                  setDestination(locationValue?.value.place_id);
+                  onChange(locationValue?.label);
+                }}
                 id={name}
               />
             )}
@@ -98,7 +109,7 @@ export const ShippingInfo: React.FC<Props> = (props) => {
             style={{ border: 0 }}
             loading="lazy"
             allowFullScreen
-            src={mapUrl}
+            src={origin && destination ? mapUrl : defaultMapUrl}
           />
         </div>
         <div className="flex justify-center w-full">

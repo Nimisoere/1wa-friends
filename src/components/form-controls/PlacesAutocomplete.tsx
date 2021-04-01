@@ -38,7 +38,7 @@ const LocationInput: React.FC<Props> = ({
 
   const handleChange = (value: OptionTypeBase | null) => {
     setValue(value);
-    !!customChange && customChange(value?.label);
+    !!customChange && customChange(value);
   };
   return (
     <div className={wrapperClassName}>

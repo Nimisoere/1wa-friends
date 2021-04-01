@@ -1,0 +1,45 @@
+.progressItem {
+  @apply relative;
+  &:first-child {
+    &:after {
+      @apply bg-black;
+    }
+    &:before {
+      content: " ";
+      @apply bg-black;
+    }
+  }
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+  &:after {
+    content: " ";
+    right: 0;
+    top: 25%;
+    @apply bg-gray-300;
+    @apply h-1;
+    @apply w-1/2;
+    @apply absolute;
+  }
+  &:before {
+    content: " ";
+    left: 0;
+    top: 25%;
+    @apply bg-gray-300;
+    @apply h-1;
+    @apply w-1/2;
+    @apply absolute;
+  }
+}
+
+.active {
+  &:after {
+    @apply bg-black;
+  }
+  &:before {
+    content: " ";
+    @apply bg-black;
+  }
+}

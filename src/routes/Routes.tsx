@@ -22,6 +22,7 @@ import ShipmentQuote from '../pages/ShipmentQuote';
 import Wallet from '../pages/Wallet';
 import Modal from '../components/Modal';
 import FAQs from '../pages/FAQs';
+import OverseasShippingForm from '../components/OverseasShippingForm/OverseasShippingForm';
 
 interface RefrestToastProps extends ToastContentProps {
   // eslint-disable-next-line react/no-unused-prop-types
@@ -139,9 +140,13 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
         <Route path="/giggo-delivery-app">
           <Layout component={<QuickShipping />} />
         </Route>
+        <Route path="/overseas-shipping/ship">
+          <Layout component={<OverseasShippingForm />} />
+        </Route>
         <Route exact path="/overseas-shipping">
           <Layout component={<OverseasShipping />} />
         </Route>
+
         <Route exact path="/get-a-quote">
           <Layout component={<ShipmentQuote />} />
         </Route>

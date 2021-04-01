@@ -61,7 +61,7 @@ const Select: React.FC<Props> = ({
   placeholderStyles,
   controlStyles,
 }) => {
-  const [, setValue] = React.useState<any>(null);
+  const [, setValue] = React.useState<any>(valueProps || '');
   // const [inputValue, setInputValue] = React.useState<any>(valueProps || "");
 
   React.useEffect(() => {
@@ -94,7 +94,6 @@ const Select: React.FC<Props> = ({
         escapeClearsValue={escapeClearsValue}
         isClearable={isClearable}
         isSearchable={isSearchable}
-        // inputValue={inputValue}
         openMenuOnClick={openMenuOnClick}
         getOptionLabel={(option) => option[labelKey]}
         getOptionValue={(option) => option[valueKey]}

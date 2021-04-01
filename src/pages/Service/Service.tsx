@@ -21,7 +21,9 @@ const Service: React.FC<Props> = (props) => {
     return (
       <ErrorPage
         error={pageData === null ? '404' : 'Loading...'}
-        description={pageData === null ? 'Service unavailable' : ''}
+        description={
+          pageData === null ? 'The page you are looking for does not exist' : ''
+        }
       />
     );
 

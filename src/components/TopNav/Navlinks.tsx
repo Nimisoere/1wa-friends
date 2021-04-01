@@ -47,12 +47,12 @@ export const NavLinks = [
   },
   {
     id: uid(8),
-    title: 'About Us',
-    url: '/about-us',
+    title: 'FAQs',
+    url: '/faqs',
   },
   {
     id: uid(8),
-    title: 'FAQs',
-    url: '/faqs',
+    title: 'About Us',
+    url: '/about-us',
   },
 ];
