@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer, toast, ToastContentProps } from 'react-toastify';
@@ -6,23 +6,26 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { PropsFromRedux } from '.';
 import * as serviceWorker from '../serviceWorker';
 import ScrollToTop from './ScrollToTop';
-import Layout from '../components/Layout';
 import ErrorPage from '../pages/Error/Error';
-import Home from '../pages/Home';
-import AboutUs from '../pages/AboutUs';
-import ContactUs from '../pages/ContactUs';
-import Location from '../pages/Location';
-import ServicePortfolio from '../pages/ServicePorfolio';
-import Service from '../pages/Service';
-import SignUp from '../pages/SignUp';
-import SignIn from '../pages/SignIn';
-import QuickShipping from '../pages/QuickShipping';
-import OverseasShipping from '../pages/OverseasShipping';
-import ShipmentQuote from '../pages/ShipmentQuote';
-import Wallet from '../pages/Wallet';
 import Modal from '../components/Modal';
-import FAQs from '../pages/FAQs';
-import OverseasShippingForm from '../components/OverseasShippingForm';
+
+const Layout = React.lazy(() => import('../components/Layout'));
+const Home = React.lazy(() => import('../pages/Home'));
+const AboutUs = React.lazy(() => import('../pages/AboutUs'));
+const ContactUs = React.lazy(() => import('../pages/ContactUs'));
+const Location = React.lazy(() => import('../pages/Location'));
+const ServicePortfolio = React.lazy(() => import('../pages/ServicePorfolio'));
+const Service = React.lazy(() => import('../pages/Service'));
+const SignUp = React.lazy(() => import('../pages/SignUp'));
+const SignIn = React.lazy(() => import('../pages/SignIn'));
+const QuickShipping = React.lazy(() => import('../pages/QuickShipping'));
+const OverseasShipping = React.lazy(() => import('../pages/OverseasShipping'));
+const ShipmentQuote = React.lazy(() => import('../pages/ShipmentQuote'));
+const Wallet = React.lazy(() => import('../pages/Wallet'));
+const FAQs = React.lazy(() => import('../pages/FAQs'));
+const OverseasShippingForm = React.lazy(
+  () => import('../components/OverseasShippingForm')
+);
 
 interface RefrestToastProps extends ToastContentProps {
   // eslint-disable-next-line react/no-unused-prop-types
@@ -104,6 +107,14 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
     };
   }, [newVersionAvailable, waitingWorker]);
 
+  const Loader: React.FC = ({ children }) => (
+    <Suspense
+      fallback={<ErrorPage showLink={false} description="" error="..." />}
+    >
+      {children}
+    </Suspense>
+  );
+
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ToastContainer />
@@ -111,70 +122,106 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
       <Modal />
       <Switch>
         <Route exact path="/">
-          <Layout component={<Home />} />
+          <Loader>
+            <Layout component={<Home />} />
+          </Loader>
         </Route>
         <Route exact path="/faqs">
-          <Layout component={<FAQs />} />
+          <Loader>
+            <Layout component={<FAQs />} />
+          </Loader>
         </Route>
         <Route exact path="/about-us">
-          <Layout component={<AboutUs />} />
+          <Loader>
+            <Layout component={<AboutUs />} />
+          </Loader>
         </Route>
         <Route exact path="/contact-us">
-          <Layout component={<ContactUs />} />
+          <Loader>
+            <Layout component={<ContactUs />} />
+          </Loader>
         </Route>
         <Route exact path="/locations">
-          <Layout component={<Location />} />
+          <Loader>
+            <Layout component={<Location />} />
+          </Loader>
         </Route>
         <Route exact path="/services-portfolio">
-          <Layout component={<ServicePortfolio />} />
+          <Loader>
+            <Layout component={<ServicePortfolio />} />
+          </Loader>
         </Route>
         <Route exact path="/shipment/:trackingCode">
-          <Layout component={<Home />} />
+          <Loader>
+            <Layout component={<Home />} />
+          </Loader>
         </Route>
         <Route exact path="/sign-up">
-          <Layout component={<SignUp />} />
+          <Loader>
+            <Layout component={<SignUp />} />
+          </Loader>
         </Route>
         <Route exact path="/sign-in">
-          <Layout component={<SignIn />} />
+          <Loader>
+            <Layout component={<SignIn />} />
+          </Loader>
         </Route>
         <Route path="/giggo-delivery-app">
-          <Layout component={<QuickShipping />} />
+          <Loader>
+            <Layout component={<QuickShipping />} />
+          </Loader>
         </Route>
         <Route path="/overseas-shipping/ship">
-          <Layout component={<OverseasShippingForm />} />
+          <Loader>
+            <Layout component={<OverseasShippingForm />} />
+          </Loader>
         </Route>
         <Route exact path="/overseas-shipping">
-          <Layout component={<OverseasShipping />} />
+          <Loader>
+            <Layout component={<OverseasShipping />} />
+          </Loader>
         </Route>
 
         <Route exact path="/get-a-quote">
-          <Layout component={<ShipmentQuote />} />
+          <Loader>
+            <Layout component={<ShipmentQuote />} />
+          </Loader>
         </Route>
         <Route exact path="/wallet">
-          <Layout component={<Wallet />} />
+          <Loader>
+            <Layout component={<Wallet />} />
+          </Loader>
         </Route>
         <Route exact path="/wallet/fund">
-          <Layout component={<Wallet />} />
+          <Loader>
+            <Layout component={<Wallet />} />
+          </Loader>
         </Route>
         <Route exact path="/gig-alpha">
-          <Layout
-            component={
-              <ErrorPage error="Coming Soon" description="Watch this space" />
-            }
-          />
+          <Loader>
+            <Layout
+              component={
+                <ErrorPage error="Coming Soon" description="Watch this space" />
+              }
+            />
+          </Loader>
         </Route>
         <Route exact path="/:service">
-          <Layout component={<Service />} />
+          <Loader>
+            <Layout component={<Service />} />
+          </Loader>
         </Route>
         <Route>
-          <Layout
-            component={
-              <ErrorPage
-                error="404"
-                description="The page you are looking for does not exist"
-              />
-            }
-          />
+          <Loader>
+            <Layout
+              component={
+                <ErrorPage
+                  error="404"
+                  description="The page you are looking for does not exist"
+                />
+              }
+            />
+          </Loader>
         </Route>
       </Switch>
     </BrowserRouter>

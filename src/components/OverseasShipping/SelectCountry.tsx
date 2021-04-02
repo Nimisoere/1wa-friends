@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { ReactComponent as OverseasBg } from '../../assets/images/overseas-bg.svg';
 import Select from '../form-controls/Select';
 import { countryContent } from './country-content';
 
@@ -38,8 +37,12 @@ export const SelectCountry: React.FC<Props> = (props) => {
               </p>
             </div>
           </div>
-          <div className="sm:w-1/2 w-full hidden sm:block">
-            <OverseasBg className="w-full h-96" />
+          <div className="sm:w-1/2  flex-col items-center justify-center w-full hidden sm:flex">
+            <img
+              alt=""
+              src="https://giglogistics.com/static/media/oversea.ee532203.jpeg"
+              className="w-auto h-96"
+            />
           </div>
         </div>
       </div>

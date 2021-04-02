@@ -6,9 +6,14 @@ import Seo from '../../components/Seo/Seo';
 interface ErrorPageProps {
   error: string;
   description: string;
+  showLink?: boolean;
 }
 
-const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
+const ErrorPage: React.FC<ErrorPageProps> = ({
+  error,
+  description,
+  showLink = true,
+}) => {
   const history = useHistory();
   return (
     <div className="container mx-auto py-10">
@@ -21,13 +26,15 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error, description }) => {
           {error}
         </h2>
         <p color="textSecondary">{description}</p>
-        <button
-          type="button"
-          onClick={() => history.go(-1)}
-          className="mt-10 text-primary p-2 rounded"
-        >
-          <HiOutlineArrowNarrowLeft className="inline-flex" /> Go Back
-        </button>
+        {showLink && (
+          <button
+            type="button"
+            onClick={() => history.go(-1)}
+            className="mt-10 text-primary p-2 rounded"
+          >
+            <HiOutlineArrowNarrowLeft className="inline-flex" /> Go Back
+          </button>
+        )}
       </div>
     </div>
   );
