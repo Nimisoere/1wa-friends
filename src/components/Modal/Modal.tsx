@@ -23,7 +23,7 @@ const Modal: React.FC<Props> = ({ modal, hide }) => {
           position: 'fixed',
           zIndex: 99999,
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: isSmallScreen ? 'flex-start' : 'center',
           alignItems: isSmallScreen ? 'flex-end' : 'center',
           backgroundColor: 'rgba(0,0,0,0.6)',
           ...modal.modalProps.style?.overlay,
