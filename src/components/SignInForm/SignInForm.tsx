@@ -2,9 +2,11 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import Loader from 'react-spinners/BeatLoader';
 import TextInput from '../form-controls/TextInput';
+import { PropsFromRedux } from '.';
 
-interface Props {}
+interface Props extends PropsFromRedux {}
 
 interface Inputs {
   email: string;
@@ -16,13 +18,19 @@ const schema = yup.object().shape({
   password: yup.string().required(),
 });
 
-const SignInForm: React.FC<Props> = (props) => {
+const SignInForm: React.FC<Props> = ({ login, loginState }) => {
+  const { loading, error, response, success } = loginState || {};
+
   const { handleSubmit, control, errors } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data: Inputs) => {
-    // dispatch
+    login({
+      UserDetail: data.email,
+      Password: data.password,
+      UserChannelType: 'IndividualCustomer',
+    });
   };
 
   return (
@@ -73,8 +81,13 @@ const SignInForm: React.FC<Props> = (props) => {
         <button
           type="submit"
           className="mb-5 text-white bg-secondary font-bold w-full p-4 rounded-xl"
+          disabled={loading}
         >
-          Sign In
+          {loading ? (
+            <Loader color="white" size={8} loading={loading} />
+          ) : (
+            'Sign In'
+          )}
         </button>
       </form>
     </div>

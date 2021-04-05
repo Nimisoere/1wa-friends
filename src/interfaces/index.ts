@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import { Props as ModalProps } from 'react-modal';
 import { API_KEYS } from './api';
 
@@ -40,7 +39,7 @@ export interface KeyFetchAction {
   key: API_KEYS;
   request?: Datum | null;
   response?: Datum | null;
-  error?: AxiosError | null;
+  error?: Datum | null;
 }
 
 export interface FetchState {
@@ -48,7 +47,7 @@ export interface FetchState {
   success: boolean;
   request?: Datum | null;
   response?: Datum | null;
-  error?: AxiosError | null;
+  error?: Datum | null;
 }
 
 export interface Datum {
@@ -60,7 +59,7 @@ export interface FetchAction {
   type: string;
   request?: Datum | null;
   response?: Data | Datum | null;
-  error?: AxiosError | null;
+  error?: Datum | null;
 }
 
 export type Data = Datum[];

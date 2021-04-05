@@ -2,7 +2,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../../interfaces';
 import { API_KEYS } from '../../interfaces/api';
 import { getApiState } from '../../redux/selectors/common';
-import { hide, show } from '../../redux/slices/modal';
+import { hideModal, showModal } from '../../redux/slices/modal';
 import { resetApiThunk } from '../../redux/thunks/api';
 import { thunks } from '../../redux/thunks/thunks';
 import TrackingWidget from './TrackingWidget';
@@ -12,8 +12,8 @@ const mapState = (state: AppState) => ({
 });
 
 const mapDispatch = {
-  showModal: show,
-  hideModal: hide,
+  showModal,
+  hideModal,
   trackShipment: thunks.TRACK_SHIPMENT,
   resetApi: resetApiThunk,
 };

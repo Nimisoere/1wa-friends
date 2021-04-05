@@ -8,7 +8,6 @@ import { getRequiredErrorMessage } from '../../utils/common.utils';
 import TextInput from '../form-controls/TextInput';
 import { PropsFromRedux } from '.';
 import TrackShipment from '../TrackShipment';
-import { API_KEYS } from '../../interfaces/api';
 import { initialFetchState } from '../../interfaces/initialStates';
 
 interface Props extends PropsFromRedux {}
@@ -27,8 +26,6 @@ const TrackingWidget: React.FC<Props> = ({
   showModal,
   hideModal,
   trackShipmentState = initialFetchState,
-  trackShipment,
-  resetApi,
 }) => {
   const { loading } = trackShipmentState;
 
@@ -49,13 +46,9 @@ const TrackingWidget: React.FC<Props> = ({
     } else {
       hideModal();
     }
-    return () => {
-      resetApi(API_KEYS.TRACK_SHIPMENT);
-    };
-  }, [params?.trackingCode, hideModal, history, showModal, resetApi]);
+  }, [params?.trackingCode, hideModal, history, showModal]);
 
   const onSubmit = (data: Inputs) => {
-    // trackShipment(data.tracking_code);
     history.push(`/shipment/${data.tracking_code}`);
   };
 

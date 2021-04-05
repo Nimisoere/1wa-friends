@@ -6,7 +6,7 @@ const modal = createSlice({
   name: 'modal',
   initialState: initialModalState,
   reducers: {
-    show(state: ModalState, action: PayloadAction<ModalAction>) {
+    showModal(state: ModalState, action: PayloadAction<ModalAction>) {
       state.modalProps = {
         ...state.modalProps,
         ...action.payload.modalProps,
@@ -14,7 +14,7 @@ const modal = createSlice({
       };
       state.component = action.payload.component;
     },
-    hide(state: ModalState) {
+    hideModal(state: ModalState) {
       state.modalProps = {
         isOpen: false,
       };
@@ -23,6 +23,6 @@ const modal = createSlice({
   },
 });
 
-export const { show, hide } = modal.actions;
+export const { showModal, hideModal } = modal.actions;
 
 export default modal.reducer;

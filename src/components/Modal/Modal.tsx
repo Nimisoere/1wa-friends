@@ -5,16 +5,10 @@ import { useScreenSize } from '../../hooks/useScreenSize';
 
 interface Props extends PropsFromRedux {}
 
-const Modal: React.FC<Props> = ({ modal, hide }) => {
+const Modal: React.FC<Props> = ({ modal, hideModal }) => {
   const screenSize = useScreenSize();
   const isSmallScreen = screenSize < 640;
 
-  React.useEffect(
-    () => () => {
-      hide();
-    },
-    [hide]
-  );
   return (
     <ReactModal
       bodyOpenClassName="overflow-hidden"

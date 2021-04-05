@@ -1,6 +1,6 @@
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../../../../interfaces';
-import { show } from '../../../../redux/slices/modal';
+import { showModal } from '../../../../redux/slices/modal';
 import { VehicleInfo } from './VehicleInfo';
 
 const mapState = (state: AppState) => ({
@@ -8,7 +8,7 @@ const mapState = (state: AppState) => ({
 });
 
 const mapDispatch = {
-  showModal: show,
+  showModal,
 };
 
 const connector = connect(mapState, mapDispatch);

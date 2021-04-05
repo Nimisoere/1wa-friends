@@ -107,6 +107,7 @@ export const thunks: Thunk = {
     apiThunk({
       key: API_KEYS.TRACK_SHIPMENT,
       request: { waybillnumber },
+      showSuccessAlert: false,
       apiOptions: {},
       urlParams: {
         waybillnumber,
@@ -130,6 +131,7 @@ export const thunks: Thunk = {
     apiThunk({
       key: API_KEYS.GET_SHIPMENT_DETAILS,
       request: { waybillnumber },
+      showSuccessAlert: false,
       apiOptions: {},
       urlParams: {
         waybillnumber,
@@ -314,6 +316,7 @@ export const thunks: Thunk = {
     apiThunk<RATING_REQUEST>({
       key: API_KEYS.ADD_RATING,
       request,
+      showErrorAlert: false,
       apiOptions: {
         data: request,
       },

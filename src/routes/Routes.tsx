@@ -7,7 +7,6 @@ import { PropsFromRedux } from '.';
 import * as serviceWorker from '../serviceWorker';
 import ScrollToTop from './ScrollToTop';
 import ErrorPage from '../pages/Error/Error';
-import Modal from '../components/Modal';
 
 const Layout = React.lazy(() => import('../components/Layout'));
 const Home = React.lazy(() => import('../pages/Home'));
@@ -119,7 +118,6 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ToastContainer />
       <ScrollToTop />
-      <Modal />
       <Switch>
         <Route exact path="/">
           <Loader>

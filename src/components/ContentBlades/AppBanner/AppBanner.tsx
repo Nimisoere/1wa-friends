@@ -13,10 +13,18 @@ const AppBanner: React.FC<Props> = (props) => (
         Request a pick-up from the comfort of your location
       </h4>
       <div className="flex gap-3">
-        <a href="/">
+        <a
+          href="https://play.google.com/store/apps/details?id=ng.giglogistics.giglgo"
+          target="_blank"
+          rel="noreferrer"
+        >
           <PlayStore />
         </a>
-        <a href="/">
+        <a
+          href="https://apps.apple.com/us/app/gig-logistics-mobile/id1481825041?ls=1"
+          target="_blank"
+          rel="noreferrer"
+        >
           <AppleSore />
         </a>
       </div>

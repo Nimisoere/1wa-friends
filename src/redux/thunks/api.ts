@@ -66,7 +66,10 @@ export const apiThunk = <Req>({
       dispatch(
         showNotification({
           alertType: 'error',
-          message: errorAlertMessage || error?.data?.ShortDescription,
+          message:
+            errorAlertMessage ||
+            error?.data?.ShortDescription ||
+            error.data?.Message,
         })
       );
     }
