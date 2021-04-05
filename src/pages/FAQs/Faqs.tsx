@@ -20,6 +20,7 @@ const FAQs: React.FC<Props> = (props) => (
               className="border-none rounded-none px-2 py-0 w-full h-full"
               id="faq-search"
               wrapperClassName="w-full"
+              value=""
               placeholder="Type your question here"
             />
           </div>

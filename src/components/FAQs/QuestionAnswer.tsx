@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import ReactMarkdownWithHtml from 'react-markdown/with-html';
 import { PropsFromRedux } from '.';
 import { FAQData } from './faq-data';
 
@@ -23,9 +24,11 @@ const QuestionAnswer: React.FC<Props> = ({ faq }) => {
       </div>
 
       {open && (
-        <p className="transform transition-all py-5 text-sm mb-10">
-          {faq.answer}
-        </p>
+        <div className="transform transition-all py-5 text-sm mb-10">
+          <ReactMarkdownWithHtml escapeHtml={false}>
+            {faq.answer}
+          </ReactMarkdownWithHtml>
+        </div>
       )}
     </div>
   );

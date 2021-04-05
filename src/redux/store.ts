@@ -1,16 +1,24 @@
-import { configureStore, Action } from "@reduxjs/toolkit";
-import { createBrowserHistory } from "history";
-import logger from "redux-logger";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { ThunkAction } from "redux-thunk";
+import { configureStore, Action } from '@reduxjs/toolkit';
+import { createBrowserHistory } from 'history';
+import logger from 'redux-logger';
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { ThunkAction } from 'redux-thunk';
 
-import { initialState } from "../interfaces/initialStates";
+import { initialState } from '../interfaces/initialStates';
 
-import rootReducer, { RootState } from "./reducers";
+import rootReducer, { RootState } from './reducers';
 
 const persistConfig = {
-  key: "gig-logistics-web",
+  key: 'gig-logistics-web',
   storage,
 };
 
@@ -20,8 +28,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-  devTools: process.env.NODE_ENV !== "production",
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(logger),
+  devTools: process.env.NODE_ENV !== 'production',
   preloadedState: initialState,
 });
 

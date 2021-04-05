@@ -37,12 +37,22 @@ export const pages: ServicePageData[] = [
           logistics service to support its daily delivery needs.
         </p>
         <Link
-          className="mb-5 font-bold text-sm bg-secondary text-white p-3 rounded-xl"
-          to={{ pathname: 'https://giglogistics.com/deliverypartner' }}
+          className="mb-5 inline-flex font-bold text-sm bg-secondary text-white p-3 rounded-xl"
+          to={{ pathname: 'https://gigl-go.com/merchantSignUp' }}
           target="_blank"
         >
           Sign up as a merchant
         </Link>
+        <p className="mb-5 tex-sm">
+          Already have an account?{' '}
+          <Link
+            className="font-bold text-sm text-primary"
+            to={{ pathname: 'https://gigl-go.com/' }}
+            target="_blank"
+          >
+            Login to your merchant account
+          </Link>
+        </p>
       </>
     ),
     card_list: {

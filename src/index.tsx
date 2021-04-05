@@ -3,6 +3,8 @@ import { render, hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
+import { HelmetProvider } from 'react-helmet-async';
+
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
@@ -17,7 +19,9 @@ const BaseComponent: React.FC = () => (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ErrorBoundary>
-          <Routes />
+          <HelmetProvider>
+            <Routes />
+          </HelmetProvider>
         </ErrorBoundary>
       </PersistGate>
     </Provider>
