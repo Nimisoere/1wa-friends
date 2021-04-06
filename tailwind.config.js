@@ -8,7 +8,6 @@ module.exports = {
     extend: {
       fontFamily: {
         serif: ['Inter', 'sans-serif'],
-        sans: ['Avenir', 'Inter', 'sans-serif']
       },
       colors: {
         primary: '#D5343A',

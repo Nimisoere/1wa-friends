@@ -32,6 +32,7 @@ export const thunks: Thunk = {
     apiThunk<LOGIN_VALUES>({
       key: API_KEYS.LOGIN,
       request,
+      showSuccessAlert: false,
       apiOptions: {
         data: request,
       },

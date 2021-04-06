@@ -12,13 +12,11 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { ThunkAction } from 'redux-thunk';
-
 import { initialState } from '../interfaces/initialStates';
-
 import rootReducer, { RootState } from './reducers';
 
 const persistConfig = {
-  key: 'gig-logistics-web',
+  key: '1wa-friends',
   storage,
 };
 

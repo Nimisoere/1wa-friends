@@ -1,10 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { IoIosMenu } from "react-icons/io";
-import logo from "../../assets/images/logo.png";
-import AuthHeaderMenu from "../AuthHeaderMenu";
-import TopNav from "../TopNav";
-import styles from "./Header.module.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { IoIosMenu } from 'react-icons/io';
+import AuthHeaderMenu from '../AuthHeaderMenu';
+import TopNav from '../TopNav';
+import styles from './Header.module.scss';
 
 interface Props {}
 
@@ -17,9 +16,7 @@ const Header: React.FC<Props> = () => {
           id="logo"
           className="h-full flex w-3/12 lg:w-2/12 justify-between items-center"
         >
-          <Link to="/">
-            <img src={logo} className="h-12" alt="GIGL" />
-          </Link>
+          <Link to="/">Logo</Link>
         </div>
         <div className="flex justify-end lg:hidden w-9/12">
           <IoIosMenu
@@ -31,7 +28,7 @@ const Header: React.FC<Props> = () => {
         </div>
         <div
           className={`w-full lg:w-10/12 ${
-            !showMenu ? "hidden" : "flex"
+            !showMenu ? 'hidden' : 'flex'
           } lg:flex flex-wrap h-full items-center`}
         >
           <div className="w-full lg:w-7/12 flex justify-between">
