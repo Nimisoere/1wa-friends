@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +5,7 @@
 html,
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @apply text-gray-700;
@@ -17,12 +15,4 @@ body {
 
 #root {
   @apply h-full;
-}
-
-.forminput {
-  @apply w-full;
-  @apply p-3;
-  @apply border;
-  @apply border-gray-200;
-  @apply rounded-lg;
 }

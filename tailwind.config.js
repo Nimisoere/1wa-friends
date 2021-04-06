@@ -7,11 +7,11 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        serif: ['Inter', 'sans-serif'],
+        serif: ['Poppins', 'Roboto', 'sans-serif'],
       },
       colors: {
-        primary: '#D5343A',
-        secondary: '#333333'
+        primary: '#0062FF',
+        secondary: '#171725'
       },
     },
   },
