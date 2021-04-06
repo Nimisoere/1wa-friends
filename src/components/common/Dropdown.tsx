@@ -1,13 +1,19 @@
 import React from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import { useComponentVisible } from '../../hooks/useComponentVisible';
-import './Dropdown.modules.scss';
 
 interface Props {
-  children: React.ReactNode;
+  toggleContent?: (isComponentVisible: boolean) => React.ReactElement | string;
+  buttonClassName?: string;
+  hideCaret?: boolean;
 }
 
-const Dropdown: React.FC<Props> = ({ children }) => {
+const Dropdown: React.FC<Props> = ({
+  children,
+  buttonClassName,
+  toggleContent,
+  hideCaret,
+}) => {
   const {
     ref,
     isComponentVisible,
@@ -15,13 +21,16 @@ const Dropdown: React.FC<Props> = ({ children }) => {
   } = useComponentVisible(false);
 
   return (
-    <div ref={ref} className="w-full text-right relative">
+    <div ref={ref} className="relative">
       <button
         type="button"
-        className="p-2 hover:bg-gray-200 rounded"
+        className={
+          buttonClassName || 'p-2 flex items-center hover:bg-gray-50 rounded'
+        }
         onClick={() => setIsComponentVisible(!isComponentVisible)}
       >
-        <FaCaretDown />
+        {toggleContent && toggleContent(isComponentVisible)}
+        {!hideCaret && <FaCaretDown className="ml-2" />}
       </button>
       {isComponentVisible ? (
         <div className="absolute border-gray-100 border text-left right-0 top-full shadow-sm z-10 rounded bg-white w-40">

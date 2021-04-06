@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
-import AuthHeaderMenu from '../AuthHeaderMenu';
+import RightTopMenu from '../RightTopMenu';
 import SearchBar from '../SearchBar';
 import Logo from '../common/Logo';
 
@@ -36,13 +36,13 @@ const Header: React.FC<Props> = () => {
         <div
           className={`w-full lg:w-10/12 ${
             !showMenu ? 'hidden' : 'flex'
-          } lg:flex flex-wrap h-full items-center`}
+          } lg:flex flex-wrap h-full justify-between items-center`}
         >
-          <div className="w-full lg:w-7/12 flex justify-between">
+          <div className="w-full lg:w-5/12 flex justify-between">
             <SearchBar />
           </div>
-          <div className="w-full lg:w-5/12 flex justify-between">
-            <AuthHeaderMenu />
+          <div className="w-full lg:w-5/12 flex">
+            <RightTopMenu />
           </div>
         </div>
       </div>

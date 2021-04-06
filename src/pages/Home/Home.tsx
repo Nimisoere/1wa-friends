@@ -1,11 +1,14 @@
 import React from 'react';
 import { PropsFromRedux } from '.';
+import FriendsDisplay from '../../components/FriendsDisplay';
 
 interface Props extends PropsFromRedux {}
 
 const Home: React.FC<Props> = (props) => (
   <div className="w-full">
-    <div className="container mx-auto pt-24">Home</div>
+    <div className="container max-w-4xl mx-auto py-8">
+      <FriendsDisplay />
+    </div>
   </div>
 );
 
