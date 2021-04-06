@@ -7,7 +7,7 @@ import Dropdown from '../common/Dropdown';
 interface Props {}
 
 const RightTopMenu: React.FC<Props> = () => (
-  <nav className="flex items-center justify-end w-full font-serif">
+  <nav className="flex items-center justify-end w-full">
     <Dropdown
       hideCaret
       toggleContent={() => (

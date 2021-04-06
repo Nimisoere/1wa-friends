@@ -9,12 +9,12 @@ interface Props {
 
 const FriendsGrid: React.FC<Props> = ({ loading, friends }) => {
   if (loading) {
-    return <div>loadinf</div>;
+    return <div>Loading</div>;
   }
   return (
-    <div className="w-full flex flex-wrap">
-      {friends?.map((friend) => (
-        <FriendsItem key={friend.id} friend={friend} />
+    <div className="w-full flex flex-wrap my-8">
+      {friends?.map((friend, index) => (
+        <FriendsItem index={index} key={friend.id} friend={friend} />
       ))}
     </div>
   );

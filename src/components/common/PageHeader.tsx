@@ -36,7 +36,7 @@ const PageHeader: React.FC<Props> = ({
           </button>
         )}
         <div className="flex-grow">
-          <h2 className="font-bold mb-5 text-3xl">{title}</h2>
+          <h2 className="font-bold font-heading mb-5 text-3xl">{title}</h2>
           <p className="text-base font-normal">{description}</p>
         </div>
       </div>
