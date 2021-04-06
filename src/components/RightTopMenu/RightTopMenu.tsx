@@ -38,7 +38,7 @@ const RightTopMenu: React.FC<Props> = () => (
     <Dropdown
       toggleContent={() => (
         <img
-          src="https://i.pravatar.cc/34"
+          src="https://i.pravatar.cc/28?u=2"
           alt="User"
           className="text-2xl rounded-full w-full h-full text-gray-400"
         />

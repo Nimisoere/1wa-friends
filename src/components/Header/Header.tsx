@@ -11,7 +11,7 @@ const Header: React.FC<Props> = () => {
   const [showMenu, setShowMenu] = React.useState<boolean>(false);
   return (
     <div className="h-20 sticky w-full z-50 top-0 flex items-center shadow-sm bg-white">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
+      <div className="px-7 w-full flex flex-wrap justify-between items-center mx-auto">
         <div
           id="logo"
           className="h-full flex w-3/12 lg:w-2/12 justify-between items-center"

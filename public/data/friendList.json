@@ -1,0 +1,147 @@
+[
+  {
+    "id": 1,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=1",
+    "firstName": "Mayke",
+    "lastName": "Schuurs",
+    "userName": "maymayke",
+    "aboutMe": "Not a Man but a Ghost 👻",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 2,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=2",
+    "firstName": "Tiontay",
+    "lastName": "Carroll",
+    "userName": "tatay",
+    "aboutMe": "Interaction Designer | Coffee Addict | Part time Traveller | Full time Mom of Baby and Bayi.",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 3,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=3",
+    "firstName": "Ngô",
+    "lastName": "Hải Giang",
+    "userName": "ngohaitong",
+    "aboutMe": "Pushing pixels and experiences in digital products for onetwothree | Coffee(nosugar)",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 4,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=4",
+    "firstName": "Chineze",
+    "lastName": "Uchechey",
+    "userName": "chinezeulala",
+    "aboutMe": "Youtube Content Creator | Photography | Profesional Videographer",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 5,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=5",
+    "firstName": "Xian",
+    "lastName": "Zhou",
+    "userName": "Xianzon",
+    "aboutMe": "Life is a Choice baby :)",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 6,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=6",
+    "firstName": "Anje",
+    "lastName": "Keizer",
+    "userName": "anjedrive",
+    "aboutMe": "Not a Man but a Ghost 👻",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 7,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=7",
+    "firstName": "Njimoluh",
+    "lastName": "Ebua",
+    "userName": "njipanji",
+    "aboutMe": "Interaction Designer | Coffee Addict | Part time Traveller | Full time Mom of Baby and Bayi.",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 8,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=8",
+    "firstName": "Isaac",
+    "lastName": "Hunt",
+    "userName": "isaachunt",
+    "aboutMe": "Youtube Content Creator | Photography | Profesional Videographer",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+
+  {
+    "id": 9,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=9",
+    "firstName": "Terry",
+    "lastName": "Crews",
+    "userName": "crewsmuscles",
+    "aboutMe": "The man, The Beast, The world champion",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 10,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=10",
+    "firstName": "James",
+    "lastName": "Curry",
+    "userName": "jcurr",
+    "aboutMe": "Interaction Designer | Coffee Addict | Part time Traveller | Full time Mom of Baby and Bayi.",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 11,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=11",
+    "firstName": "Gunag",
+    "lastName": "Zhou",
+    "userName": "gzhoug",
+    "aboutMe": "Youtube Content Creator | Photography | Profesional Videographer",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  },
+  {
+    "id": 12,
+    "backgroundUrl": "",
+    "avatarUrl": "https://i.pravatar.cc/150?img=12",
+    "firstName": "Abdullahi",
+    "lastName": "Abubakar",
+    "userName": "@aabubakar",
+    "aboutMe": "Pushing pixels and experiences in digital products for onetwothree | Coffee(nosugar)",
+    "followers": [1],
+    "following": [1],
+    "posts": []
+  }
+]

@@ -17,6 +17,3 @@ const createAxiosInstance = (baseURL: string): AxiosInstance => {
 export const baseInstance = createAxiosInstance(
   process.env.REACT_APP_DEV_URI || ''
 );
-export const nodeInstance = createAxiosInstance(
-  process.env.REACT_APP_NODE_DEV_URI || ''
-);

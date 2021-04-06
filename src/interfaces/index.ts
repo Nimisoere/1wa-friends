@@ -63,27 +63,3 @@ export interface FetchAction {
 }
 
 export type Data = Datum[];
-
-export interface ServiceCard {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-export interface ServicePageDataCardList {
-  title: string;
-  cards: ServiceCard[];
-}
-
-export interface ServicePageData {
-  id: string;
-  slug: string;
-  title: string;
-  description: string;
-  contentImg: string;
-  contentNode: React.ReactElement;
-  card_list?: ServicePageDataCardList;
-  bodyNode?: React.ReactElement;
-  embedded_stream?: string;
-}

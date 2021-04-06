@@ -10,9 +10,9 @@ const SearchBar: React.FC<Props> = () => (
       placeholder="search"
       name="search"
       id="search"
-      className="flex-grow rounded-2xl p-2 bg-gray-50"
+      className="flex-grow rounded-2xl text-sm p-2 bg-gray-50"
     />
-    <FiSearch className="text-gray-500" />
+    <FiSearch className="text-xl text-gray-500" />
   </div>
 );
 
