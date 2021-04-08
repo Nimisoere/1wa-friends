@@ -1,4 +1,4 @@
-import { AppState, FetchState, KeyFetchState } from '.';
+import { AppState, FetchState, KeyFetchState, StarredState } from '.';
 
 export const initialFetchState: FetchState = {
   loading: false,
@@ -10,4 +10,9 @@ export const initialFetchState: FetchState = {
 
 export const initialState: AppState = {
   apiRequest: {} as KeyFetchState,
+  starredFriends: { starred: [] },
+};
+
+export const initialStarred: StarredState = {
+  starred: [],
 };

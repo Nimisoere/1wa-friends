@@ -1,7 +1,12 @@
 import { API_KEYS } from './api';
 
+export interface StarredState {
+  starred: number[];
+}
+
 export interface AppState {
   apiRequest: KeyFetchState;
+  starredFriends: StarredState;
 }
 
 export type KeyFetchState = {

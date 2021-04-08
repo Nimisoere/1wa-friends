@@ -9,6 +9,9 @@ interface Props extends PropsFromRedux {}
 const FriendsDisplay: React.FC<Props> = ({
   friendsRequest = initialFetchState,
   getFriends,
+  addStar,
+  removeStar,
+  starred,
 }) => {
   React.useEffect(() => {
     getFriends();
@@ -20,6 +23,9 @@ const FriendsDisplay: React.FC<Props> = ({
     <div className="w-full">
       <div className="w-full">
         <FriendsGrid
+          addStar={addStar}
+          removeStar={removeStar}
+          starred={starred}
           loading={loading}
           friends={(response as unknown) as FRIEND[]}
         />

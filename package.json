@@ -47,9 +47,9 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "bundlesize && craco build",
+    "build": "craco build",
     "test": "craco test",
-    "postbuild": "react-snap",
+    "postbuild": "bundlesize && react-snap",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "check-size": "bundlesize"
