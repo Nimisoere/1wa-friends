@@ -43,7 +43,7 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
             <Layout component={<Home />} />
           </Loader>
         </Route>
-        <Route exact path="/user/:id/:fullname">
+        <Route path="/user/:id/:fullname">
           <Loader>
             <Layout component={<User />} />
           </Loader>

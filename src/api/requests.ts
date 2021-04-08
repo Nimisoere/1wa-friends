@@ -7,7 +7,7 @@ export const API_LIBRARY: IAPI_LIBRARY = {
   GET_FRIENDS: {
     instance: baseInstance,
     request: {
-      url: '../data/friendList.json',
+      url: `${process.env.PUBLIC_URL}/data/friendList.json`,
       method: 'get',
     },
   },

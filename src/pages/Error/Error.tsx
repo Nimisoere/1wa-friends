@@ -5,6 +5,7 @@ import Seo from '../../components/Seo/Seo';
 
 interface ErrorPageProps {
   error: string;
+  errorClassName?: string;
   description: string;
   showLink?: boolean;
 }
@@ -12,6 +13,7 @@ interface ErrorPageProps {
 const ErrorPage: React.FC<ErrorPageProps> = ({
   error,
   description,
+  errorClassName,
   showLink = true,
 }) => {
   const history = useHistory();
@@ -23,7 +25,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
           title={error}
           className="font-semibold font-heading text-center my-8 text-gray-300 text-6xl lg:text-9xl"
         >
-          {error}
+          <span className={errorClassName}>{error}</span>
         </h2>
         <p color="textSecondary">{description}</p>
         {showLink && (
