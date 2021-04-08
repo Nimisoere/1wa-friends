@@ -11,7 +11,7 @@ const TabSwitch: React.FC<Props> = ({ friend }) => {
     friend.id
   }/${friend.firstName.toLowerCase()}-${friend.lastName.toLowerCase()}`;
   return (
-    <div className="items-stretch sticky top-28 md:top-32 lg:top-20 z-10 bg-white h-16 shadow flex justify-center">
+    <div className="items-stretch sticky top-28 md:top-32 lg:top-20 z-10 dark:bg-gray-900 bg-white h-16 shadow flex justify-center">
       <NavLink
         activeClassName="border-primary"
         to={`${baseUrl}/followers`}

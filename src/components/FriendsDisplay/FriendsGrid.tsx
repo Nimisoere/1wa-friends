@@ -22,7 +22,9 @@ const FriendsGrid: React.FC<Props> = ({ loading, friends }) => {
   return (
     <>
       <div className="w-full flex flex-wrap">
-        <div className="font-semibold leading-9 text-2xl">Friends List</div>
+        <div className="font-semibold dark:text-gray-50 leading-9 text-2xl">
+          Friends List
+        </div>
         <div className="flex-grow flex justify-end items-center">
           <FriendsFilter />
         </div>

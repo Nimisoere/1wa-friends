@@ -32,7 +32,7 @@ const User: React.FC<Props> = ({ friends, getFriends }) => {
 
   return (
     <div className="w-full">
-      <div className="w-full bg-white">
+      <div className="w-full dark:bg-gray-800 dark:text-gray-50 bg-white">
         <UserCard friend={selectedFriend} />
       </div>
       <UserTabs friend={selectedFriend} />

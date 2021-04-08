@@ -56,20 +56,6 @@ const apiRequest = createSlice({
       // eslint-disable-next-line no-param-reassign
       state = {} as KeyFetchState;
     },
-    apiRequestUpdateResponse(
-      state: KeyFetchState,
-      action: PayloadAction<KeyFetchAction>
-    ) {
-      state[action.payload.key] = {
-        ...state[action.payload.key],
-        loading: false,
-        success: true,
-        response: {
-          ...state[action.payload.key]?.response,
-          ...action.payload.response,
-        },
-      };
-    },
     apiRequestReplaceResponse(
       state: KeyFetchState,
       action: PayloadAction<KeyFetchAction>
@@ -92,7 +78,6 @@ export const {
   apiRequestReset,
   apiRequestResetAll,
   apiRequestSuccess,
-  apiRequestUpdateResponse,
 } = apiRequest.actions;
 
 export default apiRequest.reducer;

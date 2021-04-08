@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import ErrorBoundary from './components/ErrorBoundary';
 import Routes from './routes';
+import ThemeProvider from './components/context/ThemeContext/ThemeProvider';
 
 const persistor = persistStore(store);
 const rootElement = document.getElementById('root');
@@ -20,7 +21,9 @@ const BaseComponent: React.FC = () => (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ErrorBoundary>
-            <Routes />
+            <ThemeProvider>
+              <Routes />
+            </ThemeProvider>
           </ErrorBoundary>
         </PersistGate>
       </Provider>

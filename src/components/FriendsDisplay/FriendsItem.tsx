@@ -16,7 +16,7 @@ const FriendsItem: React.FC<Props> = ({ friend, index }) => (
       index % 2 ? 'sm:pr-0' : 'sm:pl-0'
     } `}
   >
-    <div className="bg-white h-full w-full rounded-2xl">
+    <div className="dark:bg-gray-800 bg-white h-full w-full rounded-2xl">
       <div
         style={{
           backgroundImage: `url('${friend.backgroundUrl}')`,
@@ -34,7 +34,7 @@ const FriendsItem: React.FC<Props> = ({ friend, index }) => (
         <div className="flex-grow ml-5">
           <div className="flex flex-wrap items-center">
             <div className="flex-grow">
-              <h4 className="font-semibold font-heading text-lg leading-7">
+              <h4 className="font-semibold dark:text-gray-50 font-heading text-lg leading-7">
                 {friend.firstName} {friend.lastName}
               </h4>
               <p className="text-sm text-gray-400">@{friend.userName}</p>
@@ -49,7 +49,7 @@ const FriendsItem: React.FC<Props> = ({ friend, index }) => (
               </button>
             )}
           </div>
-          <p>{friend.aboutMe}</p>
+          <p className="dark:text-gray-50">{friend.aboutMe}</p>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import {
   apiRequestFailure,
   apiRequestReset,
   apiRequestSuccess,
+  apiRequestReplaceResponse,
 } from '../slices/requestSlice';
 import { makeRequest } from '../../api/requests';
 import { Datum } from '../../interfaces';
@@ -35,3 +36,9 @@ export const apiThunk = <Req>({
 };
 
 export const resetApiThunk = (key: API_KEYS) => apiRequestReset({ key });
+
+export const updateApiResponse = (key: API_KEYS, response: any) =>
+  apiRequestReplaceResponse({
+    key,
+    response,
+  });

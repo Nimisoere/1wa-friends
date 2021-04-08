@@ -1,6 +1,5 @@
 import React from 'react';
 import { FiSearch, FiFilter } from 'react-icons/fi';
-import { IoMdArrowDropdown } from 'react-icons/io';
 import Dropdown from '../common/Dropdown';
 
 interface Props {}
@@ -9,7 +8,7 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   return (
     <div className="flex flex-wrap justify-between gap-4">
-      <div className="w-full sm:w-auto bg-white rounded-xl flex justify-end items-center">
+      <div className="w-full sm:w-auto dark:bg-gray-800 bg-white rounded-xl flex justify-end items-center">
         <label
           className={`${showSearch ? 'sm:block' : 'sm:hidden'} block flex-grow`}
           htmlFor="searchfriends"
@@ -18,7 +17,7 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
             Search
           </span>
           <input
-            className={` px-2 flex-grow`}
+            className="dark:bg-gray-800 dark:text-gray-50 px-2 flex-grow"
             type="search"
             placeholder="Search"
             name="searchfriends"
@@ -28,7 +27,7 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
 
         <button
           onClick={() => setShowSearch(!showSearch)}
-          className="bg-white p-2 rounded-xl text-gray-400"
+          className="dark:bg-gray-800 bg-white p-2 rounded-xl text-gray-400"
           type="button"
           aria-label="Search"
         >
@@ -44,7 +43,7 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
             placeholder="Sort by:"
             name="sort"
             id="sort"
-            className="bg-white p-2 rounded-xl text-gray-400"
+            className="dark:bg-gray-800 dark:text-gray-50 bg-white p-2 rounded-xl text-gray-400"
           >
             <option value="newest">Sort by: Newest first</option>
             <option value="oldest">Sort by: Oldest first</option>
@@ -53,12 +52,14 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
       </div>
       <Dropdown
         hideCaret
-        buttonClassName="bg-white p-2 rounded-xl text-gray-400"
+        buttonClassName="dark:bg-gray-800 bg-white p-2 rounded-xl text-gray-400"
         toggleContent={() => (
           <FiFilter style={{ transform: 'scale(-1, 1)' }} className="text-lg" />
         )}
       >
-        <div className="bg-white shadow-md p-4">Notification</div>
+        <div className="dark:bg-gray-800 dark:text-gray-50 bg-white shadow-md p-4">
+          Notification
+        </div>
       </Dropdown>
     </div>
   );

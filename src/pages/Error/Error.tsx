@@ -27,7 +27,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
         >
           <span className={errorClassName}>{error}</span>
         </h2>
-        <p color="textSecondary">{description}</p>
+        <p color="text-secondary">{description}</p>
         {showLink && (
           <button
             type="button"

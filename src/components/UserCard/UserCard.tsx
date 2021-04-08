@@ -14,7 +14,7 @@ const UserCard: React.FC<Props> = ({ friend }) => (
       style={{
         backgroundImage: `url(${friend.backgroundUrlLarge})`,
       }}
-      className="h-56 bg-gray-200 bg-cover w-full"
+      className="h-56 dark:bg-gray-700 bg-gray-200 bg-cover w-full"
     />
     <div className="container mx-auto">
       <div className="flex flex-wrap sm:flex-nowrap items-start">
