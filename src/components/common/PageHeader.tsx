@@ -27,6 +27,7 @@ const PageHeader: React.FC<Props> = ({
       >
         {hasBackButton && (
           <button
+            aria-label="Back"
             type="button"
             className="mb-10 lg:mb-0"
             onClick={() => history.go(-1)}

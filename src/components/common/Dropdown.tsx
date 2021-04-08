@@ -24,6 +24,7 @@ const Dropdown: React.FC<Props> = ({
     <div ref={ref} className="relative">
       <button
         type="button"
+        aria-label="Dropdown"
         className={
           buttonClassName || 'p-2 flex items-center hover:bg-gray-50 rounded'
         }

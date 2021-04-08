@@ -29,6 +29,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
         {showLink && (
           <button
             type="button"
+            aria-label="Back"
             onClick={() => history.go(-1)}
             className="mt-10 text-primary p-2 rounded"
           >

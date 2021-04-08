@@ -35,6 +35,7 @@ const UserCard: React.FC<Props> = () => (
               </p>
               <button
                 type="button"
+                aria-label="Follow Joohn Doe"
                 className="bg-primary py-2 px-8 rounded-xl font-semibold text-sm text-white"
               >
                 Following

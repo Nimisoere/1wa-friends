@@ -42,6 +42,7 @@ const FriendsItem: React.FC<Props> = ({ friend, index }) => (
             {!!friend.following.length && (
               <button
                 type="button"
+                aria-label={`Follow ${friend.firstName} ${friend.lastName}`}
                 className="bg-primary py-2 px-4 rounded-xl font-semibold text-xs text-white"
               >
                 Following

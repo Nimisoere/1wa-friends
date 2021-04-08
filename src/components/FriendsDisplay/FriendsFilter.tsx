@@ -28,6 +28,7 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
           onClick={() => setShowSearch(!showSearch)}
           className="bg-white p-2 rounded-xl text-gray-400"
           type="button"
+          aria-label="Search"
         >
           <FiSearch className="text-lg" />
         </button>
