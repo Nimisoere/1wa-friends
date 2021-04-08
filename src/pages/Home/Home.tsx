@@ -1,6 +1,9 @@
 import React from 'react';
 import { PropsFromRedux } from '.';
-import FriendsDisplay from '../../components/FriendsDisplay';
+
+const FriendsDisplay = React.lazy(
+  () => import('../../components/FriendsDisplay')
+);
 
 interface Props extends PropsFromRedux {}
 
