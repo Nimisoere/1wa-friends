@@ -35,6 +35,8 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
       </div>
       <div>
         <Select
+          aria-label="Sort by"
+          label
           styles={{
             control: (base) => ({
               ...base,
