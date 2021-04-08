@@ -10,6 +10,5 @@ export const thunks: Thunk = {
       key: API_KEYS.GET_FRIENDS,
       request: {},
       apiOptions: {},
-      showSuccessAlert: false,
     }),
 };

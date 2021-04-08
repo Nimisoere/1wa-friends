@@ -1,17 +1,5 @@
-import { AxiosRequestConfig } from 'axios';
-import { baseInstance } from '.';
 import { Datum } from '../interfaces';
 import { API_KEYS, API_LIBRARY as IAPI_LIBRARY } from '../interfaces/api';
-
-export const API_LIBRARY: IAPI_LIBRARY = {
-  GET_FRIENDS: {
-    instance: baseInstance,
-    request: {
-      url: `${process.env.PUBLIC_URL}/data/friendList.json`,
-      method: 'get',
-    },
-  },
-};
 
 const getApiUrlParams = (url: string): string[] => {
   const urlBits = url?.split('/');
@@ -32,13 +20,22 @@ const replaceParamsWithObject = (
   return apiUrl;
 };
 
+export const API_LIBRARY: IAPI_LIBRARY = {
+  GET_FRIENDS: {
+    url: `${process.env.PUBLIC_URL}/data/friendList.json`,
+    options: {
+      method: 'GET',
+    },
+  },
+};
+
 export const makeRequest = async (
   api_key: API_KEYS,
-  apiOptions?: Omit<AxiosRequestConfig, 'baseurl' | 'url' | 'method'>,
-  urlParams?: Datum
-) => {
+  urlParams?: Datum,
+  apiOptions?: Partial<Request>
+): Promise<Response> => {
   const api = API_LIBRARY[api_key];
-  let apiUrl = api.request.url;
+  let apiUrl = api.url;
 
   if (!apiUrl) {
     throw new Error('Invalid API Url');
@@ -56,9 +53,8 @@ export const makeRequest = async (
   }
 
   try {
-    const response = await api.instance.request({
-      ...api.request,
-      url: apiUrl,
+    const response = await fetch(apiUrl, {
+      method: api.options.method,
       ...apiOptions,
     });
     return response;

@@ -58,7 +58,9 @@ const RightTopMenu: React.FC<Props> = () => (
         />
       )}
     >
-      <div className="bg-white shadow-md p-4">Log Out</div>
+      <div className="bg-white shadow-md p-4">
+        Log Out IoCloudyNight WiDayCloudy
+      </div>
     </Dropdown>
   </nav>
 );

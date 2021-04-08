@@ -16,7 +16,6 @@ const TabSwitch: React.FC<Props> = ({ friend }) => {
         activeClassName="border-primary"
         to={`${baseUrl}/followers`}
         className="px-4 flex items-center justify-center font-medium border-b-2 border-transparent hover:border-primary"
-        type="button"
       >
         Followers{' '}
         <span className="py-1 px-2 text-sm leading-none self-center flex ml-3 bg-primary text-white rounded-lg">
@@ -27,7 +26,6 @@ const TabSwitch: React.FC<Props> = ({ friend }) => {
         activeClassName="border-primary"
         to={`${baseUrl}/following`}
         className="px-4 flex items-center justify-center font-medium border-b-2 border-transparent hover:border-primary"
-        type="button"
       >
         Following{' '}
         <span className="py-1 px-2 text-sm leading-none self-center flex ml-3 bg-primary text-white rounded-lg">

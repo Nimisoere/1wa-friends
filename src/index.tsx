@@ -16,15 +16,15 @@ const rootElement = document.getElementById('root');
 
 const BaseComponent: React.FC = () => (
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ErrorBoundary>
-          <HelmetProvider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ErrorBoundary>
             <Routes />
-          </HelmetProvider>
-        </ErrorBoundary>
-      </PersistGate>
-    </Provider>
+          </ErrorBoundary>
+        </PersistGate>
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );
 

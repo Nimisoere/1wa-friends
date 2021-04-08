@@ -1,7 +1,6 @@
 import React from 'react';
 import { FiSearch, FiFilter } from 'react-icons/fi';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import Select from 'react-select';
 import Dropdown from '../common/Dropdown';
 
 interface Props {}
@@ -36,32 +35,21 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
           <FiSearch className="text-lg" />
         </button>
       </div>
-      <div>
-        <Select
-          aria-label="Sort by"
-          label
-          styles={{
-            control: (base) => ({
-              ...base,
-              border: 'none',
-              minWidth: 200,
-              borderRadius: 10,
-            }),
-            indicatorSeparator: (base) => ({
-              ...base,
-              margin: 0,
-              backgroundColor: '#F1F1F5',
-            }),
-          }}
-          components={{
-            DropdownIndicator: () => (
-              <IoMdArrowDropdown className="text-2xl text-gray-400" />
-            ),
-          }}
-          placeholder="Sort by"
-          className="p-0"
-          options={[{ value: 'newest first', label: 'Sort by: Newest first' }]}
-        />
+      <div className="relative">
+        <label htmlFor="sort">
+          <span className="hidden" aria-hidden="false">
+            Sort
+          </span>
+          <select
+            placeholder="Sort by:"
+            name="sort"
+            id="sort"
+            className="bg-white p-2 rounded-xl text-gray-400"
+          >
+            <option value="newest">Sort by: Newest first</option>
+            <option value="oldest">Sort by: Oldest first</option>
+          </select>
+        </label>
       </div>
       <Dropdown
         hideCaret
