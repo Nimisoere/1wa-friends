@@ -1,21 +1,6 @@
 import { API_KEYS } from './api';
 
-export type VerticalPosition = 'top' | 'bottom';
-export type HorizontalPosition = 'left' | 'right' | 'center';
-export type AlertType = 'success' | 'error' | 'info' | 'warning';
-
-export interface NotificationActionProps {
-  alertType?: AlertType;
-  message?: string;
-}
-
-export interface NotificationState {
-  alertType?: AlertType;
-  message?: string;
-}
-
 export interface AppState {
-  notification: NotificationState;
   apiRequest: KeyFetchState;
 }
 

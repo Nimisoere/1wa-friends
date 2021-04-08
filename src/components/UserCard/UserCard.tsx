@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 import React from 'react';
 import { IoPinSharp, IoCalendarOutline } from 'react-icons/io5';
 import { PropsFromRedux } from '.';

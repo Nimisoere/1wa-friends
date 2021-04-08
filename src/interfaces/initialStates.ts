@@ -1,9 +1,4 @@
-import { AppState, FetchState, KeyFetchState, NotificationState } from '.';
-
-export const initialNotificationState: NotificationState = {
-  alertType: 'info',
-  message: '',
-};
+import { AppState, FetchState, KeyFetchState } from '.';
 
 export const initialFetchState: FetchState = {
   loading: false,
@@ -14,6 +9,5 @@ export const initialFetchState: FetchState = {
 };
 
 export const initialState: AppState = {
-  notification: initialNotificationState,
   apiRequest: {} as KeyFetchState,
 };

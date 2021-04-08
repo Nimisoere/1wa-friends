@@ -1,15 +1,10 @@
 import { connect, ConnectedProps } from 'react-redux';
 import { AppState } from '../interfaces';
-import { clear } from '../redux/slices/notification';
 import Routes from './Routes';
 
-const mapState = (state: AppState) => ({
-  notification: state.notification,
-});
+const mapState = (state: AppState) => ({});
 
-const mapDispatch = {
-  clear,
-};
+const mapDispatch = {};
 
 const connector = connect(mapState, mapDispatch);
 

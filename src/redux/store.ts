@@ -1,6 +1,5 @@
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { createBrowserHistory } from 'history';
-import logger from 'redux-logger';
 import {
   persistReducer,
   FLUSH,
@@ -31,7 +30,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(logger),
+    }),
   devTools: process.env.NODE_ENV !== 'production',
   preloadedState: initialState,
 });

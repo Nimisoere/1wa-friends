@@ -1,8 +1,6 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 import { PropsFromRedux } from '.';
 import ScrollToTop from './ScrollToTop';
 import ErrorPage from '../pages/Error/Error';
@@ -13,18 +11,7 @@ const User = React.lazy(() => import('../pages/User'));
 
 interface RouterProps extends PropsFromRedux {}
 
-const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
-  useEffect(() => {
-    if (notification.alertType && notification.message) {
-      toast[notification.alertType](notification.message, {
-        position: 'top-right',
-        onClose: () => {
-          clear({});
-        },
-      });
-    }
-  }, [clear, notification.alertType, notification.message]);
-
+const Routes: React.FC<RouterProps> = () => {
   const Loader: React.FC = ({ children }) => (
     <Suspense
       fallback={<ErrorPage showLink={false} description="" error="..." />}
@@ -35,7 +22,6 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <ToastContainer />
       <ScrollToTop />
       <Switch>
         <Route exact path="/">

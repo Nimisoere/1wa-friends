@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux';
 import apiRequest from '../slices/requestSlice';
-import notification from '../slices/notification';
 
 const rootReducer = combineReducers({
-  notification,
   apiRequest,
 });
 

@@ -7,7 +7,6 @@ import {
   apiRequestReset,
   apiRequestSuccess,
 } from '../slices/requestSlice';
-import { show as showNotification } from '../slices/notification';
 import { makeRequest } from '../../api/requests';
 import { Datum } from '../../interfaces';
 
@@ -45,40 +44,9 @@ export const apiThunk = <Req>({
     const response = await makeRequest(key, apiOptions, urlParams);
     if ([200, 201, 204].includes(response.status)) {
       dispatch(apiRequestSuccess({ key, response: response.data as any }));
-      if (showSuccessAlert) {
-        dispatch(
-          showNotification({
-            alertType: 'success',
-            message: successAlertMessage || 'Operation successful',
-          })
-        );
-      }
-      if (dispatchOnSuccess) {
-        dispatchOnSuccess(request, response);
-      }
-      if (onSuccessCallback) {
-        onSuccessCallback(request, response);
-      }
     }
   } catch (error: any) {
     dispatch(apiRequestFailure({ key, error: error.data }));
-    if (showErrorAlert) {
-      dispatch(
-        showNotification({
-          alertType: 'error',
-          message:
-            errorAlertMessage ||
-            error?.data?.ShortDescription ||
-            error.data?.Message,
-        })
-      );
-    }
-    if (dispatchOnError) {
-      dispatchOnError(error);
-    }
-    if (onErrorCallback) {
-      onErrorCallback(error);
-    }
   }
 };
 
