@@ -5,7 +5,7 @@ interface Props {
   mode?: 'light' | 'dark';
 }
 
-const Logo: React.FC<Props> = ({ size, mode = 'light' }) => (
+const Logo: React.FC<Props> = React.memo(({ size, mode = 'light' }) => (
   <svg
     width={size}
     height={size}
@@ -32,6 +32,6 @@ const Logo: React.FC<Props> = ({ size, mode = 'light' }) => (
       strokeWidth="4"
     />
   </svg>
-);
+));
 
 export default Logo;

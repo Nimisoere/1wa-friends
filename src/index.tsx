@@ -4,13 +4,14 @@ import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { HelmetProvider } from 'react-helmet-async';
-
+import './i18n';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import ErrorBoundary from './components/ErrorBoundary';
 import Routes from './routes';
 import ThemeProvider from './components/context/ThemeContext/ThemeProvider';
+import LocaleProvider from './components/context/LocaleContext/LocaleProvider';
 
 const persistor = persistStore(store);
 const rootElement = document.getElementById('root');
@@ -21,9 +22,11 @@ const BaseComponent: React.FC = () => (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ErrorBoundary>
-            <ThemeProvider>
-              <Routes />
-            </ThemeProvider>
+            <LocaleProvider>
+              <ThemeProvider>
+                <Routes />
+              </ThemeProvider>
+            </LocaleProvider>
           </ErrorBoundary>
         </PersistGate>
       </Provider>

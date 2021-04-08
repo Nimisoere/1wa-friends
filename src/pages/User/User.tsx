@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { PropsFromRedux } from '.';
 import UserCard from '../../components/UserCard';
 import UserTabs from '../../components/UserTabs';
@@ -9,6 +10,7 @@ import ErrorPage from '../Error/Error';
 interface Props extends PropsFromRedux {}
 
 const User: React.FC<Props> = ({ friends, getFriends }) => {
+  const { t } = useTranslation();
   React.useEffect(() => {
     getFriends();
   }, [getFriends]);
@@ -23,7 +25,7 @@ const User: React.FC<Props> = ({ friends, getFriends }) => {
     return (
       <ErrorPage
         errorClassName="text-4xl"
-        error="Friend not found"
+        error={`${t('Friend not found')}`}
         description=""
         showLink={false}
       />

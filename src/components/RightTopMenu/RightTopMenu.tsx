@@ -7,13 +7,18 @@ import {
 } from 'react-icons/io5';
 import { WiDayCloudy } from 'react-icons/wi';
 import { HiOutlineUserAdd } from 'react-icons/hi';
+import { useTranslation } from 'react-i18next';
 import Dropdown from '../common/Dropdown';
 import { useThemeContext } from '../context/ThemeContext/context';
+import { useLocaleContext } from '../context/LocaleContext/context';
 
 interface Props {}
 
 const RightTopMenu: React.FC<Props> = () => {
   const { mode, dispatch } = useThemeContext();
+  const { locale, dispatch: dispatchLocale } = useLocaleContext();
+
+  const { t } = useTranslation();
   return (
     <nav className="flex items-center justify-end w-full">
       <Dropdown
@@ -21,12 +26,29 @@ const RightTopMenu: React.FC<Props> = () => {
         toggleContent={() => (
           <span className="flex items-center text-gray-400">
             <IoGlobeOutline className="text-2xl" />
-            <span className="text-xs ml-1 hidden sm:inline">EN-GB</span>
+            <span className="text-xs ml-1 hidden sm:inline">
+              {locale.locale}
+            </span>
           </span>
         )}
       >
-        <div className="dark:bg-gray-800 dark:text-white bg-white shadow-md p-4">
-          German (de-DE)
+        <div className="dark:bg-gray-800 text-sm min-w-max dark:text-white bg-white shadow-md">
+          <button
+            onClick={() => dispatchLocale({ type: 'en-US' })}
+            type="button"
+            className="w-full p-2"
+            aria-label="french"
+          >
+            English (en-US)
+          </button>
+          <button
+            onClick={() => dispatchLocale({ type: 'fr-FR' })}
+            className="w-full p-2"
+            type="button"
+            aria-label="french"
+          >
+            French (fr-FR)
+          </button>
         </div>
       </Dropdown>
       <Dropdown
@@ -38,8 +60,8 @@ const RightTopMenu: React.FC<Props> = () => {
           />
         )}
       >
-        <div className="dark:bg-gray-800 dark:text-white bg-white shadow-md p-4">
-          Suggested Friends
+        <div className="dark:bg-gray-800 min-w-max text-sm dark:text-white bg-white shadow-md p-4">
+          {t('Suggested Friends')}
         </div>
       </Dropdown>
       <Dropdown
@@ -51,8 +73,8 @@ const RightTopMenu: React.FC<Props> = () => {
           />
         )}
       >
-        <div className=" dark:bg-gray-800 dark:text-white bg-white shadow-md p-4">
-          Messages
+        <div className=" dark:bg-gray-800 dark:text-white text-sm min-w-max bg-white shadow-md p-4">
+          {t('Messages')}
         </div>
       </Dropdown>
       <Dropdown
@@ -61,8 +83,8 @@ const RightTopMenu: React.FC<Props> = () => {
           <IoMdNotificationsOutline className="text-2xl text-gray-400" />
         )}
       >
-        <div className="dark:bg-gray-800 dark:text-white bg-white shadow-md p-4">
-          2 Unread Notifications
+        <div className="dark:bg-gray-800 dark:text-white text-sm min-w-max bg-white shadow-md p-4">
+          0 {t('Unread Notifications')}
         </div>
       </Dropdown>
       <Dropdown
@@ -85,12 +107,14 @@ const RightTopMenu: React.FC<Props> = () => {
           >
             {mode.theme === 'light' && (
               <span className="flex items-center text-sm">
-                <IoCloudyNight className="mr-2 text-xl" /> Switch to Dark Mode
+                <IoCloudyNight className="mr-2 text-xl" />{' '}
+                {t('Switch to Dark Mode')}
               </span>
             )}
             {mode.theme === 'dark' && (
               <span className="flex items-center text-sm">
-                <WiDayCloudy className="mr-2 text-xl" /> Switch to Light Mode
+                <WiDayCloudy className="mr-2 text-xl" />{' '}
+                {t('Switch to Light Mode')}
               </span>
             )}
           </button>
