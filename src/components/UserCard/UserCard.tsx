@@ -28,7 +28,7 @@ const UserCard: React.FC<Props> = ({ friend }) => {
               src={friend.avatarUrl}
               alt="Name"
             />
-            <div className="absolute top-0 right-0">
+            <div className="absolute -top-3 sm:top-0 -right-3 sm:right-0">
               <StarredButton friendId={friend.id} />
             </div>
           </div>
