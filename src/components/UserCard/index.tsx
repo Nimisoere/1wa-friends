@@ -4,6 +4,7 @@ import { API_KEYS } from '../../interfaces/api';
 import { getApiState } from '../../redux/selectors/common';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
 import UserCard from './UserCard';
+import { addStar, removeStar } from '../../redux/slices/stars';
 
 interface Props {
   friend: FRIEND;
@@ -11,9 +12,13 @@ interface Props {
 
 const mapState = (state: AppState, ownProps: Props) => ({
   friends: getApiState(state, API_KEYS.GET_FRIENDS),
+  starred: state.starredFriends,
 });
 
-const mapDispatch = {};
+const mapDispatch = {
+  addStar,
+  removeStar,
+};
 
 const connector = connect(mapState, mapDispatch);
 

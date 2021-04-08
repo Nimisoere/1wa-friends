@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { IoPinSharp, IoCalendarOutline } from 'react-icons/io5';
 import { PropsFromRedux } from '.';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
+import StarredButton from '../common/StarredButton';
 
 interface Props extends PropsFromRedux {
   friend: FRIEND;
@@ -21,12 +22,15 @@ const UserCard: React.FC<Props> = ({ friend }) => {
       />
       <div className="container mx-auto">
         <div className="flex flex-wrap sm:flex-nowrap items-start">
-          <div className=" w-20 sm:w-44 -mt-10 h-20 sm:h-44 flex items-start flex-shrink-0">
+          <div className="relative w-20 sm:w-44 -mt-10 h-20 sm:h-44 flex items-start flex-shrink-0">
             <img
               className="rounded-full border-4 border-white w-full h-full"
               src={friend.avatarUrl}
               alt="Name"
             />
+            <div className="absolute top-0 right-0">
+              <StarredButton friendId={friend.id} />
+            </div>
           </div>
           <div className="flex-grow ml-5 mt-4">
             <div className="flex flex-wrap items-center mb-2">

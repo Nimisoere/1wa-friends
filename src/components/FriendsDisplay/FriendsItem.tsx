@@ -1,46 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { IoStar } from 'react-icons/io5';
-import {
-  ActionCreatorWithoutPayload,
-  ActionCreatorWithPayload,
-} from '@reduxjs/toolkit';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
-import { StarredState } from '../../interfaces';
+import StarredButton from '../common/StarredButton';
 
 interface Props {
   friend: FRIEND;
   index: number;
-  addStar:
-    | ActionCreatorWithPayload<any, string>
-    | ActionCreatorWithoutPayload<string>;
-  removeStar:
-    | ActionCreatorWithPayload<any, string>
-    | ActionCreatorWithoutPayload<string>;
-  starred: StarredState;
 }
 
-const FriendsItem: React.FC<Props> = ({
-  friend,
-  index,
-  addStar,
-  removeStar,
-  starred,
-}) => {
+const FriendsItem: React.FC<Props> = ({ friend, index }) => {
   const { t } = useTranslation();
-  const handleStarring = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    id: number
-  ) => {
-    e.preventDefault();
-    if (starred.starred.includes(id)) {
-      removeStar(id);
-    } else {
-      addStar(id);
-    }
-  };
-  const isStarred = starred.starred.includes(friend.id);
 
   return (
     <Link
@@ -58,18 +28,7 @@ const FriendsItem: React.FC<Props> = ({
           }}
           className="h-24 relative bg-gray-200 bg-cover w-full rounded-t-2xl"
         >
-          <button
-            onClick={(e) => handleStarring(e, friend.id)}
-            className="p-2 right-2 top-2 absolute rounded-full bg-white dark:bg-gray-800"
-            type="button"
-            aria-label="star"
-          >
-            <IoStar
-              className={`text-xl  ${
-                isStarred ? 'text-yellow-400' : 'text-gray-100 dark:text-white'
-              }`}
-            />
-          </button>
+          <StarredButton friendId={friend.id} />
         </div>
         <div className="p-4 flex flex-wrap sm:flex-nowrap items-start">
           <div className="w-20 -mt-10 h-20 flex items-start flex-shrink-0">

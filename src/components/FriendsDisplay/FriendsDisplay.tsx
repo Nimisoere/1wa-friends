@@ -23,9 +23,6 @@ const FriendsDisplay: React.FC<Props> = ({
     <div className="w-full">
       <div className="w-full">
         <FriendsGrid
-          addStar={addStar}
-          removeStar={removeStar}
-          starred={starred}
           loading={loading}
           friends={(response as unknown) as FRIEND[]}
         />

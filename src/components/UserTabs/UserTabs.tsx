@@ -13,9 +13,6 @@ interface Props extends PropsFromRedux {
 const UserTabs: React.FC<Props> = ({
   friend: selectedFriend,
   friends = initialFetchState,
-  starred,
-  addStar,
-  removeStar,
 }) => {
   const match = useRouteMatch();
   if (match.isExact) return <Redirect to={`${match.url}/followers`} />;
@@ -36,22 +33,10 @@ const UserTabs: React.FC<Props> = ({
       <TabSwitch friend={selectedFriend} />
       <div className="container  max-w-5xl mx-auto py-8">
         <Route path={`${match.path}/followers`}>
-          <FriendsGrid
-            addStar={addStar}
-            removeStar={removeStar}
-            starred={starred}
-            loading={friends.loading}
-            friends={filteredFollowers}
-          />
+          <FriendsGrid loading={friends.loading} friends={filteredFollowers} />
         </Route>
         <Route path={`${match.path}/following`}>
-          <FriendsGrid
-            addStar={addStar}
-            removeStar={removeStar}
-            starred={starred}
-            loading={friends.loading}
-            friends={filteredFollowing}
-          />
+          <FriendsGrid loading={friends.loading} friends={filteredFollowing} />
         </Route>
       </div>
     </div>
