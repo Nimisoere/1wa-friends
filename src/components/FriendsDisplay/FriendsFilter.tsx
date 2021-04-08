@@ -11,10 +11,19 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
   return (
     <div className="flex flex-wrap justify-between gap-4">
       <div className="w-full sm:w-auto bg-white rounded-xl flex justify-end items-center">
-        <input
-          className={`${showSearch ? 'block' : 'hidden'} flex-grow px-2`}
-          type="search"
-        />
+        <label htmlFor="searchfriends">
+          <span className="hidden" aria-hidden="false">
+            Search
+          </span>
+          <input
+            className={`${showSearch ? 'block' : 'hidden'} flex-grow px-2`}
+            type="search"
+            placeholder="Search"
+            name="searchfriends"
+            id="searchfriends"
+          />
+        </label>
+
         <button
           onClick={() => setShowSearch(!showSearch)}
           className="bg-white p-2 rounded-xl text-gray-400"
