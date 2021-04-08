@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
 
 interface Props {
@@ -7,18 +8,20 @@ interface Props {
 }
 
 const FriendsItem: React.FC<Props> = ({ friend, index }) => (
-  <div
-    className={`w-full sm:w-1/2 p-4 h-auto sm:h-72 ${
+  <Link
+    to={`/user/${
+      friend.id
+    }/${friend.firstName.toLowerCase()}-${friend.lastName.toLowerCase()}`}
+    className={`w-full sm:w-1/2 p-0 sm:p-4 mb-4 h-auto lg:h-72 ${
       index % 2 ? 'sm:pr-0' : 'sm:pl-0'
     } `}
   >
-    <div className="bg-white mb-8 h-full w-full rounded-2xl">
+    <div className="bg-white h-full w-full rounded-2xl">
       <div
         style={{
-          background: `url('${friend.backgroundUrl}') no-repeat`,
-          backgroundSize: 'cover',
+          backgroundImage: `url('${friend.backgroundUrl}')`,
         }}
-        className="h-24 w-full rounded-t-2xl"
+        className="h-24 bg-gray-200 bg-cover w-full rounded-t-2xl"
       />
       <div className="p-4 flex flex-wrap sm:flex-nowrap items-start">
         <div className="w-20 -mt-10 h-20 flex items-start flex-shrink-0">
@@ -36,18 +39,20 @@ const FriendsItem: React.FC<Props> = ({ friend, index }) => (
               </h4>
               <p className="text-sm text-gray-400">@{friend.userName}</p>
             </div>
-            <button
-              type="button"
-              className="bg-primary py-2 px-4 rounded-xl font-semibold text-xs text-white"
-            >
-              Following
-            </button>
+            {!!friend.following.length && (
+              <button
+                type="button"
+                className="bg-primary py-2 px-4 rounded-xl font-semibold text-xs text-white"
+              >
+                Following
+              </button>
+            )}
           </div>
           <p>{friend.aboutMe}</p>
         </div>
       </div>
     </div>
-  </div>
+  </Link>
 );
 
 export default FriendsItem;

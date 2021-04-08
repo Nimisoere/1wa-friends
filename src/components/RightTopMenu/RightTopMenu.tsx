@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoMdNotificationsOutline } from 'react-icons/io';
-import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
+import { IoChatbubbleEllipsesOutline, IoGlobeOutline } from 'react-icons/io5';
 import { HiOutlineUserAdd } from 'react-icons/hi';
 import Dropdown from '../common/Dropdown';
 
@@ -11,10 +11,24 @@ const RightTopMenu: React.FC<Props> = () => (
     <Dropdown
       hideCaret
       toggleContent={() => (
-        <HiOutlineUserAdd className="text-2xl text-gray-400" />
+        <span className="flex items-center text-gray-400">
+          <IoGlobeOutline className="text-2xl" />
+          <span className="text-xs ml-1 hidden sm:inline">EN-GB</span>
+        </span>
       )}
     >
-      <div className="bg-white shadow-md p-4">Notification</div>
+      <div className="bg-white shadow-md p-4">German (de-DE)</div>
+    </Dropdown>
+    <Dropdown
+      hideCaret
+      toggleContent={() => (
+        <HiOutlineUserAdd
+          title="Add Friend"
+          className="text-2xl text-gray-400"
+        />
+      )}
+    >
+      <div className="bg-white shadow-md p-4">Suggested Friends</div>
     </Dropdown>
     <Dropdown
       hideCaret
@@ -25,7 +39,7 @@ const RightTopMenu: React.FC<Props> = () => (
         />
       )}
     >
-      <div className="bg-white shadow-md p-4">Notification</div>
+      <div className="bg-white shadow-md p-4">Messages</div>
     </Dropdown>
     <Dropdown
       hideCaret
@@ -33,7 +47,7 @@ const RightTopMenu: React.FC<Props> = () => (
         <IoMdNotificationsOutline className="text-2xl text-gray-400" />
       )}
     >
-      <div className="bg-white shadow-md p-4">Notification</div>
+      <div className="bg-white shadow-md p-4">2 Unread Notifications</div>
     </Dropdown>
     <Dropdown
       toggleContent={() => (
@@ -44,7 +58,7 @@ const RightTopMenu: React.FC<Props> = () => (
         />
       )}
     >
-      <div className="bg-white shadow-md p-4">Notification</div>
+      <div className="bg-white shadow-md p-4">Log Out</div>
     </Dropdown>
   </nav>
 );

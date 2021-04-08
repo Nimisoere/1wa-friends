@@ -1,6 +1,7 @@
 import React from 'react';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
 import FriendsItem from './FriendsItem';
+import FriendsItemSkeleton from './FriendsItemSkeleton';
 
 interface Props {
   loading: boolean;
@@ -9,7 +10,13 @@ interface Props {
 
 const FriendsGrid: React.FC<Props> = ({ loading, friends }) => {
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <div className="w-full flex flex-wrap my-8">
+        {[...Array(4).keys()]?.map((item, index) => (
+          <FriendsItemSkeleton index={index} key={item} />
+        ))}
+      </div>
+    );
   }
   return (
     <div className="w-full flex flex-wrap my-8">

@@ -1,4 +1,3 @@
-import { Props as ModalProps } from 'react-modal';
 import { API_KEYS } from './api';
 
 export type VerticalPosition = 'top' | 'bottom';
@@ -10,25 +9,14 @@ export interface NotificationActionProps {
   message?: string;
 }
 
-export interface ModalAction {
-  component: React.ReactElement | null;
-  modalProps: Omit<ModalProps, 'isOpen'>;
-}
-
 export interface NotificationState {
   alertType?: AlertType;
   message?: string;
 }
 
-export interface ModalState {
-  component: React.ReactElement | null;
-  modalProps: ModalProps;
-}
-
 export interface AppState {
   notification: NotificationState;
   apiRequest: KeyFetchState;
-  modal: ModalState;
 }
 
 export type KeyFetchState = {

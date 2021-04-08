@@ -10,6 +10,7 @@ import ErrorPage from '../pages/Error/Error';
 
 const Layout = React.lazy(() => import('../components/Layout'));
 const Home = React.lazy(() => import('../pages/Home'));
+const User = React.lazy(() => import('../pages/User'));
 
 interface RefrestToastProps extends ToastContentProps {
   // eslint-disable-next-line react/no-unused-prop-types
@@ -109,6 +110,11 @@ const Routes: React.FC<RouterProps> = ({ notification, clear }) => {
         <Route exact path="/">
           <Loader>
             <Layout component={<Home />} />
+          </Loader>
+        </Route>
+        <Route exact path="/user/:id/:fullname">
+          <Loader>
+            <Layout component={<User />} />
           </Loader>
         </Route>
         <Route>

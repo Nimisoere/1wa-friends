@@ -6,7 +6,7 @@ interface Props extends PropsFromRedux {}
 
 const Home: React.FC<Props> = (props) => (
   <div className="w-full">
-    <div className="container max-w-4xl mx-auto py-8">
+    <div className="container max-w-5xl mx-auto py-8">
       <FriendsDisplay />
     </div>
   </div>

@@ -1,12 +1,10 @@
-import { combineReducers } from "redux";
-import apiRequest from "../slices/requestSlice";
-import notification from "../slices/notification";
-import modal from "../slices/modal";
+import { combineReducers } from 'redux';
+import apiRequest from '../slices/requestSlice';
+import notification from '../slices/notification';
 
 const rootReducer = combineReducers({
   notification,
   apiRequest,
-  modal,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
