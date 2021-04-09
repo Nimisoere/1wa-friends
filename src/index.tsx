@@ -7,6 +7,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import './i18n';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
+import { register } from './serviceWorker';
+
 import store from './redux/store';
 import ErrorBoundary from './components/ErrorBoundary';
 import Routes from './routes';
@@ -44,3 +46,4 @@ if (rootElement?.hasChildNodes()) {
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+register();

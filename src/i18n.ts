@@ -20,6 +20,7 @@ const resources = {
       Followers: 'Followers',
       Following: 'Following',
       'Friend not found': 'Friend not found',
+      Born: 'Born',
     },
   },
   fr: {
@@ -38,6 +39,7 @@ const resources = {
       Following: 'Suivante',
       'Friend not found': 'Ami introuvable',
       'Friends List': "Liste d'amis",
+      Born: 'Né',
     },
   },
 };

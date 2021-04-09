@@ -10,7 +10,7 @@ const FriendsFilter: React.FC<Props> = (props: Props) => {
   const { t } = useTranslation();
   return (
     <div className="flex flex-wrap justify-between gap-4">
-      <div className="w-full sm:w-auto dark:bg-gray-800 bg-white rounded-xl flex justify-end items-center">
+      <div className="w-full sm:w-auto dark:bg-gray-800 mb-2 bg-white rounded-xl flex justify-end items-center">
         <label
           className={`${showSearch ? 'sm:block' : 'sm:hidden'} block flex-grow`}
           htmlFor="searchfriends"

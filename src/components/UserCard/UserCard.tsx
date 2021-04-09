@@ -65,7 +65,7 @@ const UserCard: React.FC<Props> = ({ friend }) => {
                 <IoPinSharp className="mr-2" /> {friend.location}
               </span>
               <span className="flex items-center">
-                <IoCalendarOutline className="mr-2" /> Born{' '}
+                <IoCalendarOutline className="mr-2" /> {t('Born')}{' '}
                 {format(new Date(friend.dateOfBirth), 'MMMM dd')}
               </span>
             </div>
