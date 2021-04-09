@@ -1,10 +1,10 @@
-import format from 'date-fns/format';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoPinSharp, IoCalendarOutline } from 'react-icons/io5';
 import { PropsFromRedux } from '.';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
 import StarredButton from '../common/StarredButton';
+import { useLocaleContext } from '../context/LocaleContext/context';
 
 interface Props extends PropsFromRedux {
   friend: FRIEND;
@@ -12,6 +12,7 @@ interface Props extends PropsFromRedux {
 
 const UserCard: React.FC<Props> = ({ friend }) => {
   const { t } = useTranslation();
+  const { locale } = useLocaleContext();
   return (
     <div>
       <div
@@ -66,7 +67,13 @@ const UserCard: React.FC<Props> = ({ friend }) => {
               </span>
               <span className="flex items-center">
                 <IoCalendarOutline className="mr-2" /> {t('Born')}{' '}
-                {format(new Date(friend.dateOfBirth), 'MMMM dd')}
+                {new Date(friend.dateOfBirth).toLocaleDateString(
+                  locale.locale,
+                  {
+                    month: 'long',
+                    day: '2-digit',
+                  }
+                )}
               </span>
             </div>
             <p className="mb-4">{friend.aboutMe}</p>
