@@ -2,8 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FRIEND } from '../../redux/thunks/interfaces/friends.interface';
 import FriendsFilter from './FriendsFilter';
-import FriendsItem from './FriendsItem';
-import FriendsItemSkeleton from './FriendsItemSkeleton';
+
+const FriendsItemSkeleton = React.lazy(() => import('./FriendsItemSkeleton'));
+const FriendsItem = React.lazy(() => import('./FriendsItem'));
 
 interface Props {
   loading: boolean;
