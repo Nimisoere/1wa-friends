@@ -8,7 +8,6 @@ import './i18n';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 import { register } from './serviceWorker';
-
 import store from './redux/store';
 import ErrorBoundary from './components/ErrorBoundary';
 import Routes from './routes';
