@@ -1,5 +1,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/988f094290dc41948474513ec111a9fa)](https://www.codacy.com/gh/Nimisoere/1wa-friends/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nimisoere/1wa-friends&amp;utm_campaign=Badge_Grade)
 
+[Performance Report](https://googlechrome.github.io/lighthouse/viewer/?gist=89d84c143ef59362f6517cb9d8252030)
+
 ## Setup
 
 Install Dependencies
